@@ -4,9 +4,9 @@
 Kullanıcı arayüzünü buradan inceleyebilirsiniz. --> https://sosyalseyler.com/
 
 Admin panelini demosu yok ama haber içeriklerinde resimleri var.
-# Kullanıcı Arayüzü
+## Kullanıcı Arayüzü
 ![anasayfa](https://github.com/ArgonauTR/sosyal-seyler/assets/108693719/2ce6c26f-ad86-4fff-90bc-f589525cf504)
-# Admin Paneli Arayüzü
+## Admin Paneli Arayüzü
 ![Uploading admin paneli.jpg…]()
 
 # Nasıl Kurulur?
