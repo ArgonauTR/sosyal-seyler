@@ -7,7 +7,7 @@ Admin panelini demosu yok ama haber içeriklerinde resimleri var.
 ## Kullanıcı Arayüzü
 ![anasayfa](https://github.com/ArgonauTR/sosyal-seyler/assets/108693719/2ce6c26f-ad86-4fff-90bc-f589525cf504)
 ## Admin Paneli Arayüzü
-![Uploading admin paneli.jpg…]()
+![admin paneli](https://github.com/ArgonauTR/sosyal-seyler/assets/108693719/54a533e3-92e0-46c7-8180-943c3dff4316)
 
 # Nasıl Kurulur?
 Herhangi bir PHP script'den farklı bir kurulumu yoktur. Sadece veritabanını ve dosyaları doğru yere yüklemeye gayret gösterin.
