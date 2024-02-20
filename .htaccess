@@ -1,0 +1,28 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    #http to https
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
+
+    #sitemap rules
+    RewriteRule ^sitemap.xml$ sitemap.php [NC,L]
+    RewriteRule ^sitemap-([0-9]+)\.xml$ sitemap.php?parca=$1 [NC,L]
+
+    #page rules
+    RewriteRule ^/$ index.php [NC,L]
+    RewriteRule ^category$ category.php [NC,L]
+    RewriteRule ^post$ post.php [NC,L]
+    RewriteRule ^image$ image.php [NC,L]
+    RewriteRule ^user$ user.php [NC,L]
+    RewriteRule ^search$ search.php [NC,L]
+    RewriteRule ^random$ random.php [NC,L]
+    RewriteRule ^profile$ profile.php [NC,L]
+    RewriteRule ^message$ message.php [NC,L]
+
+    #post rules
+    RewriteRule ^([0-9]+)-([a-zA-Z0-9-]+)$ post.php?post_id=$1&sef=$2 [L,QSA]
+
+    #PHP version control
+    AddHandler application/x-httpd-ea-php80 .php .php8 .phtml
+</IfModule>

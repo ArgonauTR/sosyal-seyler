@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://sosyalseyler.com/sitemap.xml
+
