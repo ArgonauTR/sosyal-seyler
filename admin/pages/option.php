@@ -73,7 +73,8 @@ while ($imagefetch = $imageask->fetch(PDO::FETCH_ASSOC)) {
 
                     <div class="mb-3">
                         <label class="form-label">Site Linki</label>
-                        <input type="text" class="form-control bg-dark text-white" name="" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" readonly>
+                        <input type="text" class="form-control bg-dark text-white" name="option_url" value="<?php echo $optionfetch["option_url"] ?>">
+                        <label class="form-check-label" for="exampleCheck1">Site linkini yanlış ayarlamamaya çok dikkat ediniz.</label>
                     </div>
 
                     <div class="mb-3">

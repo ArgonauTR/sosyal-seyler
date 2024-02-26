@@ -1,11 +1,11 @@
 {
-  "tag": "Sosyal Şeyler 1.0 - Penguen",
+  "tag": "Sosyal Şeyler 1.1 - Penguen",
   "name": "Sosyal Şeyler",
-  "version": "1.0",
+  "version": "1.1",
   "title": "Penguen",
-  "compilation": "1",
-  "time": "31/02.2024",
+  "compilation": "2",
+  "time": "26/02.2024",
   "source":"https://sosyalseyler.com/",
-  "update":"https://sosyalseyler.com/25-sosyal-seyler-yazilimi-1-0-penguen"
+  "update":"https://sosyalseyler.com/26-sosyal-seyler-yazilimi-1-1-penguen"
 
 }

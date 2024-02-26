@@ -1,11 +1,4 @@
 <?php
-// Aşağıda ki fonskiyon tarihi parçalayıp sadece yılı döndürüyor.
-function parcala($tarih)
-{
-    $parca = explode(" ", $tarih);
-    return $parca[0];
-}
-
 $commentask = $db->prepare("SELECT * FROM comments WHERE comment_status='publish' && comment_post_id=$post_id ORDER BY comment_id DESC");
 $commentask->execute(array());
 while ($commentfetch = $commentask->fetch(PDO::FETCH_ASSOC)) {
@@ -20,7 +13,7 @@ while ($commentfetch = $commentask->fetch(PDO::FETCH_ASSOC)) {
         $userask = $db->prepare("SELECT * FROM users WHERE user_id=:id");
         $userask->execute(array('id' => $post_author_id));
         while ($userfetch = $userask->fetch(PDO::FETCH_ASSOC)) {
-            $usernick = '<i class="bi bi-check2-circle text-success"></i> '.$userfetch["user_nick"];
+            $usernick = '<i class="bi bi-check2-circle text-success"></i> '.$userfetch["user_name"];
             $comment_author_name = $usernick;
             $user_image_id=$userfetch["user_image"];
 

@@ -126,7 +126,7 @@ if (isset($_POST["category_add"])) {
     //Bu kısımda da yüklenmiş yazıya link ayarlanıyor.
 
     $son_kategori_id = $db->lastInsertId(); // Son kaydedilen ID bir değişkene aktarıldı.
-    $yeni_link = "https://" . $host_adi . "/" . $son_kategori_id . "-" . substr(permalink($_POST["category_title"]), 0, 80);
+    $yeni_link = "https://" . $host_adi . "/category/" . $son_kategori_id . "-" . substr(permalink($_POST["category_title"]), 0, 80);
 
     $categories = $db->prepare("UPDATE categories SET
     category_link=:category_link

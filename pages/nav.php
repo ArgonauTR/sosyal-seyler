@@ -36,36 +36,19 @@
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav ms-auto">
+                <?php
+                $orderask = $db->prepare("SELECT * FROM orders WHERE order_status='top-menu' ORDER BY order_row Asc");
+                $orderask->execute(array());
+                while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
+                ?>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/">
-                            <i class="bi bi-house-door me-1"></i>
-                            Anasayfa
-                        </a> <!-- active öğesi aktifliği ayarlıyor-->
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="category">
-                            <i class="bi bi-grid me-1"></i>
-                            Kategoriler
+                        <a class="nav-link active" href="<?php echo $orderfetch["order_link"] ?>">
+                            <?php echo $orderfetch["order_name"] ?>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="image">
-                            <i class="bi bi-image me-1"></i>
-                            Resimler
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="message">
-                        <i class="bi bi-chat-left-dots me-1"></i>
-                            İletişim
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="random">
-                            <i class="bi bi-shuffle me-1"></i>
-                            Rastgele
-                        </a>
-                    </li>
+                <?php
+                }
+                ?>
 
                     <li class="nav-item">
                         <a class="btn btn-outline-light d-none d-lg-inline ms-3" type="button" href="search" title="Popular">

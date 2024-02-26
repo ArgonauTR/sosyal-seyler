@@ -13,6 +13,7 @@
 </style>
 
 <?php
+// Post işlemleri yaplıyor.
 $post_id = $_GET["post_id"];
 
 $postask = $db->prepare("SELECT * FROM posts WHERE post_id=:id");
@@ -48,6 +49,7 @@ while ($postfetch = $postask->fetch(PDO::FETCH_ASSOC)) {
     $post_description = $postfetch["post_description"];
     $post_content = $postfetch["post_content"];
     $post_link = $postfetch["post_link"];
+    $post_time = parcala($postfetch["post_time"]);
 }
 
 // Yazı Okunma Sayısını Güncelliyor.
@@ -68,6 +70,8 @@ $PostWiews->execute(array(":post_id" => $_GET["post_id"]));
                                 <span>
                                     <i class="bi bi-person-circle me-1"></i>
                                     <?php echo $usernick; ?>
+                                    <i class="bi bi-calendar-plus me-1 ms-3"></i>
+                                    <?php echo $post_time; ?>
                                 </span>
                                 <span>
                                     <i class="bi bi-folder"></i>

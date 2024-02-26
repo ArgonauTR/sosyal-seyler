@@ -1,7 +1,7 @@
 <footer class="text-center mt-5">
     <ul class="list-inline">
         <?php
-        $orderask = $db->prepare("SELECT * FROM orders ORDER BY order_row Asc");
+        $orderask = $db->prepare("SELECT * FROM orders WHERE order_status='footer-menu' ORDER BY order_row Asc");
         $orderask->execute(array());
         while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
         ?>

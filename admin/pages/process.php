@@ -74,9 +74,13 @@ if (isset($_GET)) {
     // ------> DÜZEN İŞLEMLERİ
     if (isset($_GET["order"])) {
 
-        // Mesaj Okuma
+        // Üst ve Alt Menü Ekleme
         if ($_GET["order"] == "menu-add") {
-            include("pages/menu-add.php");
+            include("pages/order-menu-add.php");
+        }
+        // Sidebar Ekleme
+        if ($_GET["order"] == "sidebar-add") {
+            include("pages/order-sidebar-add.php");
         }
     }
 }

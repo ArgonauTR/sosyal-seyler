@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <textarea class="form-control bg-dark text-white" rows="2" name="post_description" required><?php echo $post_description; ?></textarea>
+                        <textarea class="form-control bg-dark text-white" rows="2" name="post_description"><?php echo $post_description; ?></textarea>
                         <div class="form-text">Başlğın altında görünecek bir özet girin.</div>
                     </div>
 

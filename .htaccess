@@ -9,6 +9,9 @@
     RewriteRule ^sitemap.xml$ sitemap.php [NC,L]
     RewriteRule ^sitemap-([0-9]+)\.xml$ sitemap.php?parca=$1 [NC,L]
 
+    #robots.txt rules
+    RewriteRule ^robots.txt$ robots.php [NC,L]
+
     #page rules
     RewriteRule ^/$ index.php [NC,L]
     RewriteRule ^category$ category.php [NC,L]
@@ -23,6 +26,7 @@
     #post rules
     RewriteRule ^([0-9]+)-([a-zA-Z0-9-]+)$ post.php?post_id=$1&sef=$2 [L,QSA]
 
-    #PHP version control
-    AddHandler application/x-httpd-ea-php80 .php .php8 .phtml
+    #post rules
+    RewriteRule ^category/([0-9]+)-([a-zA-Z0-9-]+)$ category.php?category_id=$1&sef=$2 [L,QSA]
+
 </IfModule>

@@ -128,7 +128,7 @@ if (isset($_POST['category_update'])) {
 
 
     //Bu kısımda da yüklenmiş yazıya link ayarlanıyor.
-    $yeni_link = "https://" . $host_adi . "/" . $category_id . "-" . substr(permalink($_POST["category_title"]), 0, 80);
+    $yeni_link = "https://" . $host_adi . "/category/" . $category_id . "-" . substr(permalink($_POST["category_title"]), 0, 80);
 
     $categories = $db->prepare("UPDATE categories SET
         category_link=:category_link

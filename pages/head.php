@@ -26,6 +26,13 @@ while ($imagefetch = $imageask->fetch(PDO::FETCH_ASSOC)) {
     $option_favicon_image_id = $imagefetch["image_id"];
     $option_favicon_image_link = $imagefetch["image_link"];
 }
+
+// Aşağıda ki fonskiyon tarihi parçalayıp sadece yılı döndürüyor.
+function parcala($tarih){
+    $parca = explode(" ",$tarih);
+    return $parca[0];
+}
+
 ?>
 <!doctype html>
 <html lang="tr" prefix="og: https://ogp.me/ns#">

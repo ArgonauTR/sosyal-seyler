@@ -10,6 +10,7 @@ if (isset($_POST["option_update"])) {
 
     $option = $db->prepare("UPDATE options SET
     
+        option_url=:option_url,
         option_name=:option_name,
         option_description=:option_description,
         option_footer=:option_footer
@@ -18,6 +19,7 @@ if (isset($_POST["option_update"])) {
 
     $update = $option->execute(array(
 
+        'option_url' => $_POST["option_url"],
         'option_name' => $_POST["option_name"],
         'option_description' => $_POST["option_description"],
         'option_footer' => $_POST["option_footer"]

@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <textarea class="form-control bg-dark text-white" rows="2" name="post_description" placeholder="Kısa Açıklama Giriniz" required></textarea>
+                        <textarea class="form-control bg-dark text-white" rows="2" name="post_description" placeholder="Kısa Açıklama Giriniz"></textarea>
                         <div class="form-text">Başlğın altında görünecek bir özet girin.</div>
                     </div>
 
