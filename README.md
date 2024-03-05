@@ -11,6 +11,9 @@ Admin panelini demosu yok ama haber içeriklerinde resimleri var.
 
 # Nasıl Kurulur?
 Herhangi bir PHP script'den farklı bir kurulumu yoktur. Sadece veritabanını ve dosyaları doğru yere yüklemeye gayret gösterin.
+## Kurulum videosu
+https://www.youtube.com/watch?v=rLnywQhcGNY
+
 # Admin Erişimi Nasıl Yapılır?
 Kurulumu düzgünce yapıp anasayfayı gördüyseniz admin paneline de girebiliyor olmanız gerekir. Admin panelinin ayrı bir girişi yoktur. Yetkili kullanıcılara görünen bir link ile erişilir. Kullanıcı girişi yaptıktan sonra aynı menü de "Admin Paneli" ibaesi görünecektir.
 
