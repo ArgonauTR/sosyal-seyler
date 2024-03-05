@@ -17,10 +17,9 @@
 
 <div class="col-lg-9">
     <div class="card bg-dark text-white">
-        <div class="card-body">
         <div class="card-header">
-                <a href="?status=publish" class="btn btn-sm btn-outline-secondary text-white" style="text-decoration: none;"><i class="bi bi-clipboard-check me-2"></i>Yayımlanmış</a>
-                <a href="?status=draft" class="btn btn-sm btn-outline-secondary text-white ms-2" style="text-decoration: none;"><i class="bi bi-clock-history me-2"></i>Taslak</a>
+                <a href="?status=publish" class="btn btn-sm btn-outline-secondary text-white mt-2" style="text-decoration: none;"><i class="bi bi-clipboard-check me-2"></i>Yayımlanmış</a>
+                <a href="?status=draft" class="btn btn-sm btn-outline-secondary text-white ms-2 mt-2" style="text-decoration: none;"><i class="bi bi-clock-history me-2"></i>Taslak</a>
             </div>
             <div class="card-body p-1">
                 <?php
@@ -29,7 +28,30 @@
                 } else {
                     $status = $_GET["status"];
                 }
-                $commentask = $db->prepare("SELECT * FROM comments WHERE comment_status='$status' ORDER BY comment_id DESC");
+
+                // Sayfalama için sayfa durum denetimi
+                if (empty($_GET["page"])) {
+                    $page = 1;
+                } else {
+                    $page = $_GET["page"];
+                }
+
+                // Sayfalama Değerleri
+                $limit = 20; // Bir sayfada gösterilecek elemanı belirliyor.
+                $start_limit = ($page * $limit) - $limit;
+
+                // Post Sayısı bulucu.
+                $count = 0;
+                $commentask = $db->prepare("SELECT * FROM comments");
+                $commentask->execute(array());
+                while ($commentfetch = $commentask->fetch(PDO::FETCH_ASSOC)) {
+                    $count++;
+                }
+                // Post sayısı kullanılarak sayfa sayısı bulundu
+                $page_count = ceil($count / $limit);
+
+
+                $commentask = $db->prepare("SELECT * FROM comments WHERE comment_status='$status' ORDER BY comment_id DESC LIMIT $start_limit,$limit");
                 $commentask->execute(array());
                 while ($commentfetch = $commentask->fetch(PDO::FETCH_ASSOC)) {
                     $post_id = $commentfetch["comment_post_id"];
@@ -72,8 +94,24 @@
                 <?php
                 }
                 ?>
-            </div>
         </div>
+        <nav class="d-flex justify-content-center mt-3 mb-3">
+            <?php
+            //Öncesi sayfası
+            if ($page > 1) {
+                $newpage = $page - 1;
+                echo '<a href="?page='.$newpage.'" class="btn btn-sm btn-outline-secondary text-white ms-1" style="text-decoration: none;"><i class="bi bi-arrow-bar-left me-2"></i>Öncesi</a>';
+            }
+            // Sayfa Gösterici
+            echo '<a href="" class="btn btn-sm btn-outline-dark text-white disabled ms-1" style="text-decoration: none;">Sayfa ' . $page . '</a>';
+
+            //Öncesi sayfası
+            if ($page<$page_count) {
+                $newpage = $page+1;
+                echo '<a href="?page='.$newpage.'" class="btn btn-sm btn-outline-secondary text-white ms-1" style="text-decoration: none;"><i class="bi bi-arrow-bar-right me-2"></i>Sonrası</a>';
+            }
+            ?>
+        </nav>
     </div>
 </div>
 </div>

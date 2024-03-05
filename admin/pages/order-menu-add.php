@@ -13,6 +13,11 @@
                     </div>
 
                     <div class="mb-3">
+                        <input type="text" class="form-control bg-dark text-white" name="order_icon" placeholder="Menü İkonunu Giriniz">
+                        <label class="form-check-label"><a href="https://icons.getbootstrap.com/" target="_blank" style="text-decoration: none;">İkon listesine ulaşmak için tıklayınız.</a></label>
+                    </div>
+                    
+                    <div class="mb-3">
                         <input type="text" class="form-control bg-dark text-white" name="order_name" placeholder="Öğenin adını giriniz." required>
                     </div>
 

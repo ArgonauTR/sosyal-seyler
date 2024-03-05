@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 20 Şub 2024, 22:26:16
+-- Üretim Zamanı: 04 Mar 2024, 19:27:54
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -18,74 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Veritabanı: `sosyal`
+-- Veritabanı: `yukleme`
 --
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `arts`
---
-
-CREATE TABLE `arts` (
-  `art_id` int(20) NOT NULL,
-  `art_name` varchar(100) DEFAULT NULL,
-  `art_book_id` int(20) DEFAULT NULL,
-  `art_chapter_id` int(20) DEFAULT NULL,
-  `art_image_id` int(20) DEFAULT NULL,
-  `art_link_id` int(20) DEFAULT NULL,
-  `art_link` varchar(250) DEFAULT NULL,
-  `art_number` int(20) DEFAULT NULL,
-  `art_status` varchar(50) DEFAULT NULL,
-  `art_type` varchar(50) DEFAULT NULL,
-  `art_source` varchar(250) DEFAULT NULL,
-  `art_author_id` int(20) DEFAULT NULL,
-  `art_content` text DEFAULT NULL,
-  `art_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `bans`
---
-
-CREATE TABLE `bans` (
-  `ban_id` int(20) NOT NULL,
-  `ban_author_id` int(20) DEFAULT NULL,
-  `ban_ip` varchar(50) DEFAULT NULL,
-  `ban_end_time` datetime DEFAULT NULL,
-  `ban_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `books`
---
-
-CREATE TABLE `books` (
-  `book_id` int(20) NOT NULL,
-  `book_name` varchar(100) DEFAULT NULL,
-  `book_description` varchar(1000) DEFAULT NULL,
-  `book_link` varchar(100) DEFAULT NULL,
-  `book_category_id` int(20) DEFAULT NULL,
-  `book_genre` varchar(100) NOT NULL,
-  `book_author_id` int(20) DEFAULT NULL,
-  `book_wievs` int(20) DEFAULT NULL,
-  `book_thumbnail_id` int(20) DEFAULT NULL,
-  `book_source` varchar(100) DEFAULT NULL,
-  `book_type` varchar(100) DEFAULT NULL,
-  `book_status` varchar(100) DEFAULT NULL,
-  `book_year` varchar(100) DEFAULT NULL,
-  `book_artist_name` varchar(100) DEFAULT NULL,
-  `book_author_name` varchar(100) DEFAULT NULL,
-  `book_comment_status` varchar(100) DEFAULT NULL,
-  `book_other_names` varchar(100) DEFAULT NULL,
-  `book_warning` varchar(50) NOT NULL,
-  `book_group` varchar(50) NOT NULL,
-  `book_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 -- --------------------------------------------------------
 
@@ -110,30 +44,6 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`category_id`, `category_title`, `category_link`, `category_description`, `category_color`, `category_image_id`, `category_status`, `category_time`) VALUES
 (1, 'Genel', 'https://localhost/1-genel', 'Genel Amaçlı Kategori', 'primary', '1', 'blog', '2024-02-20 19:26:50');
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `chapters`
---
-
-CREATE TABLE `chapters` (
-  `chapter_id` int(20) NOT NULL,
-  `chapter_number` int(20) DEFAULT NULL,
-  `chapter_name` varchar(250) DEFAULT NULL,
-  `chapter_link` varchar(250) NOT NULL,
-  `chapter_thumbnail_id` int(20) NOT NULL,
-  `chapter_book_id` int(20) DEFAULT NULL,
-  `chapter_wiev` int(20) DEFAULT NULL,
-  `chapter_author_id` int(20) DEFAULT NULL,
-  `chapter_group` varchar(100) DEFAULT NULL,
-  `chapter_description` varchar(500) DEFAULT NULL,
-  `chapter_ip` varchar(20) DEFAULT NULL,
-  `chapter_agent` varchar(250) DEFAULT NULL,
-  `chapter_type` varchar(20) DEFAULT NULL,
-  `chapter_status` varchar(20) DEFAULT NULL,
-  `chapter_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 -- --------------------------------------------------------
 
@@ -195,50 +105,6 @@ INSERT INTO `images` (`image_id`, `image_name`, `image_title`, `image_descriptio
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `links`
---
-
-CREATE TABLE `links` (
-  `link_id` int(20) NOT NULL,
-  `link_name` varchar(100) DEFAULT NULL,
-  `link_title` varchar(250) DEFAULT NULL,
-  `link_content` varchar(1000) DEFAULT NULL,
-  `link_status` varchar(100) DEFAULT NULL,
-  `link_type` varchar(100) DEFAULT NULL,
-  `link_permission` varchar(100) DEFAULT NULL,
-  `link_source` varchar(250) DEFAULT NULL,
-  `link_post` varchar(20) DEFAULT NULL,
-  `link_author` varchar(20) DEFAULT NULL,
-  `link_visible` varchar(50) DEFAULT NULL,
-  `link_owner` varchar(50) DEFAULT NULL,
-  `link_rel` varchar(50) DEFAULT NULL,
-  `link_notes` varchar(50) DEFAULT NULL,
-  `link_ip` varchar(20) DEFAULT NULL,
-  `link_agent` varchar(250) DEFAULT NULL,
-  `link_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `logs`
---
-
-CREATE TABLE `logs` (
-  `log_id` int(11) NOT NULL,
-  `log_type` varchar(100) DEFAULT NULL,
-  `log_title` varchar(100) DEFAULT NULL,
-  `log_name` varchar(50) DEFAULT NULL,
-  `log_status` varchar(50) DEFAULT NULL,
-  `log_ip` varchar(50) DEFAULT NULL,
-  `log_user_ip` varchar(50) DEFAULT NULL,
-  `log_user_agent` varchar(250) DEFAULT NULL,
-  `log_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
--- --------------------------------------------------------
-
---
 -- Tablo için tablo yapısı `messages`
 --
 
@@ -264,22 +130,6 @@ INSERT INTO `messages` (`message_id`, `message_title`, `message_content`, `messa
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `metas`
---
-
-CREATE TABLE `metas` (
-  `meta_id` int(20) NOT NULL,
-  `meta_source` varchar(100) DEFAULT NULL,
-  `meta_source_id` int(20) DEFAULT NULL,
-  `meta_type` varchar(100) DEFAULT NULL,
-  `meta_value` varchar(100) DEFAULT NULL,
-  `meta_status` varchar(20) DEFAULT NULL,
-  `meta_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
--- --------------------------------------------------------
-
---
 -- Tablo için tablo yapısı `options`
 --
 
@@ -296,7 +146,6 @@ CREATE TABLE `options` (
   `option_mailserver_pass` varchar(250) NOT NULL,
   `option_mailserver_port` varchar(250) NOT NULL,
   `option_default_category_id` varchar(20) NOT NULL,
-  `option_default_comment_status` varchar(20) NOT NULL,
   `option_default_post_status` varchar(20) NOT NULL,
   `option_posts_per_page` int(20) NOT NULL,
   `option_maintenance` varchar(20) NOT NULL,
@@ -305,17 +154,15 @@ CREATE TABLE `options` (
   `option_logo_image` varchar(250) NOT NULL,
   `option_favicon_image` varchar(250) NOT NULL,
   `option_background_image` varchar(250) NOT NULL,
-  `option_comments_per_page` int(20) NOT NULL,
-  `option_default_user_status` varchar(100) NOT NULL,
-  `option_order` varchar(50) NOT NULL
+  `option_comments_per_page` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `options`
 --
 
-INSERT INTO `options` (`option_id`, `option_url`, `option_name`, `option_description`, `option_footer`, `option_can_register`, `option_admin_mail`, `option_mailserver_url`, `option_mailserver_login`, `option_mailserver_pass`, `option_mailserver_port`, `option_default_category_id`, `option_default_comment_status`, `option_default_post_status`, `option_posts_per_page`, `option_maintenance`, `option_respect`, `option_blog_charset`, `option_logo_image`, `option_favicon_image`, `option_background_image`, `option_comments_per_page`, `option_default_user_status`, `option_order`) VALUES
-(0, 'https://sosyalseyler.com', 'Sosyal Şeyler', 'Sosyal ve Viral haberlerin, incelemelerin ve makalelerin adresi', '©2024 || Tüm Hakları Saklıdır.', 'evet', 'osmanozer4@gmail.com', 'mail.sosyalseyler.com', 'admin', '12345', '597', '1', 'taslak', 'taslak', 10, 'hayır', 'yes', 'utf8_turkish_ci', '3', '4', '42', 20, 'user', '');
+INSERT INTO `options` (`option_id`, `option_url`, `option_name`, `option_description`, `option_footer`, `option_can_register`, `option_admin_mail`, `option_mailserver_url`, `option_mailserver_login`, `option_mailserver_pass`, `option_mailserver_port`, `option_default_category_id`, `option_default_post_status`, `option_posts_per_page`, `option_maintenance`, `option_respect`, `option_blog_charset`, `option_logo_image`, `option_favicon_image`, `option_background_image`, `option_comments_per_page`) VALUES
+(0, 'https://sosyalseyler.com', 'Sosyal Şeyler', 'Sosyal ve Viral haberlerin, incelemelerin ve makalelerin adresi', '©2024 || Tüm Hakları Saklıdır.', 'evet', 'osmanozer4@gmail.com', 'mail.sosyalseyler.com', 'admin', '12345', '597', '1', 'taslak', 10, 'hayır', 'yes', 'utf8_turkish_ci', '3', '4', '42', 20);
 
 -- --------------------------------------------------------
 
@@ -412,34 +259,10 @@ INSERT INTO `users` (`user_id`, `user_name`, `user_nick`, `user_mail`, `user_pas
 --
 
 --
--- Tablo için indeksler `arts`
---
-ALTER TABLE `arts`
-  ADD PRIMARY KEY (`art_id`);
-
---
--- Tablo için indeksler `bans`
---
-ALTER TABLE `bans`
-  ADD PRIMARY KEY (`ban_id`);
-
---
--- Tablo için indeksler `books`
---
-ALTER TABLE `books`
-  ADD PRIMARY KEY (`book_id`);
-
---
 -- Tablo için indeksler `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`category_id`);
-
---
--- Tablo için indeksler `chapters`
---
-ALTER TABLE `chapters`
-  ADD PRIMARY KEY (`chapter_id`);
 
 --
 -- Tablo için indeksler `comments`
@@ -454,28 +277,10 @@ ALTER TABLE `images`
   ADD PRIMARY KEY (`image_id`);
 
 --
--- Tablo için indeksler `links`
---
-ALTER TABLE `links`
-  ADD PRIMARY KEY (`link_id`);
-
---
--- Tablo için indeksler `logs`
---
-ALTER TABLE `logs`
-  ADD PRIMARY KEY (`log_id`);
-
---
 -- Tablo için indeksler `messages`
 --
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`message_id`);
-
---
--- Tablo için indeksler `metas`
---
-ALTER TABLE `metas`
-  ADD PRIMARY KEY (`meta_id`);
 
 --
 -- Tablo için indeksler `options`
@@ -506,34 +311,10 @@ ALTER TABLE `users`
 --
 
 --
--- Tablo için AUTO_INCREMENT değeri `arts`
---
-ALTER TABLE `arts`
-  MODIFY `art_id` int(20) NOT NULL AUTO_INCREMENT;
-
---
--- Tablo için AUTO_INCREMENT değeri `bans`
---
-ALTER TABLE `bans`
-  MODIFY `ban_id` int(20) NOT NULL AUTO_INCREMENT;
-
---
--- Tablo için AUTO_INCREMENT değeri `books`
---
-ALTER TABLE `books`
-  MODIFY `book_id` int(20) NOT NULL AUTO_INCREMENT;
-
---
 -- Tablo için AUTO_INCREMENT değeri `categories`
 --
 ALTER TABLE `categories`
   MODIFY `category_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Tablo için AUTO_INCREMENT değeri `chapters`
---
-ALTER TABLE `chapters`
-  MODIFY `chapter_id` int(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `comments`
@@ -548,28 +329,10 @@ ALTER TABLE `images`
   MODIFY `image_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Tablo için AUTO_INCREMENT değeri `links`
---
-ALTER TABLE `links`
-  MODIFY `link_id` int(20) NOT NULL AUTO_INCREMENT;
-
---
--- Tablo için AUTO_INCREMENT değeri `logs`
---
-ALTER TABLE `logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- Tablo için AUTO_INCREMENT değeri `messages`
 --
 ALTER TABLE `messages`
   MODIFY `message_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Tablo için AUTO_INCREMENT değeri `metas`
---
-ALTER TABLE `metas`
-  MODIFY `meta_id` int(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `orders`

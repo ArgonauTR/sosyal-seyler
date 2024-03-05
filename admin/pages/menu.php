@@ -21,7 +21,7 @@
              </li>
 
              <li class="list-inline-item me-4">
-                 <a class="text-mode text-white" href="#" style="text-decoration: none;" title="AYARLAR">
+                 <a class="text-mode text-white" href="option.php" style="text-decoration: none;" title="AYARLAR">
                      <i class="bi bi-gear"></i>
                  </a>
              </li>

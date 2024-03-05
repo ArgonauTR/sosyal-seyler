@@ -17,9 +17,8 @@
 
 <div class="col-lg-9">
     <div class="card bg-dark text-white">
-        <div class="card-body">
             <div class="card-header">
-                <a href="" class="btn btn-sm btn-outline-secondary text-white" data-bs-toggle="modal" data-bs-target="#exampleModal" style="text-decoration: none;">
+                <a href="" class="btn btn-sm btn-outline-secondary text-white mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal" style="text-decoration: none;">
                     <i class="bi bi-file-earmark-arrow-up me-2"></i>Resim Ekle
                 </a>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -47,7 +46,28 @@
             </div>
             <div class="card-body p-1">
                 <?php
-                $imageask = $db->prepare("SELECT * FROM images ORDER BY image_id DESC LIMIT 20");
+                // Sayfalama için sayfa durum denetimi
+                if (empty($_GET["page"])) {
+                    $page = 1;
+                } else {
+                    $page = $_GET["page"];
+                }
+
+                // Sayfalama Değerleri
+                $limit = 20; // Bir sayfada gösterilecek elemanı belirliyor.
+                $start_limit = ($page * $limit) - $limit;
+
+                // Post Sayısı bulucu.
+                $count = 0;
+                $imageask = $db->prepare("SELECT * FROM images");
+                $imageask->execute(array());
+                while ($imagefetch = $imageask->fetch(PDO::FETCH_ASSOC)) {
+                    $count++;
+                }
+                // Post sayısı kullanılarak sayfa sayısı bulundu
+                $page_count = ceil($count / $limit);
+
+                $imageask = $db->prepare("SELECT * FROM images ORDER BY image_id DESC LIMIT $start_limit,$limit");
                 $imageask->execute(array());
                 while ($imagefetch = $imageask->fetch(PDO::FETCH_ASSOC)) {
                     $image_id = $imagefetch["image_id"];
@@ -80,8 +100,24 @@
                 <?php
                 }
                 ?>
-            </div>
         </div>
+        <nav class="d-flex justify-content-center mt-3 mb-3">
+            <?php
+            //Öncesi sayfası
+            if ($page > 1) {
+                $newpage = $page - 1;
+                echo '<a href="?page='.$newpage.'" class="btn btn-sm btn-outline-secondary text-white ms-1" style="text-decoration: none;"><i class="bi bi-arrow-bar-left me-2"></i>Öncesi</a>';
+            }
+            // Sayfa Gösterici
+            echo '<a href="" class="btn btn-sm btn-outline-dark text-white disabled ms-1" style="text-decoration: none;">Sayfa ' . $page . '</a>';
+
+            //Öncesi sayfası
+            if ($page<$page_count) {
+                $newpage = $page+1;
+                echo '<a href="?page='.$newpage.'" class="btn btn-sm btn-outline-secondary text-white ms-1" style="text-decoration: none;"><i class="bi bi-arrow-bar-right me-2"></i>Sonrası</a>';
+            }
+            ?>
+        </nav>
     </div>
 </div>
 </div>

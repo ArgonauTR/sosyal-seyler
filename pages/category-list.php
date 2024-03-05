@@ -25,7 +25,28 @@
     <div class="container">
         <div class="row align-items-start">
             <?php
-            $categoryask = $db->prepare("SELECT * FROM categories ORDER BY category_title ASC");
+            // Sayfalama için sayfa durum denetimi
+            if (empty($_GET["page"])) {
+                $page = 1;
+            } else {
+                $page = $_GET["page"];
+            }
+
+            // Sayfalama Değerleri
+            $limit = 20; // Bir sayfada gösterilecek elemanı belirliyor.
+            $start_limit = ($page * $limit) - $limit;
+
+            // Post Sayısı bulucu.
+            $count = 0;
+            $categoryask = $db->prepare("SELECT * FROM categories");
+            $categoryask->execute(array());
+            while ($categoryfetch = $categoryask->fetch(PDO::FETCH_ASSOC)) {
+                $count++;
+            }
+            // Post sayısı kullanılarak sayfa sayısı bulundu
+            $page_count = ceil($count / $limit);
+
+            $categoryask = $db->prepare("SELECT * FROM categories ORDER BY category_title ASC LIMIT $start_limit,$limit");
             $categoryask->execute(array());
             while ($categoryfetch = $categoryask->fetch(PDO::FETCH_ASSOC)) {
 
@@ -60,3 +81,20 @@
             }
             ?>
         </div>
+        <nav class="d-flex justify-content-center mt-3 mb-3">
+            <?php
+            //Öncesi sayfası
+            if ($page > 1) {
+                $newpage = $page - 1;
+                echo '<a href="?page='.$newpage.'" class="btn btn-sm btn-outline-secondary text-white ms-1" style="text-decoration: none;"><i class="bi bi-arrow-bar-left me-2"></i>Öncesi</a>';
+            }
+            // Sayfa Gösterici
+            echo '<a href="" class="btn btn-sm btn-outline-dark text-white disabled ms-1" style="text-decoration: none;">Sayfa ' . $page . '</a>';
+
+            //Öncesi sayfası
+            if ($page<$page_count) {
+                $newpage = $page+1;
+                echo '<a href="?page='.$newpage.'" class="btn btn-sm btn-outline-secondary text-white ms-1" style="text-decoration: none;"><i class="bi bi-arrow-bar-right me-2"></i>Sonrası</a>';
+            }
+            ?>
+        </nav>

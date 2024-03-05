@@ -1,6 +1,9 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    #error control
+    ErrorDocument 404 /
+
     #http to https
     RewriteCond %{HTTPS} !=on
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
@@ -22,6 +25,7 @@
     RewriteRule ^random$ random.php [NC,L]
     RewriteRule ^profile$ profile.php [NC,L]
     RewriteRule ^message$ message.php [NC,L]
+    RewriteRule ^maintenance$ maintenance.php [NC,L] 
 
     #post rules
     RewriteRule ^([0-9]+)-([a-zA-Z0-9-]+)$ post.php?post_id=$1&sef=$2 [L,QSA]

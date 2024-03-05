@@ -70,8 +70,6 @@ $PostWiews->execute(array(":post_id" => $_GET["post_id"]));
                                 <span>
                                     <i class="bi bi-person-circle me-1"></i>
                                     <?php echo $usernick; ?>
-                                    <i class="bi bi-calendar-plus me-1 ms-3"></i>
-                                    <?php echo $post_time; ?>
                                 </span>
                                 <span>
                                     <i class="bi bi-folder"></i>
@@ -85,6 +83,9 @@ $PostWiews->execute(array(":post_id" => $_GET["post_id"]));
                         <p><b> <i><?php echo $post_description; ?></i></b></p>
                         <?php echo $post_content; ?>
                     </div>
+                    <span>
+                        <i class="bi bi-calendar-plus me-1 ms-3"></i>
+                        <?php echo $post_time; ?></span>
                 </div>
                 <?php include 'comment.php'; ?>
             </div>

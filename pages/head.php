@@ -10,7 +10,7 @@ $optionask->execute(array(
 ));
 $optionfetch = $optionask->fetch(PDO::FETCH_ASSOC);
 
-//Logo Yolu Çekiyor
+//Logo Yolu Çekiyor 
 $post_thumbnail_id = $optionfetch["option_logo_image"];
 $imageask = $db->prepare("SELECT * FROM images WHERE image_id=:id");
 $imageask->execute(array('id' => $post_thumbnail_id));
@@ -28,11 +28,18 @@ while ($imagefetch = $imageask->fetch(PDO::FETCH_ASSOC)) {
 }
 
 // Aşağıda ki fonskiyon tarihi parçalayıp sadece yılı döndürüyor.
-function parcala($tarih){
-    $parca = explode(" ",$tarih);
+function parcala($tarih)
+{
+    $parca = explode(" ", $tarih);
     return $parca[0];
 }
 
+// Bakım sayfasına yönlendirme yapıyor.
+if ($optionfetch["option_maintenance"] == "yes") {
+    if ($_SESSION['user_role'] !== "admin") {
+        header("Location:../maintenance");
+    }
+}
 ?>
 <!doctype html>
 <html lang="tr" prefix="og: https://ogp.me/ns#">
@@ -160,6 +167,13 @@ function parcala($tarih){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap">
-    <link rel="stylesheet" href="../style/style.css">
-
+    <?php
+// HEADER İÇİ REKLAMINI GÖSTERİYOR
+$ads_where = "in-header";
+$orderask = $db->prepare("SELECT * FROM orders WHERE order_status='ads' && order_ads='$ads_where'  ORDER BY order_row DESC");
+$orderask->execute(array());
+while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
+    echo $orderfetch["order_content"]."<br>";
+}
+?>
 </head>

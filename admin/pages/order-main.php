@@ -8,4 +8,10 @@
     <li class="list-item"><a class="text-white" style="text-decoration: none;" target="_blank" href="../search"><b>Arama</b> (<?php echo $_SERVER['HTTP_HOST'] . "/search" ?>)</a></li>
     <li class="list-item"><a class="text-white" style="text-decoration: none;" target="_blank" href="../user?user=login"><b>Üyelik</b> (<?php echo $_SERVER['HTTP_HOST'] . "/user?user=login" ?>)</a></li>
     <li class="list-item"><a class="text-white" style="text-decoration: none;" target="_blank" href="../user?user=registry"><b>Kayıt</b> (<?php echo $_SERVER['HTTP_HOST'] . "/user?user=registry" ?>)</a></li>
+    <li class="list-item"><a class="text-white" style="text-decoration: none;" target="_blank" href="/sitemap.xml"><b>Site Haritası</b> (<?php echo $_SERVER['HTTP_HOST'] . "/sitemap.xml" ?>)</a></li>
+    <li class="list-item"><a class="text-white" style="text-decoration: none;" target="_blank" href="/robots.txt"><b>Robots</b> (<?php echo $_SERVER['HTTP_HOST'] . "/robots.txt" ?>)</a></li>
+    <li class="list-item"><a class="text-white" style="text-decoration: none;" target="_blank" href="../maintenance"><b>Bakım</b> (<?php echo $_SERVER['HTTP_HOST'] . "/maintenance" ?>)</a></li>
+
+
+
 </ul>

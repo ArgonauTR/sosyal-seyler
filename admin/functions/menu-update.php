@@ -2,19 +2,21 @@
 // Ana fonskiyon dosyası ekleniyor.
 include("main-function.php");
 
-if (isset($_POST["menu_add"])) {
+if (isset($_POST["menu_update"])) {
+
+    $order_id = $_POST["order_id"];
 
     // Menü Bilgileri Veritabanına kaydediliyor
-    $orders = $db->prepare("INSERT into orders set
+    $orders = $db->prepare("UPDATE orders set
 
     order_row=:order_row,
     order_status=:order_status,
     order_icon=:order_icon,
     order_name=:order_name,
     order_link=:order_link
-    ");
+    WHERE order_id=$order_id");
 
-    $insert = $orders->execute(array(
+    $update = $orders->execute(array(
         'order_row' => $_POST["order_row"],
         'order_status'=>$_POST["order_status"],
         'order_icon' => $_POST["order_icon"],
@@ -22,7 +24,7 @@ if (isset($_POST["menu_add"])) {
         'order_link' => $_POST["order_link"]
     ));
 
-    if ($insert) {
+    if ($update) {
 
         header("Location:../order.php?status=ok");
         exit;

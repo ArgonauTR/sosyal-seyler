@@ -82,5 +82,21 @@ if (isset($_GET)) {
         if ($_GET["order"] == "sidebar-add") {
             include("pages/order-sidebar-add.php");
         }
+        // Üst ve Alt Menü Güncelleme
+        if ($_GET["order"] == "menu-update") {
+            include("pages/order-menu-update.php");
+        }
+        // Sidebar Güncelleme
+        if ($_GET["order"] == "sidebar-update") {
+            include("pages/order-sidebar-update.php");
+        }
+        // Reklam ekleme
+        if ($_GET["order"] == "ads-add") {
+            include("pages/order-ads-add.php");
+        }
+        // Reklam düzenlem
+        if ($_GET["order"] == "ads-update") {
+            include("pages/order-ads-update.php");
+        }
     }
 }

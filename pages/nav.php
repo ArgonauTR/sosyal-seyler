@@ -6,7 +6,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="<?php echo $option_logo_image_link;?>" alt="logo" style="max-width: 150px;">
+            <img src="<?php echo $option_logo_image_link; ?>" alt="logo" style="max-width: 150px;">
         </a>
         <div class="d-flex justify-content-center">
             <a class="btn btn-none d-lg-none text-muted" href="search">
@@ -30,25 +30,28 @@
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
                 <a class="navbar-brand" href="/">
-                    <img src="<?php echo $option_logo_image_link;?>" alt="logo" style="max-width: 150px;">
+                    <img src="<?php echo $option_logo_image_link; ?>" alt="logo" style="max-width: 150px;">
                 </a>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav ms-auto">
-                <?php
-                $orderask = $db->prepare("SELECT * FROM orders WHERE order_status='top-menu' ORDER BY order_row Asc");
-                $orderask->execute(array());
-                while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
-                ?>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="<?php echo $orderfetch["order_link"] ?>">
-                            <?php echo $orderfetch["order_name"] ?>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
+                    <?php
+                    $orderask = $db->prepare("SELECT * FROM orders WHERE order_status='top-menu' ORDER BY order_row Asc");
+                    $orderask->execute(array());
+                    while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
+                    ?>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="<?php echo $orderfetch["order_link"] ?>">
+                                <?php
+                                echo '<i class="bi bi-' . $orderfetch["order_icon"] . ' me-1"></i>';
+                                echo $orderfetch["order_name"];
+                                ?>
+                            </a>
+                        </li>
+                    <?php
+                    }
+                    ?>
 
                     <li class="nav-item">
                         <a class="btn btn-outline-light d-none d-lg-inline ms-3" type="button" href="search" title="Popular">
@@ -85,7 +88,7 @@
                                 ?>
                                 <li><a class="dropdown-item" href="profile"><i class="bi bi-person me-1"></i>Profil Sayfası</a></li>
                                 <li><a class="dropdown-item" href="/functions/logout.php"><i class="bi bi-power me-1"></i>Güvenli Çıkış</a></li>
-                            </ul> 
+                            </ul>
 
                         </li>
 
@@ -112,6 +115,16 @@
 <?php
 // Yeni üyelere "hoşgeldin" mesajı veriyor.
 if (@$_GET["registry-status"] == "registry-success") {
-    echo '<div class="card bg-success text-white text-center mt-3 h3"><div class="card-body">"'.$_SESSION['user_nick'].'" aramıza hoş geldin.</div></div>';
+    echo '<div class="card bg-success text-white text-center mt-3 h3"><div class="card-body">"' . $_SESSION['user_nick'] . '" aramıza hoş geldin.</div></div>';
+}
+?>
+
+<?php
+// HEADER ALTI REKLAMINI GÖSTERİYOR
+$ads_where = "under-header";
+$orderask = $db->prepare("SELECT * FROM orders WHERE order_status='ads' && order_ads='$ads_where'  ORDER BY order_row DESC");
+$orderask->execute(array());
+while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
+    echo '<div class="d-flex justify-content-center">' . $orderfetch["order_content"] . '</div>';
 }
 ?>

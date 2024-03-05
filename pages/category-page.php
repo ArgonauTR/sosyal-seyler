@@ -1,12 +1,3 @@
-<?php
-// Sayfalama buraa yapılıyor.
-if (@empty(strip_tags($_GET["page"]))) {
-    $page = 12;
-} else {
-    $page = $_GET["page"];
-}
-$newpage = $page + 10;
-?>
 <style>
     .clamp-text {
         display: -webkit-box;
@@ -35,7 +26,28 @@ $newpage = $page + 10;
     <div class="container">
         <div class="row align-items-start">
             <?php
-            $postask = $db->prepare("SELECT * FROM posts WHERE post_status='publish' && post_category_id=$category_id ORDER BY post_id DESC LIMIT $page");
+            // Sayfalama için sayfa durum denetimi
+            if (empty($_GET["page"])) {
+                $page = 1;
+            } else {
+                $page = $_GET["page"];
+            }
+
+            // Sayfalama Değerleri
+            $limit = 20; // Bir sayfada gösterilecek elemanı belirliyor.
+            $start_limit = ($page * $limit) - $limit;
+
+            // Post Sayısı bulucu.
+            $count = 0;
+            $postask = $db->prepare("SELECT * FROM posts WHERE post_status='publish' && post_category_id=$category_id");
+            $postask->execute(array());
+            while ($postfetch = $postask->fetch(PDO::FETCH_ASSOC)) {
+                $count++;
+            }
+            // Post sayısı kullanılarak sayfa sayısı bulundu
+            $page_count = ceil($count / $limit);
+
+            $postask = $db->prepare("SELECT * FROM posts WHERE post_status='publish' && post_category_id=$category_id ORDER BY post_id DESC LIMIT $start_limit,$limit");
             $postask->execute(array());
             while ($postfetch = $postask->fetch(PDO::FETCH_ASSOC)) {
 
@@ -93,19 +105,20 @@ $newpage = $page + 10;
             }
             ?>
         </div>
-        <style>
-            .page-link {
-                background-color: #212529;
-                border: 1;
-                border-color: white;
-                text-decoration: none;
-                color: white;
-                border-radius: 0%;
+        <nav class="d-flex justify-content-center mt-3 mb-3">
+            <?php
+            //Öncesi sayfası
+            if ($page > 1) {
+                $newpage = $page - 1;
+                echo '<a href="?page=' . $newpage . '" class="btn btn-sm btn-outline-secondary text-white ms-1" style="text-decoration: none;"><i class="bi bi-arrow-bar-left me-2"></i>Öncesi</a>';
             }
-        </style>
+            // Sayfa Gösterici
+            echo '<a href="" class="btn btn-sm btn-outline-dark text-white disabled ms-1" style="text-decoration: none;">Sayfa ' . $page . '</a>';
 
-        <div class="border-bottom mt-5 position-relative">
-            <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-white">
-                <a class="btn btn-sm text-decoration-none text-black ms-2 me-2" href="?page=<?php echo $newpage; ?>">DAHA FAZLA YÜKLE</a>
-            </span>
-        </div>
+            //Öncesi sayfası
+            if ($page < $page_count) {
+                $newpage = $page + 1;
+                echo '<a href="?page=' . $newpage . '" class="btn btn-sm btn-outline-secondary text-white ms-1" style="text-decoration: none;"><i class="bi bi-arrow-bar-right me-2"></i>Sonrası</a>';
+            }
+            ?>
+        </nav>

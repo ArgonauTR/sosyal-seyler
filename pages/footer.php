@@ -1,4 +1,14 @@
-<footer class="text-center mt-5">
+<?php
+// FOOTER ÜSTÜ REKLAMINI GÖSTERİYOR
+$ads_where = "top-footer";
+$orderask = $db->prepare("SELECT * FROM orders WHERE order_status='ads' && order_ads='$ads_where'  ORDER BY order_row DESC");
+$orderask->execute(array());
+while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
+    echo '<div class="d-flex justify-content-center">' . $orderfetch["order_content"] . '</div>';
+}
+?>
+<div class="border-bottom mt-2 position-relative"> </div>
+<footer class="text-center mt-4">
     <ul class="list-inline">
         <?php
         $orderask = $db->prepare("SELECT * FROM orders WHERE order_status='footer-menu' ORDER BY order_row Asc");
@@ -6,7 +16,12 @@
         while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
         ?>
             <li class="list-inline-item">
-                <a class="text-mode text-white" href="<?php echo $orderfetch["order_link"] ?>" style="text-decoration: none;"><?php echo $orderfetch["order_name"] ?></a>
+                <a class="nav-link active" href="<?php echo $orderfetch["order_link"] ?>">
+                    <?php
+                    echo '<i class="bi bi-' . $orderfetch["order_icon"] . ' me-1"></i>';
+                    echo $orderfetch["order_name"];
+                    ?>
+                </a>
             </li>
         <?php
         }

@@ -1,103 +1,203 @@
-<?php
-//Logo Yolu Çekiyor
-$post_thumbnail_id = $optionfetch["option_logo_image"];
-$imageask = $db->prepare("SELECT * FROM images WHERE image_id=:id");
-$imageask->execute(array('id' => $post_thumbnail_id));
-while ($imagefetch = $imageask->fetch(PDO::FETCH_ASSOC)) {
-    $option_logo_image_id = $imagefetch["image_id"];
-    $option_logo_image_link = $imagefetch["image_link"];
-}
-//İcon Yolu Çekiyor
-$post_thumbnail_id = $optionfetch["option_favicon_image"];
-$imageask = $db->prepare("SELECT * FROM images WHERE image_id=:id");
-$imageask->execute(array('id' => $post_thumbnail_id));
-while ($imagefetch = $imageask->fetch(PDO::FETCH_ASSOC)) {
-    $option_favicon_image_id = $imagefetch["image_id"];
-    $option_favicon_image_link = $imagefetch["image_link"];
-}
-?>
 <div class="col-lg-9">
     <div class="card bg-dark text-white">
+        <div class="card-header">
+            <i class="bi bi-database-fill-gear me-2"></i>
+            AYARLAR
+        </div>
         <div class="card-body">
-            <div class="card-header">
-                AYARLAR
-            </div>
-            <div class="card-body">
 
-                <div class="border-bottom position-relative mt-4 mb-4"><i class="bi bi-gear me-1"></i>Site Logosunu Güncelle</div>
+            <form action="./functions/option-update.php" method="POST">
 
-                <form action="./functions/option-update.php" method="POST" enctype="multipart/form-data">
-
-                    <div class="mb-3 d-flex justify-content-center">
-                        <img style="height: 100px;" src="<?php echo $option_logo_image_link; ?>" />
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <input type="number" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_logo_image"]; ?>" name="option_logo_image" required>
                     </div>
-
-                    <div class="mb-3 mt-3">
-                        <input type="text" class="form-control bg-dark text-white" name="option_logo_image_id" value="<?php echo $option_logo_image_id; ?>" hidden>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Site logosu resminin ID'si.
+                            <a href="image.php" class="btn btn-sm btn-outline-info" style="text-decoration: none;">Resimler</a>
+                        </label>
                     </div>
+                </div>
 
-                    <div class="mb-3">
-                        <input class="form-control bg-dark text-white" type="file" name="resim" required>
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <input type="number" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_favicon_image"]; ?>" name="option_favicon_image" required>
                     </div>
-
-                    <div class="mb-3 text-center">
-                        <button type="submit" class="btn btn-primary" name="option_logo_update">Kaydet & Güncelle</button>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Site ikonu resminin ID'si.
+                            <a href="image.php" class="btn btn-sm btn-outline-info" style="text-decoration: none;">Resimler</a>
+                        </label>
                     </div>
+                </div>
 
-                </form>
-
-                <div class="border-bottom position-relative mt-4 mb-4"><i class="bi bi-gear me-1"></i>Favicon Resmini Güncelle</div>
-
-                <form action="./functions/option-update.php" method="POST" enctype="multipart/form-data">
-
-                    <div class="mb-3 d-flex justify-content-center">
-                        <img style="height: 100px;" src="<?php echo $option_favicon_image_link; ?>" />
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <input type="text" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_url"]; ?>" name="option_url" required>
                     </div>
-
-                    <div class="mb-3 mt-3">
-                        <input type="text" class="form-control bg-dark text-white" name="option_favicon_image_id" value="<?php echo $option_favicon_image_id; ?>" hidden>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Site URL'sini girin.
+                        </label>
                     </div>
+                </div>
 
-                    <div class="mb-3">
-                        <input class="form-control bg-dark text-white" type="file" name="resim" required>
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <input type="text" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_name"]; ?>" name="option_name" required>
                     </div>
-
-                    <div class="mb-3 text-center">
-                        <button type="submit" class="btn btn-primary" name="option_favicon_update">Kaydet & Güncelle</button>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Site adını(başlığını) girin.
+                        </label>
                     </div>
+                </div>
 
-                </form>
-
-                <div class="border-bottom position-relative mt-4 mb-4"><i class="bi bi-gear me-1"></i>Genel Ayarları Güncelle</div>
-                <form action="./functions/option-update.php" method="POST">
-
-                    <div class="mb-3">
-                        <label class="form-label">Site Linki</label>
-                        <input type="text" class="form-control bg-dark text-white" name="option_url" value="<?php echo $optionfetch["option_url"] ?>">
-                        <label class="form-check-label" for="exampleCheck1">Site linkini yanlış ayarlamamaya çok dikkat ediniz.</label>
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <textarea class="form-control bg-dark text-white" rows="2" name="option_description" required?><?php echo $optionfetch["option_description"]; ?></textarea>
                     </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Site Adı</label>
-                        <input type="text" class="form-control bg-dark text-white" name="option_name" value="<?php echo $optionfetch["option_name"] ?>">
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Sitenin SEO açıklamasını girin.
+                        </label>
                     </div>
+                </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Site Açıklaması</label>
-                        <textarea class="form-control bg-dark text-white" rows="3" name="option_description"><?php echo $optionfetch["option_description"] ?></textarea>
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <textarea class="form-control bg-dark text-white" rows="2" name="option_footer" required?><?php echo $optionfetch["option_footer"]; ?></textarea>
                     </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Footer Yazısı</label>
-                        <textarea class="form-control bg-dark text-white" rows="3" name="option_footer"><?php echo $optionfetch["option_footer"] ?></textarea>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Sitenin altında görünecek olan açıklama yazısını girin.
+                        </label>
                     </div>
+                </div>
 
-                    <div class="mb-3 text-center">
-                        <button type="submit" class="btn btn-primary" name="option_update">Kaydet & Güncelle</button>
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <select class="form-select bg-dark text-white" name="option_can_register">
+                            <?php
+                            if ($optionfetch["option_can_register"] == "yes") {
+                                echo '<option value="yes" selected>Evet</option>';
+                                echo '<option value="no">Hayır</option>';
+                            } else {
+                                echo '<option value="yes">Evet</option>';
+                                echo '<option value="no" selected>Hayır</option>';
+                            }
+                            ?>
+                        </select>
                     </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Ziyaretçiler kayıt olabilsin mi? (GELECEK ÖZELLİK)
+                        </label>
+                    </div>
+                </div>
 
-                </form>
-            </div>
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <input type="email" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_admin_mail"]; ?>" name="option_admin_mail" required>
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Admin e-postasını giriniz.
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <input type="text" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_mailserver_url"]; ?>" name="option_mailserver_url">
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            SMTP Sunucu URL'sini giriniz. (GELECEK ÖZELLİK)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <input type="text" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_mailserver_login"]; ?>" name="option_mailserver_login">
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            SMTP kullanıcı adını giriniz. (GELECEK ÖZELLİK)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <input type="password" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_mailserver_pass"]; ?>" name="option_mailserver_pass">
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            SMTP kullanıcı şifresini giriniz. (GELECEK ÖZELLİK)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <input type="number" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_mailserver_port"]; ?>" name="option_mailserver_port">
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            SMTP portunu giriniz. (GELECEK ÖZELLİK)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <input type="number" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_posts_per_page"]; ?>" name="option_posts_per_page" required>
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Anasayfada görünecek içerik sayısı.(Sayfalama için)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <select class="form-select bg-dark text-white" name="option_maintenance">
+                            <?php
+                            if ($optionfetch["option_maintenance"] == "yes") {
+                                echo '<option value="yes" selected>Açık</option>';
+                                echo '<option value="no">Kapalı</option>';
+                            } else {
+                                echo '<option value="yes">Açık</option>';
+                                echo '<option value="no" selected>Kapalı</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Bakım modu.
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <input type="number" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_comments_per_page"]; ?>" name="option_comments_per_page" required>
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            İçeriklerde görünecek yorum sayısı. (Sayfalama için) (GELECEK ÖZELLİK)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-3 text-center">
+                    <button type="submit" class="btn btn-primary" name="option_update">Kaydet & Güncelle</button>
+                </div>
         </div>
     </div>
 </div>

@@ -3,6 +3,9 @@ ob_start();
 session_start();
 date_default_timezone_set('Europe/Istanbul');
 
+// Veritabanı değişikliklerini uygulayan dosyayı çağırıyor.
+include ("./functions/db-update.php");
+
 //Ayar tablosu sorgusu başta çekilerek siteye yayıldı
 $optionask = $db->prepare("SELECT * FROM options WHERE option_id=:id");
 $optionask->execute(array(
@@ -65,4 +68,13 @@ while ($imagefetch = $imageask->fetch(PDO::FETCH_ASSOC)) {
             margin: 20px auto;
         }
     </style>
+        <style>
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: 2px solid black;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
 </head>

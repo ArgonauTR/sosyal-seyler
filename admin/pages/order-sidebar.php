@@ -20,6 +20,10 @@ while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
                 <i class="bi bi-three-dots-vertical"></i>
             </a>
             <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./process.php?order=sidebar-update&order_id=<?php echo $orderfetch["order_id"]; ?>"><i class="bi bi-pen me-1"></i>Düzenle</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
                 <li><a class="dropdown-item" href="./functions/order-delete.php?order_id=<?php echo $orderfetch["order_id"]; ?>&status=delete"><i class="bi bi-trash me-1"></i>Sil</a></li>
             </ul>
         </div>

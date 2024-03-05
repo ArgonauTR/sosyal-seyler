@@ -30,7 +30,6 @@
                     } else {
                         $comment_author_name = $commentfetch["comment_author_name"];
                     }
-
                 }
 
                 ?>
@@ -41,7 +40,7 @@
                     </div>
 
                     <div class="mb-3 h4">
-                        <?php echo "\"".$comment_author_name."\" kişisinin yorumunu düzenliyorsun"; ?>
+                        <?php echo "\"" . $comment_author_name . "\" kişisinin yorumunu düzenliyorsun"; ?>
                     </div>
 
                     <div class="mb-3">
