@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 04 Mar 2024, 19:27:54
+-- Üretim Zamanı: 06 Mar 2024, 18:10:38
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Veritabanı: `yukleme`
+-- Veritabanı: `test`
 --
 
 -- --------------------------------------------------------
@@ -179,17 +179,18 @@ CREATE TABLE `orders` (
   `order_link` varchar(200) DEFAULT NULL,
   `order_content` text DEFAULT NULL,
   `order_image_id` int(20) DEFAULT NULL,
-  `order_time` timestamp NOT NULL DEFAULT current_timestamp()
+  `order_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `order_ads` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `order_row`, `order_status`, `order_icon`, `order_name`, `order_link`, `order_content`, `order_image_id`, `order_time`) VALUES
-(1, '1', NULL, NULL, 'GOOGLE', 'https://www.google.com.tr/', NULL, NULL, '2024-02-20 19:38:03'),
-(2, '2', NULL, NULL, 'YOUTUBE', 'https://www.youtube.com/', NULL, NULL, '2024-02-20 19:38:17'),
-(3, '3', NULL, NULL, 'İNSTAGRAM', 'https://www.instagram.com/', NULL, NULL, '2024-02-20 19:38:41');
+INSERT INTO `orders` (`order_id`, `order_row`, `order_status`, `order_icon`, `order_name`, `order_link`, `order_content`, `order_image_id`, `order_time`, `order_ads`) VALUES
+(1, '1', NULL, NULL, 'GOOGLE', 'https://www.google.com.tr/', NULL, NULL, '2024-02-20 19:38:03', NULL),
+(2, '2', NULL, NULL, 'YOUTUBE', 'https://www.youtube.com/', NULL, NULL, '2024-02-20 19:38:17', NULL),
+(3, '3', NULL, NULL, 'İNSTAGRAM', 'https://www.instagram.com/', NULL, NULL, '2024-02-20 19:38:41', NULL);
 
 -- --------------------------------------------------------
 
