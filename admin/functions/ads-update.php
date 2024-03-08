@@ -24,11 +24,11 @@ if (isset($_POST["ads_update"])) {
 
     if ($update) {
 
-        header("Location:../ads.php?status=ok");
+        header("Location:../order.php?status=ok");
         exit;
     } else {
 
-        header("Location:../ads.php?status=no");
+        header("Location:../order.php?status=no");
         exit;
     }
 }

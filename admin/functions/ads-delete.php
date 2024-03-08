@@ -14,11 +14,11 @@ if (isset($_GET["status"])) {
     ));
 
     if ($delete) {
-        header("Location:../ads.php?delete=delete-ok");
+        header("Location:../order.php?delete=delete-ok");
         exit();
     } else {
 
-        header("Location:../ads.php?delete=delete-no");
+        header("Location:../order.php?delete=delete-no");
         exit();
     }
 }

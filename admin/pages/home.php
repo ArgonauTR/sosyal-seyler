@@ -1,13 +1,3 @@
-<style>
-    .custom-card {
-        transition: box-shadow 0.3s, border-color 0.3s;
-    }
-
-    .custom-card:hover {
-        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5);
-    }
-</style>
-
 <?PHP
 
 //Post istatistiklerini sayıyor.
@@ -109,6 +99,7 @@ if ($source_data["compilation"] > $system_data["compilation"]) {
 ?>
 
 <div class="col-lg-9">
+
     <?php
     if ($user_pending > 0 || $comment_draft > 0 || $post_draft > 0 || $message_wait > 0 || $update > 0) {
         if ($user_pending > 0) {
@@ -145,197 +136,168 @@ if ($source_data["compilation"] > $system_data["compilation"]) {
         }
     }
     ?>
-    <!-- SİSTEM VERİLERİNİ BURADA GÖSTERİYORUZ -->
 
-    <div class="card bg-dark text-white">
-            <div class="card-header">
-                <i class="bi bi-bar-chart-fill me-1"></i>
-                İÇERİK İSTATİSTİKLERİ
+    <div class="row row-cols-1 row-cols-lg-3 g-2 text-white">
+
+        <!-- İçerik İstatistikleri Kartı -->
+        <div class="card bg-dark border-secondary">
+            <div class="card-header text-center">
+                <i class="bi bi-layout-text-window me-1"></i>
+                İçerik İstatistikleri
+            </div>
             <div class="card-body">
-
-                <div class="row">
-                    <!-- İçerik İstatistikleri Kartı -->
-                    <div class="col-sm-4 mt-3">
-                        <div class="card  custom-card bg-dark border-secondary ms-3">
-                            <div class="card-header text-center p-2">
-                                <i class="bi bi-layout-text-window me-1"></i>
-                                İçerik İstatistikleri
-                            </div>
-                            <div class="card-body">
-                                <table class="table text-white">
-                                    <tbody>
-                                        <tr>
-                                            <td>Taslak Yazılar</td>
-                                            <td>
-                                                <span class="badge bg-danger"><?php echo $post_draft; ?></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Onaylı Yazılar</td>
-                                            <td><span class="badge bg-success"><?php echo $post_publish; ?></span></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Kategoriler</td>
-                                            <td>
-                                                <span class="badge bg-primary"><?php echo $category_count; ?></span>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Resimler</td>
-                                            <td>
-                                                <span class="badge bg-danger"><?php echo $image_count; ?></span>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <!-- Geribildirim İstatistikleri Kartı -->
-                    <div class="col-sm-4 mt-3">
-                        <div class="card  custom-card bg-dark border-secondary ms-3">
-                            <div class="card-header text-center p-2">
-                                <i class="bi bi-bell me-1"></i>
-                                Geribildirim İstatistikleri
-                            </div>
-                            <div class="card-body">
-                                <table class="table text-white">
-                                    <tbody>
-                                        <tr>
-                                            <td>Taslak Yorum</td>
-                                            <td>
-                                                <span class="badge bg-danger"><?php echo $comment_draft; ?></span>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Onaylı Yorum</td>
-                                            <td><span class="badge bg-success"><?php echo $comment_publish; ?></span></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Bekleyen Mesaj</td>
-                                            <td>
-                                                <span class="badge bg-danger"><?php echo $message_wait; ?></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Okunmuş Mesaj</td>
-                                            <td><span class="badge bg-success"><?php echo $message_read; ?></span></td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Üye İstatistikleri -->
-                    <div class="col-sm-4 mt-3">
-                        <div class="card  custom-card bg-dark border-secondary ms-3">
-                            <div class="card-header text-center p-2">
-                                <i class="bi bi-person me-1"></i>
-                                Üyeler İstatistikleri
-                            </div>
-                            <div class="card-body">
-                                <table class="table text-white">
-                                    <tbody>
-                                        <tr>
-                                            <td>Bekleyen Üyelik</td>
-                                            <td>
-                                                <span class="badge bg-danger"><?php echo $user_pending; ?></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Onaylı Üyelik</td>
-                                            <td><span class="badge bg-success"><?php echo $user_approved; ?></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Admin Görevi</td>
-                                            <td><span class="badge bg-primary"><?php echo $user_admin; ?></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Yazar Görevli</td>
-                                            <td><span class="badge bg-primary"><?php echo $user_author; ?></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Üye Görevli</td>
-                                            <td><span class="badge bg-primary"><?php echo $user_user; ?></span></td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
+                <table class="table text-white">
+                    <tbody>
+                        <tr>
+                            <td>Taslak Yazılar</td>
+                            <td>
+                                <span class="badge bg-danger"><?php echo $post_draft; ?></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Onaylı Yazılar</td>
+                            <td><span class="badge bg-success"><?php echo $post_publish; ?></span></td>
+                        </tr>
+                        <tr>
+                            <td>Kategoriler</td>
+                            <td>
+                                <span class="badge bg-primary"><?php echo $category_count; ?></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Resimler</td>
+                            <td>
+                                <span class="badge bg-danger"><?php echo $image_count; ?></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
 
-
-    <!-- SİSTEM VERİLERİNİ BURADA GÖSTERİYORUZ -->
-
-    <div class="card bg-dark text-white mt-3">
-        <div class="card-header">
-            <i class="bi bi-cone-striped me-1"></i>
-            SİSTEM VERİLERİ
+        <!-- Geribildirim İstatistikleri Kartı -->
+        <div class="card  custom-card bg-dark border-secondary">
+            <div class="card-header text-center p-2">
+                <i class="bi bi-bell me-1"></i>
+                Geribildirim İstatistikleri
+            </div>
+            <div class="card-body">
+                <table class="table text-white">
+                    <tbody>
+                        <tr>
+                            <td>Taslak Yorum</td>
+                            <td>
+                                <span class="badge bg-danger"><?php echo $comment_draft; ?></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Onaylı Yorum</td>
+                            <td><span class="badge bg-success"><?php echo $comment_publish; ?></span></td>
+                        </tr>
+                        <tr>
+                            <td>Bekleyen Mesaj</td>
+                            <td>
+                                <span class="badge bg-danger"><?php echo $message_wait; ?></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Okunmuş Mesaj</td>
+                            <td><span class="badge bg-success"><?php echo $message_read; ?></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="card-body">
-            <p>
-                <b>Web Sitesi Linki: </b><?php echo $_SERVER["HTTP_HOST"]; ?>
-            </p>
-            <p>
-                <b>Sistem Tarih - Saati: </b><?php echo date("d/m/Y H:i:s"); ?>
-            </p>
-            <p>
-                <b>IP Adresiniz: </b><?php echo $_SERVER['REMOTE_ADDR']; ?>
-            </p>
-            <p>
-                <b>PHP Versiyonunuz: </b><?php echo phpversion(); ?>
-            </p>
-        </div>
-    </div>
 
+        <!-- Üye İstatistikleri -->
+        <div class="card  custom-card bg-dark border-secondary">
+            <div class="card-header text-center p-2">
+                <i class="bi bi-person me-1"></i>
+                Üyeler İstatistikleri
+            </div>
+            <div class="card-body">
+                <table class="table text-white">
+                    <tbody>
+                        <tr>
+                            <td>Bekleyen Üyelik</td>
+                            <td>
+                                <span class="badge bg-danger"><?php echo $user_pending; ?></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Onaylı Üyelik</td>
+                            <td><span class="badge bg-success"><?php echo $user_approved; ?></span></td>
+                        </tr>
+                        <tr>
+                            <td>Admin Görevi</td>
+                            <td><span class="badge bg-primary"><?php echo $user_admin; ?></span></td>
+                        </tr>
+                        <tr>
+                            <td>Yazar Görevli</td>
+                            <td><span class="badge bg-primary"><?php echo $user_author; ?></span></td>
+                        </tr>
+                        <tr>
+                            <td>Üye Görevli</td>
+                            <td><span class="badge bg-primary"><?php echo $user_user; ?></span></td>
+                        </tr>
 
-    <!-- SİSTEM VERİLERİNİ BURADA GÖSTERİYORUZ -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-    <div class="card bg-dark text-white mt-3">
-        <div class="card-header">
-            <i class="bi bi-code-slash me-1"></i>
-            YAZILIM VERİLERİ
+        <!-- SİSTEM VERİLERİNİ BURADA GÖSTERİYORUZ -->
+        <div class="card  custom-card bg-dark border-secondary">
+            <div class="card-header text-center p-2">
+                <i class="bi bi-cone-striped me-1"></i>
+                SİSTEM VERİLERİ
+            </div>
+            <div class="card-body">
+                <p>
+                    <b>Site Linki: </b><?php echo $_SERVER["HTTP_HOST"]; ?>
+                </p>
+                <p>
+                    <b>Sistem Tarih - Saati: </b><?php echo date("d/m/Y H:i:s"); ?>
+                </p>
+                <p>
+                    <b>IP Adresiniz: </b><?php echo $_SERVER['REMOTE_ADDR']; ?>
+                </p>
+                <p>
+                    <b>PHP Versiyonunuz: </b><?php echo phpversion(); ?>
+                </p>
+            </div>
         </div>
-        <div class="card-body">
-            <p>
-                <b>Mevcut Yazılım Adı: </b><?php echo $system_data["tag"]; ?>
-            </p>
-            <p>
-                <b>Mevcut Versiyon Yayın Tarihi: </b><?php echo $system_data["time"]; ?>
-            </p>
-            <p>
-                <b>Mevcut Versiyin Haberi: </b><a class="btn btn-sm btn-outline-info ms-2" target="_blank" href="<?php echo $system_data["update"]; ?>"><?php echo $system_data["version"] . " - " . $system_data["title"]; ?></a>
-            </p>
-        </div>
-    </div>
 
-    <!-- SİSTEM VERİLERİNİ BURADA GÖSTERİYORUZ -->
+        <!-- YAZILIM BİLGİLERİ BURADA GÖSTERİYORUZ -->
+        <div class="card  custom-card bg-dark border-secondary">
+            <div class="card-header text-center p-2">
+                <i class="bi bi-code-slash me-1"></i>
+                YAZILIM BİLGİLERİ
+            </div>
+            <div class="card-body">
+                <p>
+                    <b>Yazılım Adı: </b><?php echo $system_data["tag"]; ?>
+                </p>
+                <p>
+                    <b>Versiyon Yayın Tarihi: </b><?php echo $system_data["time"]; ?>
+                </p>
+                <p>
+                    <b>Versiyin Haberi: </b><a class="btn btn-sm btn-outline-info ms-2" target="_blank" href="<?php echo $system_data["update"]; ?>"><?php echo $system_data["version"] . " - " . $system_data["title"]; ?></a>
+                </p>
+            </div>
+        </div>
 
-    <div class="card bg-dark text-white mt-3">
-        <div class="card-header">
-        <i class="bi bi-app-indicator me-1"></i>
-            GELİŞTİRİCİ NOTU
+        <!-- GELİŞTİRİCİ NOTU BURADA GÖSTERİYORUZ -->
+        <div class="card  custom-card bg-dark border-secondary">
+            <div class="card-header text-center p-2">
+                <i class="bi bi-app-indicator me-1"></i>
+                GELİŞTİRİCİ NOTU
+            </div>
+            <div class="card-body">
+                <p>
+                    Yazılımın gelişme sürecinde bazı hatalar ve eksiklikler ile karşılaşabilirsiniz. Bu süreçte anlayışlı olup hataları bize bildirirseniz memnun oluruz.
+                </p>
+            </div>
         </div>
-        <div class="card-body">
-            <p>
-                Yazılımın gelişme sürecinde bazı hatalar ve eksiklikler ile karşılaşabilirsiniz. Bu süreçte anlayışlı olup hataları bize bildirirseniz memnun oluruz.
-            </p>
-        </div>
+
     </div>

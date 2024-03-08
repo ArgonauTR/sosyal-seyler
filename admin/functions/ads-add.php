@@ -26,11 +26,11 @@ if (isset($_POST["ads_add"])) {
     
     if ($insert) {
 
-        header("Location:../ads.php?status=ok");
+        header("Location:../order.php?status=ok");
         exit;
     } else {
 
-        header("Location:../ads.php?status=no");
+        header("Location:../order.php?status=no");
         exit;
     }
 }

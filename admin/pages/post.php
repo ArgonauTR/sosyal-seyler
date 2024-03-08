@@ -26,8 +26,7 @@
             <div class="card-header">
                 <a href="?status=publish" class="btn btn-sm btn-outline-secondary text-white mt-2" style="text-decoration: none;"><i class="bi bi-clipboard-check me-2"></i>Yayımlanmış</a>
                 <a href="?status=draft" class="btn btn-sm btn-outline-secondary text-white ms-2 mt-2" style="text-decoration: none;"><i class="bi bi-clock-history me-2"></i>Taslak</a>
-                <a href="./process.php?post=post-add" class="btn btn-sm btn-outline-secondary text-white ms-2 mt-2" style="text-decoration: none;"><i class="bi bi-plus-circle me-2"></i>Yazı Ekle</a>
-
+                <a href="./process.php?post=post-add" class="btn btn-sm btn-primary text-white ms-2 mt-2" style="text-decoration: none;"><i class="bi bi-plus-circle me-2"></i>Yazı Ekle</a>
             </div>
             <div class="card-body p-1">
                 <?php
@@ -37,7 +36,7 @@
                 } else {
                     $status = $_GET["status"];
                 }
-                
+
                 // Sayfalama için sayfa durum denetimi
                 if (empty($_GET["page"])) {
                     $page = 1;
@@ -58,7 +57,7 @@
                 }
                 // Post sayısı kullanılarak sayfa sayısı bulundu
                 $page_count = ceil($count / $limit);
-
+                    
                 // Postlar listeleniyor
                 $postask = $db->prepare("SELECT * FROM posts WHERE post_status='$status' ORDER BY post_id DESC LIMIT $start_limit,$limit");
                 $postask->execute(array());
@@ -105,15 +104,15 @@
             //Öncesi sayfası
             if ($page > 1) {
                 $newpage = $page - 1;
-                echo '<a href="?page='.$newpage.'" class="btn btn-sm btn-outline-secondary text-white ms-1" style="text-decoration: none;"><i class="bi bi-arrow-bar-left me-2"></i>Öncesi</a>';
+                echo '<a href="?page=' . $newpage . '" class="btn btn-sm btn-outline-secondary text-white ms-1" style="text-decoration: none;"><i class="bi bi-arrow-bar-left me-2"></i>Öncesi</a>';
             }
             // Sayfa Gösterici
             echo '<a href="" class="btn btn-sm btn-outline-dark text-white disabled ms-1" style="text-decoration: none;">Sayfa ' . $page . '</a>';
 
             //Öncesi sayfası
-            if ($page<$page_count) {
-                $newpage = $page+1;
-                echo '<a href="?page='.$newpage.'" class="btn btn-sm btn-outline-secondary text-white ms-1" style="text-decoration: none;"><i class="bi bi-arrow-bar-right me-2"></i>Sonrası</a>';
+            if ($page < $page_count) {
+                $newpage = $page + 1;
+                echo '<a href="?page=' . $newpage . '" class="btn btn-sm btn-outline-secondary text-white ms-1" style="text-decoration: none;"><i class="bi bi-arrow-bar-right me-2"></i>Sonrası</a>';
             }
             ?>
         </nav>

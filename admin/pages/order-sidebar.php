@@ -1,4 +1,4 @@
-<a href="./process.php?order=sidebar-add" class="btn btn-sm btn-outline-secondary text-white ms-2" style="text-decoration: none;"><i class="bi bi-plus-circle me-2"></i>Kenar Öğesi Ekle</a>
+<a href="./process.php?order=sidebar-add" class="btn btn-sm btn-primary text-white ms-2" style="text-decoration: none;"><i class="bi bi-plus-circle me-2"></i>Kenar Öğesi Ekle</a>
 <hr>
 <?php
 $order = $_GET["order"];

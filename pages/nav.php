@@ -73,6 +73,8 @@
 
                             <ul class="dropdown-menu">
                                 <?php
+
+                                // Adminler Admin girişini görür.
                                 if ($_SESSION['user_role'] == "admin") {
                                     echo '
                                         <li>
@@ -81,6 +83,18 @@
                                                 <b>
                                                     Admin Paneli
                                                 </b>
+                                            </a>
+                                        </li>
+                                        ';
+                                }
+
+                                // Adminler ve Yazarlar yazı ekle girişini görür
+                                if ($_SESSION['user_role'] == "admin" || $_SESSION['user_role'] == "author") {
+                                    echo '
+                                        <li>
+                                            <a class="dropdown-item" href="/post-add.php">
+                                                <i class="bi bi-plus-square me-1"></i>
+                                                Yazı Ekle
                                             </a>
                                         </li>
                                         ';
