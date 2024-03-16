@@ -21,7 +21,7 @@
     }
 </style>
 
-<body class="bg-dark text-white custom-card">
+<body class="bg-dark text-white">
     <div class="container">
         <div class="row align-items-start">
             <?php

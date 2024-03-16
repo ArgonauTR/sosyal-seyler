@@ -26,6 +26,7 @@
     RewriteRule ^profile$ profile.php [NC,L]
     RewriteRule ^message$ message.php [NC,L]
     RewriteRule ^maintenance$ maintenance.php [NC,L]
+    RewriteRule ^manga$ manga.php [NC,L]
     
     #post rules
     RewriteRule ^([0-9]+)-([a-zA-Z0-9-]+)$ post.php?post_id=$1&sef=$2 [L,QSA]

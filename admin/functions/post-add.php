@@ -162,13 +162,27 @@ if (isset($_POST['post_add'])) {
         'post_link' => $yeni_link
     ));
 
-    if ($insert) {
 
-        header("Location:../post.php?status=draft");
-        exit;
+    //Bu kısım post ön yüzdne gelmişse ön yüze arka yüzden gelmişse arka yüze yönlendiriyor
+    if (isset($_POST["post_fronend_author"]) || $_POST["post_fronend_author"] == "yes") {
+        if ($insert) {
+
+            header("Location:../../post-add.php?status=ok");
+            exit;
+        } else {
+
+            header("Location:../../post-add.php?status=no");
+            exit;
+        }
     } else {
+        if ($insert) {
 
-        header("Location:../process.php?post=post-add");
-        exit;
+            header("Location:../post.php?status=draft");
+            exit;
+        } else {
+
+            header("Location:../process.php?post=post-add");
+            exit;
+        }
     }
 }
