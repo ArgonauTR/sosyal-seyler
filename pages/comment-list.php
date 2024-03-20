@@ -1,3 +1,26 @@
+<?php
+
+function userbadge($user_name, $user_role)
+{
+    if ($user_role == "admin") {
+        return $user_name . '<i class="bi bi-shield-lock-fill ms-1 text-success" title="Admin"></i>';
+    }
+
+    if ($user_role == "author") {
+        return $user_name . '<i class="bi bi-pencil-square ms-1 text-primary" title="Yazar"></i>';
+    }
+
+    if ($user_role == "author") {
+        return $user_name . '<i class="bi bi-pencil-square ms-1 text-primary" title="Yazar"></i>';
+    }
+
+    if ($user_role == "user") {
+        return $user_name . '<i class="bi bi-check-circle ms-1 text-warning" title="Kayıtlı Üye"></i>';
+    }
+}
+
+?>
+
 <style>
     .max-image {
         max-width: 30px;
@@ -27,8 +50,7 @@ while ($commentfetch = $commentask->fetch(PDO::FETCH_ASSOC)) {
         $userask = $db->prepare("SELECT * FROM users WHERE user_id=:id");
         $userask->execute(array('id' => $post_author_id));
         while ($userfetch = $userask->fetch(PDO::FETCH_ASSOC)) {
-            $usernick = '<i class="bi bi-check2-circle text-success"></i> ' . $userfetch["user_name"];
-            $comment_author_name = $usernick;
+            $comment_author_name = userbadge($userfetch["user_name"], $userfetch["user_role"]);
             $user_image_id = $userfetch["user_image"];
         }
         //Resim Yolunu Çekiyor
@@ -53,7 +75,7 @@ while ($commentfetch = $commentask->fetch(PDO::FETCH_ASSOC)) {
                 echo '<i class="bi bi-person-circle me-2"></i>';
             }
             ?>
-            <h4><?php echo $comment_author_name; ?></h4>
+            <h4 class="ms-1"><?php echo $comment_author_name; ?></h4>
             <span class="ms-2"><i>(<?php echo parcala($comment_time); ?>)</i></span>
         </div>
         <?php echo nl2br($comment_content); ?>
@@ -64,13 +86,13 @@ while ($commentfetch = $commentask->fetch(PDO::FETCH_ASSOC)) {
         </a>
         <div class="collapse" id="<?php echo "col" . $comment_id; ?>">
             <div class="card card-body bg-dark border-white">
-            <?php
+                <?php
                 if (isset($_SESSION["user_role"])) {
                     include "answer-form-user.php";
-                }else{
+                } else {
                     include "answer-form-anonim.php";
                 }
-            ?>
+                ?>
             </div>
 
         </div>
@@ -92,8 +114,7 @@ while ($commentfetch = $commentask->fetch(PDO::FETCH_ASSOC)) {
                 $userask = $db->prepare("SELECT * FROM users WHERE user_id=:id");
                 $userask->execute(array('id' => $post_author_id));
                 while ($userfetch = $userask->fetch(PDO::FETCH_ASSOC)) {
-                    $usernick = '<i class="bi bi-check2-circle text-success"></i> ' . $userfetch["user_name"];
-                    $answer_author_name = $usernick;
+                    $answer_author_name = userbadge($userfetch["user_name"], $userfetch["user_role"]);
                     $user_image_id = $userfetch["user_image"];
                 }
                 //Resim Yolunu Çekiyor
@@ -118,7 +139,7 @@ while ($commentfetch = $commentask->fetch(PDO::FETCH_ASSOC)) {
                         echo '<i class="bi bi-person-circle me-2"></i>';
                     }
                     ?>
-                    <h4><?php echo $answer_author_name; ?></h4>
+                    <h4 class="ms-1"><?php echo $answer_author_name; ?></h4>
                     <span class="ms-2"><i>(<?php echo parcala($comment_time); ?>)</i></span>
                 </div>
                 <?php echo nl2br($answer_content); ?>

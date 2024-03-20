@@ -282,7 +282,7 @@ if ($source_data["compilation"] > $system_data["compilation"]) {
                     <b>Versiyon Yayın Tarihi: </b><?php echo $system_data["time"]; ?>
                 </p>
                 <p>
-                    <b>Versiyin Haberi: </b><a class="btn btn-sm btn-outline-info ms-2" target="_blank" href="<?php echo $system_data["update"]; ?>"><?php echo $system_data["version"] . " - " . $system_data["title"]; ?></a>
+                    <b>Versiyon Haberi: </b><a class="btn btn-sm btn-outline-info ms-2" target="_blank" href="<?php echo $system_data["update"]; ?>"><?php echo $system_data["version"] . " - " . $system_data["title"]; ?></a>
                 </p>
             </div>
         </div>

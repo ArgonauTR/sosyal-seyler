@@ -1,6 +1,16 @@
 <div class="d-flex justify-content-center mt-5 mb-5">
     <div class="col-12 col-lg-4">
-    <h2 class="text-center">ŞİFREMİ UNUTTUM</h2>
+        <h2 class="text-center">ŞİFREMİ UNUTTUM</h2>
+
+            <div class="card bg-dark text-white border-primary text-center">
+                <div class="card-body">
+                    <p>
+                        Üzgünüz, Henüz şifre sıfırlama hazır değil. Lütfen İLETİŞİM kısmından kayıt olduğunuz posta ile adminden yeni şifre talep edin.
+                    </p>
+                </div>
+            </div>
+
+    <!--
         <form>
             <div class="mb-3 mt-4">
                 <label class="form-label">
@@ -16,5 +26,6 @@
                 </button>
             </div>
         </form>
+    -->
     </div>
 </div>

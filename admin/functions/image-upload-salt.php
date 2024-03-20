@@ -24,7 +24,7 @@ if ($resimBoyutu > (1024 * 1024 * 2)) {
 }
 
 $tip = $_FILES['upload']['type']; // Resim tipi yanı uzantısı bir değişkene aktarıldı.
-if ($tip != 'image/jpeg' && $tip != 'image/png') {
+if ($tip != 'image/jpeg' && $tip != 'image/png' && $tip != 'image/gif') {
     echo "Sadece JPEG ve PNG dosya türleri destekleniyor.";
     exit();
 }

@@ -44,7 +44,7 @@ while ($imagefetch = $imageask->fetch(PDO::FETCH_ASSOC)) {
                     <div class="card-body">
                         <h1>BAKIM MODU</h1>
                         <p>
-                        <h3>Şu anda bakım için kapalıyız. Çok yakında hazır oluruz. Lütfen en yakın zamanda yine ziyaret</h3>
+                        <h3>Şu anda bakım için kapalıyız. Çok yakında hazır oluruz. Lütfen en yakın zamanda yine ziyaret edin.</h3>
                         </p>
                     </div>
                     <div class="card-footer">
