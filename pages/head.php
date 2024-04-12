@@ -3,6 +3,10 @@ ob_start();
 session_start();
 date_default_timezone_set('Europe/Istanbul');
 
+// Veritabanı değişikliklerini uygulayan dosyayı çağırıyor.
+include ("./functions/db-update.php");
+
+
 //Ayar tablosu sorgusu başta çekilerek siteye yayıldı
 $optionask = $db->prepare("SELECT * FROM options WHERE option_id=:id");
 $optionask->execute(array(
@@ -168,12 +172,32 @@ if ($optionfetch["option_maintenance"] == "yes") {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap">
     <?php
-// HEADER İÇİ REKLAMINI GÖSTERİYOR
-$ads_where = "in-header";
-$orderask = $db->prepare("SELECT * FROM orders WHERE order_status='ads' && order_ads='$ads_where'  ORDER BY order_row DESC");
-$orderask->execute(array());
-while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
-    echo $orderfetch["order_content"]."<br>";
-}
-?>
+    // HEADER İÇİ REKLAMINI GÖSTERİYOR
+    $ads_where = "in-header";
+    $orderask = $db->prepare("SELECT * FROM orders WHERE order_status='ads' && order_ads='$ads_where'  ORDER BY order_row DESC");
+    $orderask->execute(array());
+    while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
+        echo $orderfetch["order_content"] . "<br>";
+    }
+
+
+
+    // Search Console Kodları
+    if (isset($optionfetch["option_console"])) {
+        echo $optionfetch["option_console"];
+    }
+
+
+    // Analitics Kodları
+    if (isset($optionfetch["option_analitics"])) {
+        echo $optionfetch["option_analitics"];
+    }
+
+    
+    // Adsense Kodları
+    if (isset($optionfetch["option_adsense"])) {
+        echo $optionfetch["option_adsense"];
+    }
+
+    ?>
 </head>

@@ -34,7 +34,28 @@ function userbadge($user_name, $user_role)
     }
 </style>
 <?php
-$commentask = $db->prepare("SELECT * FROM comments WHERE comment_status='publish' && comment_parent_id IS NULL && comment_post_id=$post_id ORDER BY comment_id DESC");
+// Sayfalama için sayfa durum denetimi
+if (empty($_GET["page"])) {
+    $page = 1;
+} else {
+    $page = $_GET["page"];
+}
+
+// Sayfalama Değerleri
+$limit = $optionfetch["option_comments_per_page"]; // Bir sayfada gösterilecek elemanı belirliyor.
+$start_limit = ($page * $limit) - $limit;
+
+// Post Sayısı bulucu.
+$count = 0;
+$commentask = $db->prepare("SELECT * FROM comments WHERE comment_status='publish' && comment_parent_id IS NULL && comment_post_id=$post_id");
+$commentask->execute(array());
+while ($commentfetch = $commentask->fetch(PDO::FETCH_ASSOC)) {
+    $count++;
+}
+// Post sayısı kullanılarak sayfa sayısı bulundu
+$page_count = ceil($count / $limit);
+
+$commentask = $db->prepare("SELECT * FROM comments WHERE comment_status='publish' && comment_parent_id IS NULL && comment_post_id=$post_id ORDER BY comment_id DESC LIMIT $start_limit,$limit");
 $commentask->execute(array());
 while ($commentfetch = $commentask->fetch(PDO::FETCH_ASSOC)) {
     $comment_id = $commentfetch["comment_id"];
@@ -151,3 +172,21 @@ while ($commentfetch = $commentask->fetch(PDO::FETCH_ASSOC)) {
 <?php
 }
 ?>
+
+<nav class="d-flex justify-content-center mt-3 mb-3">
+    <?php
+    //Öncesi sayfası
+    if ($page > 1) {
+        $newpage = $page - 1;
+        echo '<a href="?page=' . $newpage . '" class="btn btn-sm btn-outline-secondary text-white ms-1" style="text-decoration: none;"><i class="bi bi-arrow-bar-left me-2"></i>Öncesi</a>';
+    }
+    // Sayfa Gösterici
+    echo '<a href="" class="btn btn-sm btn-outline-dark text-white disabled ms-1" style="text-decoration: none;">Sayfa ' . $page . '</a>';
+
+    //Öncesi sayfası
+    if ($page < $page_count) {
+        $newpage = $page + 1;
+        echo '<a href="?page=' . $newpage . '" class="btn btn-sm btn-outline-secondary text-white ms-1" style="text-decoration: none;"><i class="bi bi-arrow-bar-right me-2"></i>Sonrası</a>';
+    }
+    ?>
+</nav>

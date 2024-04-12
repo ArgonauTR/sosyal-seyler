@@ -99,4 +99,25 @@ if (isset($_GET)) {
             include("pages/order-ads-update.php");
         }
     }
+
+    // ------> MANGA İŞLEMLERİ
+    if (isset($_GET["manga"])) {
+
+        // Manga Ekleme
+        if ($_GET["manga"] == "manga-add") {
+            include("pages/manga-add.php");
+        }
+        // Manga Güncelleme
+        if ($_GET["manga"] == "manga-update") {
+            include("pages/manga-update.php");
+        }
+        // Bölüm Ekleme
+        if ($_GET["manga"] == "manga-chapter-add") {
+            include("pages/manga-chapter-add.php");
+        }
+        // Bölüm Listeleme
+        if ($_GET["manga"] == "manga-chapter-list") {
+            include("pages/manga-chapter-list.php");
+        }
+    }
 }

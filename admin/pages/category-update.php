@@ -17,6 +17,7 @@
                     $category_description = $categoryfetch["category_description"];
                     $category_color = $categoryfetch["category_color"];
                     $category_image_id = $categoryfetch["category_image_id"];
+                    $category_status = $categoryfetch["category_status"];
 
                     //Resim Yolunu Çekiyor
                     $post_thumbnail_id = $categoryfetch["category_image_id"];
@@ -63,6 +64,20 @@
                             <option class="text-info" value="info" <?php if ($category_color == "info") {
                                                                         echo "selected";
                                                                     } ?>>Turkuaz</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <select class="form-select bg-dark text-white" name="category_status">
+                            <?php
+                            if ($category_status == "blog") {
+                                echo '<option value="blog" selected>Blog</option>';
+                                echo '<option value="manga">Manga</option>';
+                            } else {
+                                echo '<option value="blog">Blog</option>';
+                                echo '<option value="manga" selected>Manga</option>';
+                            }
+                            ?>
                         </select>
                     </div>
 

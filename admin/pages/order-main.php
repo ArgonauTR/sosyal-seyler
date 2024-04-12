@@ -11,6 +11,7 @@
     <li class="list-item"><a class="text-white" style="text-decoration: none;" target="_blank" href="/sitemap.xml"><b>Site Haritası</b> (<?php echo $_SERVER['HTTP_HOST'] . "/sitemap.xml" ?>)</a></li>
     <li class="list-item"><a class="text-white" style="text-decoration: none;" target="_blank" href="/robots.txt"><b>Robots</b> (<?php echo $_SERVER['HTTP_HOST'] . "/robots.txt" ?>)</a></li>
     <li class="list-item"><a class="text-white" style="text-decoration: none;" target="_blank" href="../maintenance"><b>Bakım</b> (<?php echo $_SERVER['HTTP_HOST'] . "/maintenance" ?>)</a></li>
+    <li class="list-item"><a class="text-white" style="text-decoration: none;" target="_blank" href="../mindex"><b>Manga</b> (<?php echo $_SERVER['HTTP_HOST'] . "/mindex" ?>)</a></li>
 
 
 

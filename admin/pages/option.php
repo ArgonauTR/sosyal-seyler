@@ -78,6 +78,60 @@
 
                 <div class="row mb-3">
                     <div class="col-lg-3">
+                        <textarea class="form-control bg-dark text-white" rows="2" name="option_analitics" required?><?php echo $optionfetch["option_analitics"]; ?></textarea>
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Google Analitics doğrulama kodunu girin
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <textarea class="form-control bg-dark text-white" rows="2" name="option_console" required?><?php echo $optionfetch["option_console"]; ?></textarea>
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Google SearchConsole doğrulama kodunu girin
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <textarea class="form-control bg-dark text-white" rows="2" name="option_adsense" required?><?php echo $optionfetch["option_adsense"]; ?></textarea>
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Google Adsense doğrulama kodunu girin
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <select class="form-select bg-dark text-white" name="option_index_page">
+                            <?php
+                            if ($optionfetch["option_index_page"] == "blog") {
+                                echo '<option value="blog" selected>Blog</option>';
+                                echo '<option value="manga">Manga</option>';
+                            } else {
+                                echo '<option value="blog">Blog</option>';
+                                echo '<option value="manga" selected>Manga</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Anasayfayı Seçiniz
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-lg-3">
                         <select class="form-select bg-dark text-white" name="option_can_register">
                             <?php
                             if ($optionfetch["option_can_register"] == "yes") {
@@ -92,7 +146,7 @@
                     </div>
                     <div class="col-lg-9">
                         <label class="col-form-label">
-                            Ziyaretçiler kayıt olabilsin mi? (GELECEK ÖZELLİK)
+                            Ziyaretçiler kayıt olabilsin mi?
                         </label>
                     </div>
                 </div>
@@ -158,7 +212,18 @@
                     </div>
                     <div class="col-lg-9">
                         <label class="col-form-label">
-                            Anasayfada görünecek içerik sayısı.(Sayfalama için)
+                            Anasayfada görünecek içerik sayısı.
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <input type="number" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_comments_per_page"]; ?>" name="option_comments_per_page" required>
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            İçeriklerde görünecek yorum sayısı.
                         </label>
                     </div>
                 </div>
@@ -186,11 +251,11 @@
 
                 <div class="row mb-3">
                     <div class="col-lg-3">
-                        <input type="number" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_comments_per_page"]; ?>" name="option_comments_per_page" required>
+                        <input type="text" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_terms"]; ?>" name="option_terms" required>
                     </div>
                     <div class="col-lg-9">
                         <label class="col-form-label">
-                            İçeriklerde görünecek yorum sayısı. (Sayfalama için) (GELECEK ÖZELLİK)
+                            Şartlar ve Koşullar Sayfası Linki
                         </label>
                     </div>
                 </div>

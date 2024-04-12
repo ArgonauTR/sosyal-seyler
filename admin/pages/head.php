@@ -3,9 +3,6 @@ ob_start();
 session_start();
 date_default_timezone_set('Europe/Istanbul');
 
-// Veritabanı değişikliklerini uygulayan dosyayı çağırıyor.
-include ("./functions/db-update.php");
-
 //Ayar tablosu sorgusu başta çekilerek siteye yayıldı
 $optionask = $db->prepare("SELECT * FROM options WHERE option_id=:id");
 $optionask->execute(array(

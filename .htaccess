@@ -8,7 +8,7 @@
     RewriteCond %{HTTPS} !=on
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
 
-    #sitemap rules
+    #sitemap.xml rules
     RewriteRule ^sitemap.xml$ sitemap.php [NC,L]
     RewriteRule ^sitemap-([0-9]+)\.xml$ sitemap.php?parca=$1 [NC,L]
 
@@ -26,12 +26,23 @@
     RewriteRule ^profile$ profile.php [NC,L]
     RewriteRule ^message$ message.php [NC,L]
     RewriteRule ^maintenance$ maintenance.php [NC,L]
+    RewriteRule ^mindex$ mindex.php [NC,L]
     RewriteRule ^manga$ manga.php [NC,L]
+    RewriteRule ^chapter$ chapter.php [NC,L]
     
     #post rules
     RewriteRule ^([0-9]+)-([a-zA-Z0-9-]+)$ post.php?post_id=$1&sef=$2 [L,QSA]
 
-    #post rules
+    #user repass
+    RewriteRule ^user-repass/([0-9]+)-([a-zA-Z0-9_-]+)$ user-repass.php?user_id=$1&user_pass_reset=$2 [L,QSA]
+
+    #manga rules
+    RewriteRule ^manga/([0-9]+)-([a-zA-Z0-9-]+)$ manga.php?manga_id=$1&sef=$2 [L,QSA]
+    
+    #chapter rules
+    RewriteRule ^manga/([0-9]+)-([a-zA-Z0-9-]+)/chapter-([0-9]+)$ chapter.php?manga_id=$1&chapter_id=$3&sef=$2 [L,QSA]
+
+    #category rules
     RewriteRule ^category/([0-9]+)-([a-zA-Z0-9-]+)$ category.php?category_id=$1&sef=$2 [L,QSA]
 
 </IfModule>

@@ -42,6 +42,12 @@
          </a>
      </li>
      <li class="nav-item">
+         <a class="nav-link" href="manga.php">
+         <i class="bi bi-brilliance me-1"></i>
+             Mangalar
+         </a>
+     </li>
+     <li class="nav-item">
          <a class="nav-link" href="category.php">
             <i class="bi bi-grid me-1"></i>
              Kategoriler

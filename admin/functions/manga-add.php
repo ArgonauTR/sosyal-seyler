@@ -1,8 +1,9 @@
 <?php
+
 // Ana fonskiyon dosyası ekleniyor.
 include("main-function.php");
 
-if (isset($_POST["category_add"])) {
+if (isset($_POST['manga_add'])) {
 
     if (isset($_FILES['resim']) && !empty($_FILES['resim']['name'])) { // Resim yüklenmişse bu kısım çalışır.
 
@@ -90,59 +91,107 @@ if (isset($_POST["category_add"])) {
         }
 
 
-        $category_image_id = $db->lastInsertId(); // Son kaydedilen ID bir değişkene aktarıldı.
+        $son_resim_id = $db->lastInsertId(); // Son kaydedilen ID bir değişkene aktarıldı.
 
     } else { // Resim yüklenmemişse bu kısım çalışır.
-        $category_image_id = "";
+        $son_resim_id = 0;
     }
+    // İçerikeler VT'ye Kaydediliyor.
 
-    // Kategori Bilgileri Veritabanına Kayıt Ediliyor
+    $manga_image_id = $son_resim_id;
+    $manga_name = substr(htmlspecialchars(strip_tags($_POST["manga_name"])), 0, 100);
+    $manga_description = $_POST["manga_description"];
+    $manga_other_name = $_POST["manga_other_name"];
+    $manga_category_id = $_POST["manga_category_id"];
+    $manga_author = $_POST["manga_author"];
+    $manga_artist = $_POST["manga_artist"];
+    $manga_content = $_POST["manga_content"];
+    $manga_year = $_POST["manga_year"];
+    $manga_upload_user_id = $_SESSION['user_id']; // Bu veri sessioon'dan çekildi
+    $manga_type = $_POST["manga_type"];
+    $manga_status = $_POST["manga_status"];
+    $manga_country = $_POST["manga_country"];
+    $manga_fansub = $_POST["manga_fansub"];
+    $manga_fansub_link = $_POST["manga_fansub_link"];
+    $manga_publish_status = "draft";
+    $manga_translate_status = $_POST["manga_translate_status"];
+    $manga_upload_user_ip = $_SERVER["REMOTE_ADDR"]; // IP server değişkeninden çekildi
+    $manga_upload_user_agent = $_SERVER['HTTP_USER_AGENT']; // agent server değişkenindne çekildi
+    $manga_adult_warning = $_POST["manga_adult_warning"];
 
-    $category_title = $_POST["category_title"];
-    $category_description = $_POST["category_description"];
-    $category_color = $_POST["category_color"];
-    $category_status = $_POST["category_status"];
-    $category_image_id = $category_image_id;
 
+    $mangas = $db->prepare("INSERT into mangas set
 
-    $categories = $db->prepare("INSERT into categories set
+    manga_image_id=:manga_image_id,
+    manga_name=:manga_name,
+    manga_description=:manga_description,
+    manga_other_name=:manga_other_name,
+    manga_category_id=:manga_category_id,
+    manga_author=:manga_author,
+    manga_artist=:manga_artist,
+    manga_content=:manga_content,
+    manga_year=:manga_year,
+    manga_upload_user_id=:manga_upload_user_id,
+    manga_type=:manga_type,
+    manga_status=:manga_status,
+    manga_country=:manga_country,
+    manga_fansub=:manga_fansub,
+    manga_fansub_link=:manga_fansub_link,
+    manga_publish_status=:manga_publish_status,
+    manga_translate_status=:manga_translate_status,
+    manga_upload_user_ip=:manga_upload_user_ip,
+    manga_upload_user_agent=:manga_upload_user_agent,
+    manga_adult_warning=:manga_adult_warning
 
-    category_title=:category_title,
-    category_description=:category_description,
-    category_color=:category_color,
-    category_status=:category_status,
-    category_image_id=:category_image_id
 	");
 
-    $insert = $categories->execute(array(
-        'category_title' => $category_title,
-        'category_description' => $category_description,
-        'category_color' => $category_color,
-        'category_status' => $category_status,
-        'category_image_id' => $category_image_id
+
+    $insert = $mangas->execute(array(
+        'manga_image_id' => $manga_image_id,
+        'manga_name' => $manga_name,
+        'manga_description' => $manga_description,
+        'manga_other_name' => $manga_other_name,
+        'manga_category_id' => $manga_category_id,
+        'manga_author' => $manga_author,
+        'manga_artist' => $manga_artist,
+        'manga_content' => $manga_content,
+        'manga_year' => $manga_year,
+        'manga_upload_user_id' => $manga_upload_user_id,
+        'manga_type' => $manga_type,
+        'manga_status' => $manga_status,
+        'manga_country' => $manga_country,
+        'manga_fansub' => $manga_fansub,
+        'manga_fansub_link' => $manga_fansub_link,
+        'manga_publish_status' => $manga_publish_status,
+        'manga_translate_status' => $manga_translate_status,
+        'manga_upload_user_ip' => $manga_upload_user_ip,
+        'manga_upload_user_agent' => $manga_upload_user_agent,
+        'manga_adult_warning' => $manga_adult_warning
+
     ));
 
 
     //Bu kısımda da yüklenmiş yazıya link ayarlanıyor.
 
-    $son_kategori_id = $db->lastInsertId(); // Son kaydedilen ID bir değişkene aktarıldı.
-    $yeni_link = "https://" . $host_adi . "/category/" . $son_kategori_id . "-" . substr(permalink($_POST["category_title"]), 0, 80);
+    $son_post_id = $db->lastInsertId(); // Son kaydedilen ID bir değişkene aktarıldı.
+    $yeni_link = "https://" . $host_adi . "/manga/" . $son_post_id . "-" . substr(permalink($_POST["manga_name"]), 0, 80);
 
-    $categories = $db->prepare("UPDATE categories SET
-    category_link=:category_link
-	WHERE category_id=$son_kategori_id");
+    $mangas = $db->prepare("UPDATE mangas SET
+    manga_link=:manga_link
+	WHERE manga_id=$son_post_id");
 
-    $update = $categories->execute(array(
-        'category_link' => $yeni_link
+    $update = $mangas->execute(array(
+        'manga_link' => $yeni_link
     ));
 
-    if ($insert) {
 
-        header("Location:../category.php?status=ok");
+    if ($insert) {
+        header("Location:../manga.php?status=draft");
         exit;
     } else {
-
-        header("Location:../category.php?status=no");
+        header("Location:../manga.php?manga=manga-add");
         exit;
     }
 }
+
+

@@ -38,7 +38,7 @@
 
             // Post Sayısı bulucu.
             $count = 0;
-            $categoryask = $db->prepare("SELECT * FROM categories");
+            $categoryask = $db->prepare("SELECT * FROM categories WHERE category_status='blog'");
             $categoryask->execute(array());
             while ($categoryfetch = $categoryask->fetch(PDO::FETCH_ASSOC)) {
                 $count++;
@@ -46,7 +46,7 @@
             // Post sayısı kullanılarak sayfa sayısı bulundu
             $page_count = ceil($count / $limit);
 
-            $categoryask = $db->prepare("SELECT * FROM categories ORDER BY category_title ASC LIMIT $start_limit,$limit");
+            $categoryask = $db->prepare("SELECT * FROM categories WHERE category_status='blog' ORDER BY category_title ASC LIMIT $start_limit,$limit");
             $categoryask->execute(array());
             while ($categoryfetch = $categoryask->fetch(PDO::FETCH_ASSOC)) {
 

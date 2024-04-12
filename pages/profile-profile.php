@@ -82,8 +82,26 @@ while ($userfetch = $userask->fetch(PDO::FETCH_ASSOC)) {
                         <td><?php echo $user_time; ?></td>
                     </tr>
 
+                    <?php
+                        if($user_role == "user" || $user_role == "admin"){
+                    ?>
+
+                    <tr>
+                        <td>Üyeliği Sil</td>
+                        <td><a href="./admin/functions/user-delete.php?user_id=<?php echo $user_id; ?>&status=delete" class="btn btn-sm btn-outline-info" onclick="showAlert()">ÜYELİĞİ SİL</a></td>
+                    </tr>
+
+                    <?php }?>
+
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
+
+<script>
+        function showAlert() {
+            alert("Üyelik Kalıcı olarak silinsin mi?");
+        }
+    </script>

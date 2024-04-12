@@ -15,6 +15,10 @@ if (isset($_POST["option_update"])) {
         option_name=:option_name,
         option_description=:option_description,
         option_footer=:option_footer,
+        option_analitics=:option_analitics,
+        option_console=:option_console,
+        option_adsense=:option_adsense,
+        option_index_page=:option_index_page,
         option_can_register=:option_can_register,
         option_admin_mail=:option_admin_mail,
         option_mailserver_url=:option_mailserver_url,
@@ -23,7 +27,8 @@ if (isset($_POST["option_update"])) {
         option_mailserver_port=:option_mailserver_port,
         option_posts_per_page=:option_posts_per_page,
         option_maintenance=:option_maintenance,
-        option_comments_per_page=:option_comments_per_page
+        option_comments_per_page=:option_comments_per_page,
+        option_terms =:option_terms
     
     WHERE option_id=$option_id");
 
@@ -35,6 +40,10 @@ if (isset($_POST["option_update"])) {
         'option_name' => $_POST["option_name"],
         'option_description' => $_POST["option_description"],
         'option_footer' => $_POST["option_footer"],
+        'option_analitics' => $_POST["option_analitics"],
+        'option_console' => $_POST["option_console"],
+        'option_adsense' => $_POST["option_adsense"],
+        'option_index_page' => $_POST["option_index_page"],
         'option_can_register' => $_POST["option_can_register"],
         'option_admin_mail' => $_POST["option_admin_mail"],
         'option_mailserver_url' => $_POST["option_mailserver_url"],
@@ -43,7 +52,8 @@ if (isset($_POST["option_update"])) {
         'option_mailserver_port' => $_POST["option_mailserver_port"],
         'option_posts_per_page' => $_POST["option_posts_per_page"],
         'option_maintenance' => $_POST["option_maintenance"],
-        'option_comments_per_page' => $_POST["option_comments_per_page"]
+        'option_comments_per_page' => $_POST["option_comments_per_page"],
+        'option_terms'=> $_POST["option_terms"]
     ));
 
     if ($update) {

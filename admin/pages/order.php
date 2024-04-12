@@ -21,8 +21,7 @@
             <a href="./order.php?order=top-menu" class="btn btn-sm btn-outline-secondary mt-2 text-white ms-2" style="text-decoration: none;"><i class="bi bi-menu-button-wide-fill me-2"></i>Üst Menü</a>
             <a href="./order.php?order=footer-menu" class="btn btn-sm btn-outline-secondary mt-2 text-white ms-2" style="text-decoration: none;"><i class="bi bi-segmented-nav me-2"></i></i>Alt Menü</a>
             <a href="./order.php?order=sidebar" class="btn btn-sm btn-outline-secondary mt-2 text-white ms-2" style="text-decoration: none;"><i class="bi bi-layout-sidebar-inset-reverse me-2"></i>Kenar Çubuğu</a>
-            <a href="./order.php?order=ads" class="btn btn-sm btn-outline-secondary mt-2 text-white ms-2" style="text-decoration: none;"><i class="bi bi-cash-coin me-1"></i>Reklam</a>
-        </div>
+            <a href="./order.php?order=ads" class="btn btn-sm btn-outline-secondary mt-2 text-white ms-2" style="text-decoration: none;"><i class="bi bi-cash-coin me-1"></i>Reklam</a>        </div>
         <div class="card-body">
             <?php
 

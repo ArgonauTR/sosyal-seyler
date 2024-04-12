@@ -29,6 +29,13 @@
                     </div>
 
                     <div class="mb-3">
+                        <select class="form-select bg-dark text-white" name="category_status">
+                            <option class="text-primary" value="blog">Blog</option>
+                            <option class="text-secondary" value="manga">Manga</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
                         <input class="form-control bg-dark text-white" type="file" name="resim" required>
                     </div>
 
