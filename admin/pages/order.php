@@ -21,7 +21,9 @@
             <a href="./order.php?order=top-menu" class="btn btn-sm btn-outline-secondary mt-2 text-white ms-2" style="text-decoration: none;"><i class="bi bi-menu-button-wide-fill me-2"></i>Üst Menü</a>
             <a href="./order.php?order=footer-menu" class="btn btn-sm btn-outline-secondary mt-2 text-white ms-2" style="text-decoration: none;"><i class="bi bi-segmented-nav me-2"></i></i>Alt Menü</a>
             <a href="./order.php?order=sidebar" class="btn btn-sm btn-outline-secondary mt-2 text-white ms-2" style="text-decoration: none;"><i class="bi bi-layout-sidebar-inset-reverse me-2"></i>Kenar Çubuğu</a>
-            <a href="./order.php?order=ads" class="btn btn-sm btn-outline-secondary mt-2 text-white ms-2" style="text-decoration: none;"><i class="bi bi-cash-coin me-1"></i>Reklam</a>        </div>
+            <a href="./order.php?order=ads" class="btn btn-sm btn-outline-secondary mt-2 text-white ms-2" style="text-decoration: none;"><i class="bi bi-cash-coin me-1"></i>Reklam</a>
+            <a href="./order.php?order=notification" class="btn btn-sm btn-outline-secondary mt-2 text-white ms-2" style="text-decoration: none;"><i class="bi bi-window-stack me-1"></i></i>Açılır Bildirim</a>
+        </div>
         <div class="card-body">
             <?php
 
@@ -40,6 +42,9 @@
                 case "ads":
                     include("order-ads.php");
                     break;
+                    case "notification":
+                        include("order-notification.php");
+                        break;
                 default;
                     include("order-main.php");
             }

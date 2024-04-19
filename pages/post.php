@@ -75,7 +75,7 @@ $PostWiews->execute(array(":post_id" => $_GET["post_id"]));
                                     <i class="bi bi-folder"></i>
                                     <?php echo $category_name; ?>
                                     <i class="bi bi-eye ms-3 me-1"></i>
-                                    <?php echo $post_wievs; ?>
+                                    <?php echo sefnum($post_wievs); ?>
                                 </span>
                             </div>
                         </div>

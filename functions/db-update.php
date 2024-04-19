@@ -47,8 +47,28 @@ if ($index_page->fetchColumn() == 0) {
     $db->exec("ALTER TABLE options ADD option_index_page VARCHAR(100) DEFAULT NULL");
 }
 
+// ---------> 1.6 güncellemesinde ki veritabanı değişiklikleri.
+
 // Şifre sıfırlama olanağı sunuyor
 $pass_reset = $db->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'users' AND COLUMN_NAME = 'user_pass_reset'");
 if ($pass_reset->fetchColumn() == 0) {
     $db->exec("ALTER TABLE users ADD user_pass_reset VARCHAR(100) DEFAULT NULL");
+}
+
+// Varsayılan Yazar Atanmasını sağlıyor
+$add_author = $db->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'options' AND COLUMN_NAME = 'option_default_author'");
+if ($add_author->fetchColumn() == 0) {
+    $db->exec("ALTER TABLE options ADD option_default_author VARCHAR(20) DEFAULT NULL");
+}
+
+// Pop-Up Açık/Kapalı Durumunu Sağlıyor
+$pop_up_add = $db->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'options' AND COLUMN_NAME = 'option_popup_status'");
+if ($pop_up_add->fetchColumn() == 0) {
+    $db->exec("ALTER TABLE options ADD option_popup_status VARCHAR(20) DEFAULT NULL");
+}
+
+// Pop-Up Zamanını ayarlıyor
+$pop_up_time = $db->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'options' AND COLUMN_NAME = 'option_popup_time'");
+if ($pop_up_time->fetchColumn() == 0) {
+    $db->exec("ALTER TABLE options ADD option_popup_time VARCHAR(50) DEFAULT NULL");
 }

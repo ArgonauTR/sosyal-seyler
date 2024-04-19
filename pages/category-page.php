@@ -96,7 +96,7 @@
                             </span>
                             <span>
                                 <i class="bi bi-eye me-1"></i>
-                                <?php echo $postfetch["post_wievs"]; ?>
+                                <?php echo sefnum($postfetch["post_wievs"]); ?>
                             </span>
                         </div>
                     </div>

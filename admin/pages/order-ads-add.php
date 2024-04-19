@@ -18,7 +18,6 @@
 
                     <div class="mb-3">
                         <select class="form-select bg-dark text-white" name="order_ads">
-                            <option value="in-header">Adsene Otomatik</option>
                             <option value="under-header">Header Altı</option>
                             <option value="top-footer">Footer Üstü</option>
                             <option value="top-comments">Yorum Üstü</option>
@@ -26,7 +25,11 @@
                     </div>
 
                     <div class="mb-3">
-                        <textarea class="form-control bg-dark text-white" rows="7" name="order_content" placeholder="Reklam Kodları"></textarea>
+                        <textarea class="form-control bg-dark text-white" rows="7" name="order_content" placeholder="Reklam Kodları">
+                            Örnek Kod: Linki kendi linkiz ile değiştirip kullanın.
+                            
+                            <img src="https://sosyalseyler.com/images/2024/03/1710937744-reklam.gif" style="max-width:100%; max-height:100px;">
+                            </textarea>
                     </div>
 
                     <div class="mb-3 text-center">

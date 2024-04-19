@@ -61,7 +61,7 @@ if(isset($_GET["status"])){
 
         <div class="mb-3">
             <label class="form-label">Profil Resmi</label>
-            <input class="form-control bg-dark text-white border-primary" type="file" value="resim">
+            <input class="form-control bg-dark text-white border-primary" type="file" name="resim">
             <div class="form-text">Yorumlarda ve çeşitli yerlerde görünür</div>
         </div>
 

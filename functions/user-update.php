@@ -2,6 +2,8 @@
 
 // Ana fonskiyon dosyası ekleniyor.
 include("main-function.php");
+include("make-folder.php");
+include("seflink.php");
 
 // -----> Kullanıcı bilgileri güncelleniyor
 if (isset($_POST["user_info_update"])) {
@@ -42,7 +44,7 @@ if (isset($_POST["user_info_update"])) {
         $parcalama = pathinfo($resimAdi, PATHINFO_EXTENSION); // Resmin adını bir değişkene aktardık.
         $SadeceResimAdi = substr(str_replace("." . $parcalama, "", $resimAdi), 0, 50); // Resim adını almak için patlattık.
         $ResimSef = permalink($SadeceResimAdi); // Resmin adını aldık.
-        $yuklame_klasoru = "../../images/"; // Resimlerin yükleneceği dizini bir değişkene aktardık.
+        $yuklame_klasoru = "../images/"; // Resimlerin yükleneceği dizini bir değişkene aktardık.
         $yukleme_yolu = date("Y") . "/" . date("m") . "/"; // Resmin Yükleneceği arşiv yolunu bir değişkene aktardık. (Arşiv klasoryap ile oluşturulmuştu.)
         $klasor = $yuklame_klasoru . $yukleme_yolu; // Resmin tam yükleneceği adresi bir değişkene aktardık.
         $yeni_adi = $klasor . time() . "-" . $ResimSef . "." . $uzantisi; // HTML etiketi için bir bölüm ayarladık.

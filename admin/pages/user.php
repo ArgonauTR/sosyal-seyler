@@ -81,7 +81,13 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="./functions/user-delete.php?user_id=<?php echo $user_id; ?>&status=delete"><i class="bi bi-trash me-1"></i>Sil</a></li>
+                                <?php
+                                if($optionfetch["option_default_author"] == $userfetch["user_id"]){
+                                    echo '<li><a class="dropdown-item" href="#" disabled><i class="bi bi-exclamation-square me-1"></i>Silinemez</a></li>';
+                                }else{
+                                    echo '<li><a class="dropdown-item" href="./functions/user-delete.php?user_id='.$user_id.'&status=delete"><i class="bi bi-trash me-1"></i>Sil</a></li>';
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>

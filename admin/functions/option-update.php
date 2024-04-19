@@ -28,7 +28,11 @@ if (isset($_POST["option_update"])) {
         option_posts_per_page=:option_posts_per_page,
         option_maintenance=:option_maintenance,
         option_comments_per_page=:option_comments_per_page,
-        option_terms =:option_terms
+        option_terms =:option_terms,
+        option_default_author =:option_default_author,
+        option_default_category_id =:option_default_category_id,
+        option_popup_status=:option_popup_status,
+        option_popup_time=:option_popup_time
     
     WHERE option_id=$option_id");
 
@@ -53,7 +57,11 @@ if (isset($_POST["option_update"])) {
         'option_posts_per_page' => $_POST["option_posts_per_page"],
         'option_maintenance' => $_POST["option_maintenance"],
         'option_comments_per_page' => $_POST["option_comments_per_page"],
-        'option_terms'=> $_POST["option_terms"]
+        'option_terms'=> $_POST["option_terms"],
+        'option_default_author'=> $_POST["option_default_author"],
+        'option_default_category_id'=> $_POST["option_default_category_id"],
+        'option_popup_status' =>$_POST["option_popup_status"],
+        'option_popup_time'=>$_POST["option_popup_time"]
     ));
 
     if ($update) {

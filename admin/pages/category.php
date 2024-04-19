@@ -75,7 +75,13 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="./functions/category-delete.php?category_id=<?php echo $categoryfetch["category_id"]; ?>&status=delete"><i class="bi bi-trash me-1"></i>Sil</a></li>
+                            <?php
+                            if($optionfetch["option_default_category_id"] == $categoryfetch["category_id"]){
+                                echo '<li><a class="dropdown-item" href="#"><i class="bi bi-exclamation-square me-1"></i>Silinemez</a></li>';
+                            }else{
+                                echo '<li><a class="dropdown-item" href="./functions/category-delete.php?category_id='.$categoryfetch["category_id"].'&status=delete"><i class="bi bi-trash me-1"></i>Sil</a></li>';
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>

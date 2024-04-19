@@ -82,16 +82,17 @@ while ($userfetch = $userask->fetch(PDO::FETCH_ASSOC)) {
                         <td><?php echo $user_time; ?></td>
                     </tr>
 
-                    <?php
-                        if($user_role == "user" || $user_role == "admin"){
-                    ?>
-
                     <tr>
                         <td>Üyeliği Sil</td>
-                        <td><a href="./admin/functions/user-delete.php?user_id=<?php echo $user_id; ?>&status=delete" class="btn btn-sm btn-outline-info" onclick="showAlert()">ÜYELİĞİ SİL</a></td>
+                        <?php
+                        if ($optionfetch["option_default_author"] == $user_id) {
+                            echo '<td><a href="" class="btn btn-sm btn-outline-info" disabled">Silinemez</a>';
+                        } else {
+                            echo '<td><a href="./admin/functions/user-delete.php?user_id=' . $user_id . '&status=delete" class="btn btn-sm btn-outline-info" onclick="showAlert()">ÜYELİĞİ SİL</a>';
+                        }
+                        ?>
+                        </td>
                     </tr>
-
-                    <?php }?>
 
                 </tbody>
             </table>
@@ -101,7 +102,7 @@ while ($userfetch = $userask->fetch(PDO::FETCH_ASSOC)) {
 
 
 <script>
-        function showAlert() {
-            alert("Üyelik Kalıcı olarak silinsin mi?");
-        }
-    </script>
+    function showAlert() {
+        alert("Üyelik Kalıcı olarak silinsin mi?");
+    }
+</script>

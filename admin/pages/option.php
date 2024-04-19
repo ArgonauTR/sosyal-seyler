@@ -168,7 +168,7 @@
                     </div>
                     <div class="col-lg-9">
                         <label class="col-form-label">
-                            SMTP Sunucu URL'sini giriniz. (GELECEK ÖZELLİK)
+                            SMTP Sunucu URL'sini giriniz.
                         </label>
                     </div>
                 </div>
@@ -179,7 +179,7 @@
                     </div>
                     <div class="col-lg-9">
                         <label class="col-form-label">
-                            SMTP kullanıcı adını giriniz. (GELECEK ÖZELLİK)
+                            SMTP kullanıcı adını giriniz
                         </label>
                     </div>
                 </div>
@@ -190,7 +190,7 @@
                     </div>
                     <div class="col-lg-9">
                         <label class="col-form-label">
-                            SMTP kullanıcı şifresini giriniz. (GELECEK ÖZELLİK)
+                            SMTP kullanıcı şifresini giriniz.
                         </label>
                     </div>
                 </div>
@@ -201,7 +201,7 @@
                     </div>
                     <div class="col-lg-9">
                         <label class="col-form-label">
-                            SMTP portunu giriniz. (GELECEK ÖZELLİK)
+                            SMTP portunu giriniz.
                         </label>
                     </div>
                 </div>
@@ -251,11 +251,91 @@
 
                 <div class="row mb-3">
                     <div class="col-lg-3">
+                        <select class="form-select bg-dark text-white" name="option_default_author">
+                            <?php
+                            $userask = $db->prepare("SELECT * FROM users WHERE user_role = 'admin' || user_role='author' ORDER BY user_name ASC");
+                            $userask->execute(array());
+                            while ($userfetch = $userask->fetch(PDO::FETCH_ASSOC)) {
+                                if($optionfetch["option_default_author"] == $userfetch["user_id"]){
+                                    echo '<option value="'.$userfetch["user_id"].'" selected>'.$userfetch["user_name"].'</option>';
+                                }else{
+                                    echo '<option value="'.$userfetch["user_id"].'">'.$userfetch["user_name"].'</option>';
+                                }
+                            }
+                            ?>
+                                
+                        </select>
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Varsayılan Yazar
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <select class="form-select bg-dark text-white" name="option_default_category_id">
+                            <?php
+                            $categoryask = $db->prepare("SELECT * FROM categories WHERE category_status='blog' ORDER BY category_title ASC ");
+                            $categoryask->execute(array());
+                            while ($categoryfetch = $categoryask->fetch(PDO::FETCH_ASSOC)) {
+                                if($optionfetch["option_default_category_id"] == $categoryfetch["category_id"]){
+                                    echo '<option value="'.$categoryfetch["category_id"].'" selected>'.$categoryfetch["category_title"].'</option>';
+                                }else{
+                                    echo '<option value="'.$categoryfetch["category_id"].'">'.$categoryfetch["category_title"].'</option>';
+                                }
+                            }
+                            ?>
+                                
+                        </select>
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Varsayılan Kategori
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-lg-3">
                         <input type="text" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_terms"]; ?>" name="option_terms" required>
                     </div>
                     <div class="col-lg-9">
                         <label class="col-form-label">
                             Şartlar ve Koşullar Sayfası Linki
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <select class="form-select bg-dark text-white" name="option_popup_status">
+                            <?php
+                            if ($optionfetch["option_popup_status"] == "open") {
+                                echo '<option value="open" selected>Açık</option>';
+                                echo '<option value="closed">Kapalı</option>';
+                            } else {
+                                echo '<option value="open">Açık</option>';
+                                echo '<option value="closed" selected>Kapalı</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Pop-Up Durumu
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <input type="number" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_popup_time"] ?>" name="option_popup_time" required>
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Pop-Up'un kullanıcı başına görünme saat aralığı
                         </label>
                     </div>
                 </div>

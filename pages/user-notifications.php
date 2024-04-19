@@ -39,6 +39,22 @@
             }
         }
 
+        // Şifre sfırılama için hata denetim kodları bunlardır.
+        if (@!empty($_GET["repass-status"])) {
+            $repass_status = htmlspecialchars(strip_tags($_GET["repass-status"]));
+
+            switch ($repass_status) {
+                case "send-error":
+                    echo '<div class="alert alert-danger" role="alert">Mail Gönderilirken bir hata oluştu. Yöneticiye haber veriniz</div>';
+                    break;
+                case "send-ok":
+                    echo '<div class="alert alert-danger" role="alert">E-posta kutunuzu özellikle SPAM KLASÖRÜNÜ kontrol edin.</div>';
+                    break;
+                case "mail-failed":
+                    echo '<div class="alert alert-danger" role="alert">Hatanız var gibi. Mailinizi Kontrol ediniz</div>';
+                    break;
+            }
+        }
         ?>
     </div>
 </div>

@@ -32,7 +32,6 @@
 
                     <div class="mb-3">
                         <select class="form-select bg-dark text-white" name="order_ads">
-                            <option value="in-header">Adsene Otomatik</option>
                             <option value="under-header">Header Altı</option>
                             <option value="top-footer">Footer Üstü</option>
                             <option value="top-comments">Yorum Üstü</option>

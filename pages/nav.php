@@ -142,3 +142,14 @@ while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
     echo '<div class="d-flex justify-content-center">' . $orderfetch["order_content"] . '</div>';
 }
 ?>
+
+<?php
+// Pop Up reklam kodu
+if ($optionfetch["option_popup_status"] == "open") {
+    if (empty($_COOKIE["pop_up_time"])) {
+        include("pop-up.php");
+        $time = time() + ($optionfetch["option_popup_time"] * 60 * 60);
+        setcookie("pop_up_time", "acik", $time);
+    }
+}
+?>

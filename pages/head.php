@@ -5,6 +5,7 @@ date_default_timezone_set('Europe/Istanbul');
 
 // Veritabanı değişikliklerini uygulayan dosyayı çağırıyor.
 include ("./functions/db-update.php");
+include ("./functions/sefnum.php");
 
 
 //Ayar tablosu sorgusu başta çekilerek siteye yayıldı
