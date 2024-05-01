@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>WordPress &#8250; BeniOku</title>
+	<link rel="stylesheet" href="wp-admin/css/install.css?ver=20100228" type="text/css" />
+</head>
+<body>
+<h1 id="logo">
+	<a href="https://wordpress.org/"><img alt="WordPress" src="wp-admin/images/wordpress-logo.png" /></a>
+	<br /> Türkçe Sürüm
+</h1>
+<p style="text-align: center">Kişisel Yayımlama Platformu</p>
+
+<h2>Her Şey Sırayla</h2>
+<p>Hoşgeldiniz. WordPress benim için çok özel bir proje. Tüm geliştiriciler ve destekçiler WordPress'e bir şeyler katıyor, birlikte güzel işler yapıyoruz ve bunun bir parçası olduğum için gurur duyuyorum. WordPress için binlerce saat harcadık, ve onu daha iyi bir hale getirmek için her gün çalışıyoruz. WordPress'i hayatınızın bir parçası olarak gördüğünüz için teşekkürler.</p>
+<p style="text-align: right;">&#8212; Matt Mullenweg</p>
+
+<h2>Birkaç Not</h2>
+<p>Merhaba! Bu satırları okuduğunuza göre bir blog sahibisiniz veya yakında bir blog sahibi olacaksınız. WordPress, blog yazmak için en güzel araçlardan biridir. Blog sistemi olarak WordPress kullanmayı düşünüyorsanız aslında WordPress kurmak, yükseltme yapmak ve kullanmak çok da zor değil. Fakat bazı noktalara dikkat etmek ve gerekli belgeleri okumak gerekiyor. Bunun için bu beni oku sayfası dışında sayfanın ilerleyen bölümlerinde verilen WordPress ile ilgili adresleri takip edin. WordPress'in Türkçeye çevrilmesi için çok çalıştık ve en kaliteli çeviriyi sunmak için birçok deneme yaptık. Lütfen Türkçe pakette hata bulursanız veya başka önerileriniz varsa bizimle paylaşın. Teşekkürler ve iyi bloglamalar! :)</p>
+<p style="text-align: right;">&#8212; WordPress Türkiye Ekibi</p>
+
+<h2>Kurulum: Meşhur 5-dakikalık kurulum</h2>
+<ol>
+	<li>Paketin içeriğini boş bir dizine açın ve her şeyi uzak sunucuya yükleyin.</li>
+	<li>Tarayıcınızda <span class="file"><a href="wp-admin/install.php">wp-admin/install.php</a></span> dosyasını açın. Sizi <code>wp-config.php</code> dosyanızı veritabanı bilgileri ile doldurabileceğiniz bir kurulum sürecine götürecektir.
+		<ol>
+			<li>Bir sebepten bu işlem düzgün çalışmazsa endişe etmeyin. Tüm web sunucularında çalışmayabiliyor. WordPad vb. bir metin düzenleyici ile <code>wp-config-sample.php</code> dosyasını açın ve veritabanı bağlantı bilgilerini girin.</li>
+			<li>Dosyayı <code>wp-config.php</code> ismiyle kaydedin ve uzak sunuyuya yükleyin.</li>
+			<li>Tarayıcınızda <span class="file"><a href="wp-admin/install.php">wp-admin/install.php</a></span> adresini açın.</li>
+		</ol>
+	</li>
+	<li>Yapılandırma dosyasının yapılandırılması tamamlandığında yükleyici siteniz için gerekli tabloları oluşturacaktır. Eğer bir hata alırsanız, <code>wp-config.php</code> dosyanızı bir kere daha kontrol edin ve tekrar deneyin. Yine de problem yaşarsanız, lütfen edinebildiğiniz kadar bilgi ile <a href="https://wordpress.org/support/forums/">WordPress destek forumlarına</a> yönelin.</li>
+	<li><strong>Eğer size bir parola verildiyse, bu parolayı not edin.</strong> Bir kullanıcı adı sağlamazsanız, kullanıcı adı <code>admin</code> olacaktır.</li>
+	<li>Yükleyici sizi <a href="wp-login.php">login page</a> sayfasına yönlendirecektir. Yükleme sırasında seçtiğiniz kullanıcı adı ve parola ile giriş yapın. Eğer parola sizin için oluşturulduysa &#8220;Profil&#8221; bağlantısına tıklayarak parolanızı değiştirebilirsiniz.</li>
+</ol>
+
+<h2>Güncelleme</h2>
+<h3>Otomatik Güncelleyiciyi Kullanma</h3>
+<ol>
+	<li>Tarayıcınızda <span class="file"><a href="wp-admin/update-core.php">wp-admin/update-core.php</a></span> sayfasını açın ve yönergeleri takip edin.</li>
+	<li>Belki de daha fazlasını mı bekliyordunuz? Hepsi bu kadar!</li>
+</ol>
+
+<h3>El ile Güncelleme</h3>
+<ol>
+	<li>Herhangi bir şeyi güncellemeden önce değiştirmiş olabileceğiniz dosyaların yedeğini alın, örneğin <code>index.php</code>.</li>
+	<li>Değiştirdiğiniz dosyaları saklayarak, eski WordPress dosyalarınızı silin.</li>
+	<li>Yeni dosyaları yükleyin.</li>
+	<li>Tarayıcınızda <span class="file"><a href="wp-admin/upgrade.php">/wp-admin/upgrade.php</a> sayfasını açın.</span></li>
+</ol>
+
+<h2>Diğer Sistemlerden Göç</h2>
+<p>WordPress <a href="https://wordpress.org/support/article/importing-content/">bir çok sistemden içe aktarım yapabilir</a>. <a href="wp-admin/import.php">İçeri aktarım araçlarımızı</a> kullanabilmek için öncelikle yukarda anlatıldığı üzere WordPress kurulumunu bitirmelisiniz. .</p>
+
+<h2>Sistem Gereksinimmleri</h2>
+<ul>
+	<li><a href="https://secure.php.net/">PHP</a> sürüm <strong>5.6.20</strong> ya da daha üst sürüm.</li>
+	<li><a href="https://www.mysql.com/">MySQL</a> sürüm <strong>5.0</strong> ya da daha üst sürüm.</li>
+</ul>
+
+<h3>Önerilenler</h3>
+<ul>
+	<li><a href="https://secure.php.net/">PHP</a> sürüm <strong>7.4</strong> ya da daha üst sürüm.</li>
+	<li><a href="https://www.mysql.com/">MySQL</a> sürüm <strong>5.6</strong> ya da daha üst sürüm.</li>
+	<li><a href="https://httpd.apache.org/docs/2.2/mod/mod_rewrite.html">mod_rewrite</a> Apache modülü.</li>
+	<li><a href="https://wordpress.org/news/2016/12/moving-toward-ssl/">HTTPS</a> desteği.</li>
+	<li>Sitenizde bir <a href="https://wordpress.org/">wordpress.org</a> bağlantısı.</li>
+</ul>
+
+<h2>Çevrimiçi Kaynaklar</h2>
+<p>Bu beni oku belgesinde her sorunuzun cevabını bulamazsınız. WordPress hakkında daha detaylı bilgi almak ve sorunlarınıza çözüm bulmak için birçok alternatifiniz var:</p>
+<dl>
+	<dt><a href="https://wordpress.org/documentation/">HelpHub</a></dt>
+		<dd>WordPress hakkındaki en geniş kapsamlı belgeler. İngilizce biliyorsanız Codex'ten çok şey öğrenebilirsiniz.</dd>
+	<dt><a href="https://wordpress.org/news">WordPress Blog</a></dt>
+		<dd>WordPress hakkında en güncel bilgilerin olduğu blog sitesi. Burada yayınlanan içerikler yönetim ekranlarınıza da düşmektedir.</dd>
+	<dt><a href="https://wordpress.org/support/">WordPress Destek Forumları (İngilizce)</a></dt>
+		<dd>Bir sorunla karşılaştığınızda wordpress.org'un destek forumlarına bakabilirsiniz. </dd>
+	<dt><a href="https://www.wp-tr.org/">WordPress Türkiye</a></dt>
+		<dd>WordPress'in Türkiye sitesi. Türk WordPress kullanıcılarını bir araya getiren bir platform, WordPress hakkında son haberler, WordPress için Türkçe paket, Türkçe belgeler ve forum. </dd>
+	<dt><a href="http://www.wp-tr.org/forum">WordPress Türkiye Forumları</a></dt>
+		<dd>Yardıma ihtiyaç duyduğunuzda WordPress Türkiye Forumlarında araştırma yapabilirsiniz. Aynı sorunla daha önce karşılaşmış olan varsa çözümü öğrenebilir, yoksa yeni bir başlık açıp soru sorabilir, ve eğer WordPress'i biraz biliyorsanız başka kullanıcılara yardımcı olabilirsiniz. </dd>
+	<dt><a href="http://www.wp-tr.org/belgeler">WordPress Türkçe Belgeler</a></dt>
+		<dd>WordPress için hazırlanmış Türkçe belgeler. Belgeleri okuyabilir, yeni belgeler hazırlayıp veya WordPress Codex'teki makalelerden çeviri yapıp ekleyebilirsiniz. </dd>
+	<dt><a href="https://make.wordpress.org/support/handbook/appendix/other-support-locations/introduction-to-irc/">WordPress <abbr>IRC</abbr> (Internet Relay Chat) Kanalı</a></dt>
+		<dd>WordPress kullanıcılarının tartıştıkları bir sohbet kanalı. Üstteki sayfadan daha fazla bilgi alabilirsiniz. (<a href="irc://irc.freenode.net/wordpress">irc.freenode.net #wordpress</a>) </dd>
+</dl>
+
+<h2>Son Notlar</h2>
+<ul>
+	<li>Öneri, görüş, yorum ve hata bildirimlerinizi <a href="https://wordpress.org/support/">destek forumlarında</a> paylaşabilirsiniz. Türkçe destek ve WordPress Türkiye hakkındaki tüm görüşleriniz için <a href="http://www.wp-tr.org/forum">WordPress Türkiye Forumlarına</a> bakabilirsiniz</li>
+	<li>WordPress artık kodların geliştirilmesini kolaylaştıran sağlam API eklenti desteğine sahip. Eğer bir geliştiriciyseniz ve bu konuyla ilgiliyseniz <a href="https://codex.wordpress.org/Plugin_API">Codex'teki eklenti belgelerine bakın</a>. Normal şartlarda çekirdek kodları değiştirmemelisiniz.</li>
+
+	<li>If you have any suggestions, ideas, or comments, or if you (gasp!) found a bug, join us in the <a href="https://wordpress.org/support/forums/">Support Forums</a>.</li>
+	<li>WordPress has a robust plugin <abbr>API</abbr> (Application Programming Interface) that makes extending the code easy. If you are a developer interested in utilizing this, see the <a href="https://developer.wordpress.org/plugins/">Plugin Developer Handbook</a>. You shouldn&#8217;t modify any of the core code.</li>
+</ul>
+
+<h2>Sevgiyi Paylaşın</h2>
+<p>WordPress'in milyarlarca dolarlık reklam kampanyaları veya büyük çaplı sponsorları yok. Fakat bizim için destekleri çok daha anlamlı olan birileri var &#8212; Kullanıcılarımız! WordPress'i seviyorsanız onu arkadaşlarınıza anlatabilir, WordPress hakkında yardıma ihtiyacı olanlara yardım edebilir, veya yazarlara/blog yazarlarına bizi anlatabilirsiniz.</p>
+
+<p>WordPress, Michel V tarafından geliştirilmiş olan <a href="https://cafelog.com/">b2/caf&eacute;log</a>'un resmi devamı niteliğindedir. Bu çalışma <a href="https://wordpress.org/about/">WordPress geliştiricileri</a> tarafından devam ettirilmiştir. WordPress'e destek olmayı düşünüyorsanız, lütfen <a href="https://wordpress.org/donate/">bağış yapın</a>.</p>
+
+<h2>Lisans</h2>
+<p>WordPress ücretsiz bir yazılımdır ve <abbr>GPL</abbr> (GNU General Public License) lisansı sürüm 2 (ya da tercihinize göre daha üst sürüm de olabilir) ile dağıtılmaktadır. Ayrıntılar için: <a href="license.txt">license.txt</a>.</p>
+
+</body>
+</html>

@@ -4,9 +4,10 @@ $ads_where = "top-footer";
 $orderask = $db->prepare("SELECT * FROM orders WHERE order_status='ads' && order_ads='$ads_where'  ORDER BY order_row DESC");
 $orderask->execute(array());
 while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
-    echo '<div class="d-flex justify-content-center">' . $orderfetch["order_content"] . '</div>';
+    echo '<div class="d-flex justify-content-center m-3">' . $orderfetch["order_content"] . '</div>';
 }
 ?>
+
 <div class="border-bottom mt-2 position-relative"> </div>
 <footer class="text-center mt-4">
     <ul class="list-inline">

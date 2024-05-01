@@ -38,8 +38,6 @@ while ($mangafetch = $mangaask->fetch(PDO::FETCH_ASSOC)) {
     $manga_year = $mangafetch["manga_year"];
     $manga_description = $mangafetch["manga_description"];
     $manga_country = $mangafetch["manga_country"];
-    $manga_fansub = $mangafetch["manga_fansub"];
-    $manga_fansub_link = $mangafetch["manga_fansub_link"];
     $manga_publish_status = $mangafetch["manga_publish_status"];
     $manga_translate_status = $mangafetch["manga_translate_status"];
     $manga_adult_warning = $mangafetch["manga_adult_warning"];
@@ -89,14 +87,6 @@ while ($mangafetch = $mangaask->fetch(PDO::FETCH_ASSOC)) {
 
                     <div class="mb-3">
                         <input type="text" class="form-control bg-dark text-white" name="manga_country" value="<?php echo $manga_country ?>" placeholder="Menşei Ülke Giriniz">
-                    </div>
-
-                    <div class="mb-3">
-                        <input type="text" class="form-control bg-dark text-white" name="manga_fansub" value="<?php echo $manga_fansub ?>" placeholder="Fansub Giriniz">
-                    </div>
-
-                    <div class="mb-3">
-                        <input type="text" class="form-control bg-dark text-white" name="manga_fansub_link" value="<?php echo $manga_fansub_link ?>" placeholder="Fansub Linkini Giriniz">
                     </div>
 
                     <div class="mb-3">

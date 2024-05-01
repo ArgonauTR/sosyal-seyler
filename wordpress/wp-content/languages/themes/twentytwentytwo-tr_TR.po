@@ -1,0 +1,944 @@
+# Translation of Themes - Twenty Twenty-Two in Turkish
+# This file is distributed under the same license as the Themes - Twenty Twenty-Two package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-08-08 22:45:42+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: tr\n"
+"Project-Id-Version: Themes - Twenty Twenty-Two\n"
+
+#. Description of the theme
+#: style.css
+#, gp-priority: high
+msgid "Built on a solidly designed foundation, Twenty Twenty-Two embraces the idea that everyone deserves a truly unique website. The theme’s subtle styles are inspired by the diversity and versatility of birds: its typography is lightweight yet strong, its color palette is drawn from nature, and its layout elements sit gently on the page. The true richness of Twenty Twenty-Two lies in its opportunity for customization. The theme is built to take advantage of the Site Editor features introduced in WordPress 5.9, which means that colors, typography, and the layout of every single page on your site can be customized to suit your vision. It also includes dozens of block patterns, opening the door to a wide range of professionally designed layouts in just a few clicks. Whether you’re building a single-page website, a blog, a business website, or a portfolio, Twenty Twenty-Two will help you create a site that is uniquely yours."
+msgstr "Sağlam tasarımlı bir temel üzerine inşa edilen Yirmi Yirmi-İki, herkesin gerçekten benzersiz bir web sitesini hak ettiği fikrini benimsiyor. Temanın ince stilleri kuşların çeşitliliğinden ve çok yönlülüğünden ilham alıyor: tipografisi hafif ama güçlü, renk paleti doğadan alınmış ve düzen öğeleri sayfada nazikçe oturuyor. Yirmi Yirmi-İki’nin gerçek zenginliği özelleştirme fırsatında yatıyor. Tema, WordPress 5.9'da tanıtılan Site Düzenleyici özelliklerinden yararlanacak şekilde oluşturulmuştur; bu da renklerin, tipografinin ve sitenizdeki her bir sayfa düzeninin vizyonunuza uyacak şekilde özelleştirilebileceği anlamına gelir. Ayrıca düzinelerce blok deseni içerir ve sadece birkaç tıklamayla çok çeşitli profesyonelce tasarlanmış düzenlere kapı açar. İster tek sayfalık bir web sitesi, ister bir blog, bir işletme web sitesi veya bir portföy oluşturuyor olun, Yirmi Yirmi-İki benzersiz bir şekilde size ait bir site oluşturmanıza yardımcı olacaktır."
+
+#. Theme Name of the theme
+#: style.css
+#, gp-priority: high
+msgid "Twenty Twenty-Two"
+msgstr "Yirmi Yirmi İki"
+
+#: styles/swiss.json
+msgctxt "Duotone name"
+msgid "Default filter"
+msgstr "Varsayılan filtre"
+
+#: styles/swiss.json
+msgctxt "Font family name"
+msgid "Inter"
+msgstr "Inter"
+
+#: styles/swiss.json
+msgctxt "Style variation name"
+msgid "Swiss"
+msgstr "Swiss"
+
+#: styles/pink.json
+msgctxt "Font family name"
+msgid "IBM Plex Mono"
+msgstr "IBM Plex Mono"
+
+#: styles/pink.json
+msgctxt "Font family name"
+msgid "IBM Plex Sans"
+msgstr "IBM Plex Sans"
+
+#: styles/pink.json
+msgctxt "Style variation name"
+msgid "Pink"
+msgstr "Pembe"
+
+#: styles/blue.json
+msgctxt "Font family name"
+msgid "DM Sans"
+msgstr "DM Sans"
+
+#: styles/blue.json
+msgctxt "Style variation name"
+msgid "Blue"
+msgstr "Mavi"
+
+#: inc/patterns/hidden-404.php:14
+msgid "Search"
+msgstr "Arama"
+
+#: inc/patterns/hidden-404.php:14
+msgctxt "label"
+msgid "Search"
+msgstr "Arama"
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer"
+msgstr "Alt kısım"
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header (Dark, small)"
+msgstr "Üst kısım (koyu, küçük)"
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header (Dark, large)"
+msgstr "Üst kısım (koyu, büyük)"
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header"
+msgstr "Üst kısım"
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Page (No Separators)"
+msgstr "Sayfa (Ayırıcı yok)"
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Single Post (No Separators)"
+msgstr "Tekil yazı (Ayırıcı yok)"
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Page (Large Header)"
+msgstr "Sayfa (Büyük üst kısım)"
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Blank"
+msgstr "Boş"
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Primary and tertiary"
+msgstr "Birincil ve üçüncül"
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Primary and secondary"
+msgstr "Birincil ve ikincil"
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Primary and background"
+msgstr "Birincil ve arka plan"
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Foreground and tertiary"
+msgstr "Ön plan ve üçüncül"
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Foreground and secondary"
+msgstr "Ön plan ve ikincil"
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Foreground and background"
+msgstr "Ön plan ve arka plan"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Diagonal background to tertiary"
+msgstr "Üçüncül çapraz arka plan"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Diagonal tertiary to background"
+msgstr "Çapraz üçüncülden arka plana"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Diagonal background to secondary"
+msgstr "Çapraz arka plandan ikincile"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Diagonal secondary to background"
+msgstr "Arka plana ikincil çapraz"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Diagonal primary to foreground"
+msgstr "Çapraz birincil ön plana"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical tertiary to background"
+msgstr "Dikey üçüncülden arka plana"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical secondary to background"
+msgstr "Dikey ikincil arka plana"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical secondary to tertiary"
+msgstr "Dikey ikincilden üçüncül"
+
+#: styles/blue.json styles/pink.json styles/swiss.json theme.json
+msgctxt "Color name"
+msgid "Tertiary"
+msgstr "Üçüncül"
+
+#: styles/blue.json styles/pink.json styles/swiss.json theme.json
+msgctxt "Color name"
+msgid "Secondary"
+msgstr "İkincil"
+
+#: styles/blue.json styles/pink.json styles/swiss.json theme.json
+msgctxt "Color name"
+msgid "Primary"
+msgstr "Birincil"
+
+#: styles/blue.json styles/pink.json styles/swiss.json theme.json
+msgctxt "Color name"
+msgid "Background"
+msgstr "Arkaplan"
+
+#: styles/blue.json styles/pink.json styles/swiss.json theme.json
+msgctxt "Color name"
+msgid "Foreground"
+msgstr "Önplan"
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Source Serif Pro"
+msgstr "Source Serif Pro"
+
+#: theme.json
+msgctxt "Font family name"
+msgid "System Font"
+msgstr "Sistem yazı tipi"
+
+#: inc/patterns/query-text-grid.php:6
+msgid "Text-based grid of posts"
+msgstr "Metin tabanlı yazılar ızgarası"
+
+#: inc/patterns/query-simple-blog.php:6
+msgid "Simple blog posts"
+msgstr "Basit blog yazıları"
+
+#: inc/patterns/query-large-titles.php:6
+msgid "Large post titles"
+msgstr "Büyük yazı başlıkları"
+
+#: inc/patterns/query-irregular-grid.php:6
+msgid "Irregular grid of posts"
+msgstr "Düzensiz yazılar ızgarası"
+
+#: inc/patterns/query-image-grid.php:6
+msgid "Grid of image posts"
+msgstr "Görselli yazılar ızgarası"
+
+#: inc/patterns/query-grid.php:6
+msgid "Grid of posts"
+msgstr "Yazı ızgarası"
+
+#: inc/patterns/query-default.php:6
+msgid "Default posts"
+msgstr "Varsayılan yazılar"
+
+#: inc/patterns/page-sidebar-poster.php:56
+msgid "The Grand Theater<br>154 Eastern Avenue<br>Maryland NY, 12345"
+msgstr "Büyük Tiyatro<br>154 Doğu Bulvarı<br>İstanbul, 12345"
+
+#: inc/patterns/page-sidebar-poster.php:52
+msgid "Location"
+msgstr "Konum"
+
+#: inc/patterns/page-sidebar-poster.php:44
+msgid "February, 12 2021"
+msgstr "21 Şubat 2021"
+
+#: inc/patterns/page-sidebar-poster.php:40
+msgid "Date"
+msgstr "Tarih"
+
+#: inc/patterns/page-sidebar-poster.php:14
+msgid "<em>Flutter</em>, a collection of bird-related ephemera"
+msgstr "<em>Flutter</em>, kuşlarla ilintili efemera koleksiyonu"
+
+#: inc/patterns/page-sidebar-poster.php:6
+msgid "Poster with right sidebar"
+msgstr "Sağ kenar çubuğuna sahip poster"
+
+#: inc/patterns/page-sidebar-grid-posts.php:6
+msgid "Grid of posts with left sidebar"
+msgstr "Sol kenar çubuğuna sahip yazı ızgarası"
+
+#: inc/patterns/page-sidebar-blog-posts.php:6
+msgid "Blog posts with left sidebar"
+msgstr "Sol kenar çubuğuyla blog yazıları"
+
+#: inc/patterns/page-sidebar-blog-posts-right.php:80
+msgid "Tags"
+msgstr "Etiketler"
+
+#: inc/patterns/page-sidebar-blog-posts-right.php:6
+msgid "Blog posts with right sidebar"
+msgstr "Sağ kenar çubuğuyla blog yazıları"
+
+#: inc/patterns/page-layout-two-columns.php:58
+msgid "POSTS"
+msgstr "YAZILAR"
+
+#: inc/patterns/page-layout-two-columns.php:21
+msgid "WELCOME"
+msgstr "HOŞGELDİNİZ"
+
+#: inc/patterns/page-layout-two-columns.php:10
+msgid "<em>Goldfinch </em><br><em>&amp; Sparrow</em>"
+msgstr "<em>Saka </em><br><em>&amp; Serçe</em>"
+
+#: inc/patterns/page-layout-two-columns.php:6
+msgid "Page layout with two columns"
+msgstr "İki sütunlu sayfa düzeni"
+
+#: inc/patterns/page-layout-image-text-and-video.php:53
+msgid "Oh hello. My name’s Angelo, and you’ve found your way to my blog. I write about a range of topics, but lately I’ve been sharing my hopes for next year."
+msgstr "Merhaba. Benim adım Angelo ve siz de bloguma geldiniz. Çeşitli konular hakkında yazıyorum, ancak son zamanlarda gelecek yıl için umutlarımı paylaşıyorum."
+
+#: inc/patterns/page-layout-image-text-and-video.php:42
+msgid "An illustration of a bird in flight"
+msgstr "Uçuş halinde bir kuşun illüstrasyonu"
+
+#: inc/patterns/page-layout-image-text-and-video.php:21
+msgid "Screening"
+msgstr "Gösterim"
+
+#: inc/patterns/page-layout-image-text-and-video.php:6
+msgid "Page layout with image, text and video"
+msgstr "Görsel, metin ve video içeren sayfa düzeni"
+
+#: inc/patterns/page-layout-image-and-text.php:27
+#: inc/patterns/page-layout-two-columns.php:36
+msgid "Oh hello. My name’s Angelo, and I operate this blog. I was born in Portland, but I currently live in upstate New York. You may recognize me from publications with names like <a href=\"#\">Eagle Beagle</a> and <a href=\"#\">Mourning Dive</a>. I write for a living.<br><br>I usually use this blog to catalog extensive lists of birds and other things that I find interesting. If you find an error with one of my lists, please keep it to yourself.<br><br>If that’s not your cup of tea, <a href=\"#\">I definitely recommend this tea</a>. It’s my favorite."
+msgstr "Merhaba. Benim adım Angelo ve bu blogu ben yönetiyorum. Portland'da doğdum ama şu anda New York'un kuzeyinde yaşıyorum. Beni <a href=\"#\">Eagle Beagle</a> ve <a href=\"#\">Mourning Dive</a> gibi yayınlardan tanıyabilirsiniz. Yaşamak için yazıyorum.<br><br>Bu blogu genellikle kuşların ve ilginç bulduğum diğer şeylerin kapsamlı listelerini kataloglamak için kullanıyorum. Eğer listelerimden birinde bir hata bulursanız, lütfen bunu kendinize saklayın.<br><br>Eğer bu sizin çayınız değilse, bu <a href=\"#\">çayı kesinlikle tavsiye</a> ederim. Benim favorim."
+
+#: inc/patterns/page-layout-image-and-text.php:15
+msgctxt "Short for to be determined"
+msgid "TBD"
+msgstr "KV"
+
+#: inc/patterns/page-layout-image-and-text.php:10
+msgid "<em>Watching Birds </em><br><em>in the Garden</em>"
+msgstr "<em>Bahçede </em><br><em>kuşları izlemek</em>"
+
+#: inc/patterns/page-layout-image-and-text.php:6
+msgid "Page layout with image and text"
+msgstr "Görsel ve metin içeren sayfa düzeni"
+
+#: inc/patterns/page-about-solid-color.php:22
+msgid "Oh hello. My name’s Edvard, and you’ve found your way to my website. I’m an avid bird watcher, and I also broadcast my own radio show every Tuesday evening at 11PM EDT. Listen in sometime!"
+msgstr "Merhaba. Benim adım Edvard ve siz de web siteme geldiniz. Ben hevesli bir kuş gözlemcisiyim ve aynı zamanda her Salı akşamı saat 11'de EDT'de kendi radyo programımı yayınlıyorum. Bir ara dinleyin!"
+
+#: inc/patterns/page-about-solid-color.php:14
+msgid "Edvard<br>Smith"
+msgstr "Edvard<br>Smith"
+
+#: inc/patterns/page-about-solid-color.php:6
+msgid "About page on solid color background"
+msgstr "Düz renkli arka plana sahip hakkında sayfası"
+
+#: inc/patterns/page-about-simple-dark.php:22
+msgid "Oh hello. My name’s Jesús, and you’ve found your way to my website. I’m an avid bird watcher, and I also broadcast my own radio show on Tuesday evenings at 11PM EDT."
+msgstr "Merhaba. Adım Jesús ve web siteme ulaştınız. Ben hevesli bir kuş gözlemcisiyim ve aynı zamanda Salı akşamları 11PM EDT'de kendi radyo programımı yayınlıyorum."
+
+#: inc/patterns/page-about-simple-dark.php:18
+msgid "Jesús<br>Rodriguez"
+msgstr "Jesús<br>Rodriguez"
+
+#: inc/patterns/page-about-simple-dark.php:6
+msgid "Simple dark about page"
+msgstr "Basit koyu hakkında sayfası"
+
+#: inc/patterns/page-about-media-right.php:20
+msgid "Oh hello. My name’s Emery, and you’ve found your way to my website. I’m an avid bird watcher, and I also broadcast my own radio show on Tuesday evenings at 11PM EDT."
+msgstr "Merhaba. Benim adım Emery ve siz de web siteme geldiniz. Ben hevesli bir kuş gözlemcisiyim ve aynı zamanda Salı akşamları 11PM EDT'de kendi radyo programımı yayınlıyorum."
+
+#: inc/patterns/page-about-media-right.php:16
+msgid "Emery<br>Driscoll"
+msgstr "Emery<br>Driscoll"
+
+#: inc/patterns/page-about-media-right.php:9
+msgid "An image of a bird flying"
+msgstr "Uçan bir kuş görseli"
+
+#: inc/patterns/page-about-media-right.php:6
+msgid "About page with media on the right"
+msgstr "Sağda ortam dosyası bulunan hakkında sayfası"
+
+#: inc/patterns/page-about-media-left.php:21
+msgid "Oh hello. My name’s Doug, and you’ve found your way to my website. I’m an avid bird watcher, and I also broadcast my own radio show on Tuesday evenings at 11PM EDT."
+msgstr "Merhaba. Benim adım Doug ve siz de web siteme geldiniz. Ben hevesli bir kuş gözlemcisiyim ve aynı zamanda Salı akşamları 11PM EDT'de kendi radyo programımı yayınlıyorum."
+
+#: inc/patterns/page-about-media-left.php:17
+msgid "Stilton"
+msgstr "Stilton"
+
+#: inc/patterns/page-about-media-left.php:17
+msgid "Doug"
+msgstr "Doug"
+
+#: inc/patterns/page-about-media-left.php:9
+#: inc/patterns/page-sidebar-poster.php:26
+msgid "Image of a bird on a branch"
+msgstr "Dalda bir kuş görseli"
+
+#: inc/patterns/page-about-media-left.php:6
+msgid "About page with media on the left"
+msgstr "Solda ortam dosyası bulunan hakkında sayfası"
+
+#: inc/patterns/page-about-links.php:21
+msgid "A podcast about birds"
+msgstr "Kuşlar hakkında bir podcast"
+
+#: inc/patterns/page-about-links.php:17
+msgid "Swoop"
+msgstr "Swoop"
+
+#: inc/patterns/page-about-links.php:6
+msgid "About page links"
+msgstr "Sayfa bağlantıları hakkında"
+
+#: inc/patterns/page-about-links-dark.php:42
+#: inc/patterns/page-about-links.php:46
+msgid "About the hosts"
+msgstr "Yayıncılar hakkında"
+
+#: inc/patterns/page-about-links-dark.php:38
+#: inc/patterns/page-about-links.php:42
+msgid "Support the show"
+msgstr "Gösteriyi destekleyin"
+
+#: inc/patterns/page-about-links-dark.php:34
+#: inc/patterns/page-about-links.php:38
+msgid "Listen on Spotify"
+msgstr "Spotify ile dinleyin"
+
+#: inc/patterns/page-about-links-dark.php:30
+#: inc/patterns/page-about-links.php:34
+msgid "Listen on iTunes Podcasts"
+msgstr "iTunes Podcast'lerinde dinleyn"
+
+#: inc/patterns/page-about-links-dark.php:26
+#: inc/patterns/page-about-links.php:30
+msgid "Watch our videos"
+msgstr "Videolarımızı izleyin"
+
+#: inc/patterns/page-about-links-dark.php:17
+msgid "A trouble of hummingbirds"
+msgstr "Sinek kuşlarının sorunu"
+
+#: inc/patterns/page-about-links-dark.php:13
+#: inc/patterns/page-about-links.php:10
+msgid "Logo featuring a flying bird"
+msgstr "Uçan bir kuş içeren logo"
+
+#: inc/patterns/page-about-links-dark.php:6
+msgid "About page links (dark)"
+msgstr "Hakkında sayfası bağlantıları (koyu)"
+
+#: inc/patterns/page-about-large-image-and-buttons.php:6
+msgid "About page with large image and buttons"
+msgstr "Büyük görsel ve düğmeler ile hakkında sayfası"
+
+#: inc/patterns/page-about-large-image-and-buttons.php:59
+msgid "Join my mailing list"
+msgstr "Posta listeme katılın"
+
+#: inc/patterns/page-about-large-image-and-buttons.php:51
+msgid "Learn about my process"
+msgstr "Sürecim hakkında bilgi edinin"
+
+#: inc/patterns/page-about-large-image-and-buttons.php:43
+msgid "Read about me"
+msgstr "Hakkımda bilgi edinin"
+
+#: inc/patterns/page-about-large-image-and-buttons.php:33
+msgid "Take a class"
+msgstr "Bir ders alın"
+
+#: inc/patterns/page-about-large-image-and-buttons.php:25
+msgid "Support my studio"
+msgstr "Stüdyomu destekleyin"
+
+#: inc/patterns/page-about-large-image-and-buttons.php:17
+msgid "Purchase my work"
+msgstr "Çalışmamı satın alın"
+
+#: inc/patterns/hidden-bird.php:9 inc/patterns/hidden-heading-and-bird.php:10
+msgid "Heading and bird image"
+msgstr "Başlık ve kuş görüntüsü"
+
+#: inc/patterns/hidden-404.php:12
+msgid "This page could not be found. Maybe try a search?"
+msgstr "Bu sayfa bulunamadı. Belki arama yapmayı deneyebilirsiniz?"
+
+#: inc/patterns/hidden-404.php:9
+msgctxt "Error code for a webpage that is not found."
+msgid "404"
+msgstr "404"
+
+#: inc/patterns/hidden-404.php:6
+msgid "404 content"
+msgstr "404 içeriği"
+
+#: inc/patterns/header-with-tagline.php:6
+msgid "Header with tagline"
+msgstr "Slogana sahip üst kısım"
+
+#: inc/patterns/header-title-navigation-social.php:6
+msgid "Title, navigation, and social links header"
+msgstr "Başlık, gezinti ve sosyal bağlantılar ile üst kısım"
+
+#: inc/patterns/header-title-and-button.php:6
+msgid "Title and button header"
+msgstr "Başlık ve düğme ile üst kısım"
+
+#: inc/patterns/header-text-only-with-tagline-black-background.php:6
+msgid "Text-only header with tagline and background"
+msgstr "Slogan ve arka plana sahip salt metin üst kısım"
+
+#: inc/patterns/header-text-only-green-background.php:6
+#: inc/patterns/header-text-only-salmon-background.php:6
+msgid "Text-only header with background"
+msgstr "Arka plana sahip salt metin üst kısım"
+
+#: inc/patterns/header-stacked.php:6
+msgid "Logo and navigation header"
+msgstr "Logo ve gezinti başlığı"
+
+#: inc/patterns/header-small-dark.php:6
+msgid "Small header with dark background"
+msgstr "Koyu arka plana sahip küçük üst kısım"
+
+#: inc/patterns/header-logo-navigation-social-black-background.php:6
+msgid "Logo, navigation, and social links header with background"
+msgstr "Logo, dolaşım ve arka plan ile sosyal bağlantılar başlığı"
+
+#: inc/patterns/header-logo-navigation-offset-tagline.php:6
+msgid "Logo, navigation, and offset tagline Header"
+msgstr "Logo, dolaşım ve slogan ile üst kısım"
+
+#: inc/patterns/header-logo-navigation-gray-background.php:6
+msgid "Logo and navigation header with background"
+msgstr "Logo ve arka plana sahip dolaşım üst kısmı"
+
+#: inc/patterns/header-large-dark.php:24
+#: inc/patterns/hidden-heading-and-bird.php:14
+msgid "<em>The Hatchery</em>: a blog about my adventures in bird watching"
+msgstr "<em>Kuluçkahane</em>: kuş gözlemciliği maceralarım hakkında bir blog"
+
+#: inc/patterns/header-large-dark.php:6
+msgid "Large header with dark background"
+msgstr "Koyu arkaplan ile büyük üst kısım"
+
+#: inc/patterns/header-image-background.php:11
+msgid "Illustration of a flying bird"
+msgstr "Uçan bir kuş illüstrasyonu"
+
+#: inc/patterns/header-image-background.php:6
+msgid "Header with image background"
+msgstr "Arka plan görselli üst kısım"
+
+#: inc/patterns/header-image-background-overlay.php:6
+msgid "Header with image background and overlay"
+msgstr "Arka plan görselli üst kısım ve kaplama"
+
+#: inc/patterns/header-default.php:6
+msgid "Default header"
+msgstr "Varsayılan üst kısım"
+
+#: inc/patterns/header-centered-title-navigation-social.php:6
+msgid "Centered header with navigation, social links, and background"
+msgstr "Dolaşım, sosyal bağlantılar ve arka plan ile ortalanmış üst kısım"
+
+#: inc/patterns/header-centered-logo.php:6
+msgid "Header with centered logo"
+msgstr "Ortalanmış logo ile üst kısım"
+
+#: inc/patterns/header-centered-logo-black-background.php:6
+msgid "Header with centered logo and background"
+msgstr "Ortalanmış logo ve arka plan ile üst kısım"
+
+#: inc/patterns/general-wide-image-intro-buttons.php:31
+msgid "Learn More"
+msgstr "Daha fazlasını öğren"
+
+#: inc/patterns/general-wide-image-intro-buttons.php:16
+msgid "Welcome to<br>the Aviary"
+msgstr "Aviary’ye<br>Hoş geldiniz"
+
+#: inc/patterns/general-wide-image-intro-buttons.php:6
+msgid "Wide image with introduction and buttons"
+msgstr "Geniş görsel ile girizgah ve düğmeler"
+
+#: inc/patterns/general-video-trailer.php:16
+#: inc/patterns/general-wide-image-intro-buttons.php:22
+msgid "A film about hobbyist bird watchers, a catalog of different birds, paired with the noises they make. Each bird is listed by their scientific name so things seem more official."
+msgstr "Hobi amaçlı kuş gözlemcileri hakkında bir film, farklı kuşların çıkardıkları seslerle eşleştirildiği bir katalog. Her kuş bilimsel adıyla listeleniyor, böylece her şey daha resmi görünüyor."
+
+#: inc/patterns/general-video-trailer.php:12
+#: inc/patterns/page-layout-image-text-and-video.php:49
+msgid "Extended Trailer"
+msgstr "Genişletilmiş fragman"
+
+#: inc/patterns/general-video-trailer.php:6
+msgid "Video trailer"
+msgstr "Video fragmanı"
+
+#: inc/patterns/general-video-header-details.php:41
+msgid "Angelo Tso<br>Edward Stilton<br>Amy Jensen<br>Boston Bell<br>Shay Ford"
+msgstr "Angelo Tso<br>Edward Stilton<br>Amy Jensen<br>Boston Bell<br>Shay Ford"
+
+#: inc/patterns/general-video-header-details.php:35
+msgid "Jesús Rodriguez<br>Doug Stilton<br>Emery Driscoll<br>Megan Perry<br>Rowan Price"
+msgstr "Jesús Rodriguez<br>Doug Stilton<br>Emery Driscoll<br>Megan Perry<br>Rowan Price"
+
+#: inc/patterns/general-video-header-details.php:29
+msgid "Featuring"
+msgstr "Öne çıkanlar"
+
+#: inc/patterns/general-video-header-details.php:11
+#: inc/patterns/page-layout-image-text-and-video.php:11
+msgid "<em>Warble</em>, a film about <br>hobbyist bird watchers."
+msgstr "<em>Warble</em>, hobici kuş gözlemcileri <br>hakkında bir film."
+
+#: inc/patterns/general-video-header-details.php:6
+msgid "Video with header and details"
+msgstr "Üst kısım ve ayrıntılar ile video"
+
+#: inc/patterns/general-two-images-text.php:42
+#: inc/patterns/general-wide-image-intro-buttons.php:35
+#: inc/patterns/page-layout-image-text-and-video.php:30
+msgid "Buy Tickets"
+msgstr "Bilet satın al"
+
+#: inc/patterns/general-two-images-text.php:29
+#: inc/patterns/page-layout-image-text-and-video.php:25
+msgid "May 14th, 2022 @ 7:00PM<br>The Vintagé Theater,<br>245 Arden Rd.<br>Gardenville, NH"
+msgstr "14 Mayıs 2022 @ 19:00<br>Nostalji Tiyatrosu<br>245 Arden Yolu<br>Nilüfer, Bursa"
+
+#: inc/patterns/general-two-images-text.php:25
+msgid "SCREENING"
+msgstr "GÖSTERİM"
+
+#: inc/patterns/general-two-images-text.php:17
+#: inc/patterns/general-wide-image-intro-buttons.php:10
+#: inc/patterns/header-large-dark.php:29 inc/patterns/header-small-dark.php:25
+#: inc/patterns/hidden-bird.php:12 inc/patterns/hidden-heading-and-bird.php:19
+msgid "Illustration of a bird flying."
+msgstr "Uçan bir kuşun illüstrasyonu."
+
+#: inc/patterns/general-two-images-text.php:11
+msgid "Illustration of a bird sitting on a branch."
+msgstr "Bir dal üzerinde oturan bir kuşun illüstrasyonu."
+
+#: inc/patterns/general-two-images-text.php:6
+msgid "Two images with text"
+msgstr "Metin içeren iki görsel"
+
+#: inc/patterns/general-subscribe.php:16
+msgid "Join our mailing list"
+msgstr "E-posta listemize katılın"
+
+#: inc/patterns/general-subscribe.php:11
+msgid "Watch birds<br>from your inbox"
+msgstr "Gelen kutunuzdan<br>kuşları izleyin"
+
+#: inc/patterns/general-subscribe.php:6
+msgid "Subscribe callout"
+msgstr "Abonelik çağrısı"
+
+#: inc/patterns/general-pricing-table.php:84
+msgid "$150"
+msgstr "$150"
+
+#: inc/patterns/general-pricing-table.php:79
+msgid "Play a leading role for our community by joining at the Falcon level. This level earns you a seat on our board, where you can help plan future birdwatching expeditions."
+msgstr "Şahin düzeyinde katılarak topluluğumuz için lider bir rol oynayın. Bu seviye, gelecekteki kuş gözlem gezilerini planlamanıza yardımcı olabileceğiniz panomuzda bir koltuk kazanmanızı sağlar."
+
+#: inc/patterns/general-pricing-table.php:75
+msgid "Falcon"
+msgstr "Şahin"
+
+#: inc/patterns/general-pricing-table.php:71
+msgctxt "Third item in a numbered list."
+msgid "3"
+msgstr "3"
+
+#: inc/patterns/general-pricing-table.php:56
+msgid "$75"
+msgstr "$75"
+
+#: inc/patterns/general-pricing-table.php:51
+msgid "Join at the Sparrow level and become a member of our flock! You’ll receive our newsletter, plus a bird pin that you can wear with pride when you’re out in nature."
+msgstr "Serçe seviyesinde katılın ve sürümüzün bir üyesi olun! Bültenimizi ve doğadayken gururla takabileceğiniz bir kuş rozeti alacaksınız."
+
+#: inc/patterns/general-pricing-table.php:47
+msgid "Sparrow"
+msgstr "Serçe"
+
+#: inc/patterns/general-pricing-table.php:43
+msgctxt "Second item in a numbered list."
+msgid "2"
+msgstr "2"
+
+#: inc/patterns/general-pricing-table.php:28
+msgid "$25"
+msgstr "$25"
+
+#: inc/patterns/general-pricing-table.php:23
+msgid "Help support our growing community by joining at the Pigeon level. Your support will help pay our writers, and you’ll get access to our exclusive newsletter."
+msgstr "Güvercin düzeyinde katılarak büyüyen topluluğumuzu desteklemeye yardımcı olun. Desteğiniz yazarlarımıza ödeme yapmanıza yardımcı olacak ve özel haber bültenimize erişebileceksiniz."
+
+#: inc/patterns/general-pricing-table.php:19
+msgid "Pigeon"
+msgstr "Güvercin"
+
+#: inc/patterns/general-pricing-table.php:15
+msgctxt "First item in a numbered list."
+msgid "1"
+msgstr "1"
+
+#: inc/patterns/general-pricing-table.php:6
+msgid "Pricing table"
+msgstr "Fiyat tablosu"
+
+#: inc/patterns/general-list-events.php:103
+msgid "Emery Driscoll"
+msgstr "Emery Driscoll"
+
+#: inc/patterns/general-list-events.php:97
+msgid "May 20th, 2022, 6 PM"
+msgstr "20 Mayıs 2022 18:00"
+
+#: inc/patterns/general-list-events.php:79
+msgid "Amy Jensen"
+msgstr "Amy Jensen"
+
+#: inc/patterns/general-list-events.php:73
+msgid "May 18th, 2022, 7 PM"
+msgstr "18 Mayıs 2022 19:00"
+
+#: inc/patterns/general-list-events.php:61
+#: inc/patterns/general-list-events.php:109
+msgid "The Swell Theater<br>120 River Rd.<br>Rainfall, NH"
+msgstr "The Swell Theater<br>120 River Rd.<br>Rainfall, NH"
+
+#: inc/patterns/general-list-events.php:55
+msgid "Doug Stilton"
+msgstr "Doug Stilton"
+
+#: inc/patterns/general-list-events.php:49
+msgid "May 16th, 2022, 6 PM"
+msgstr "16 Mayıs 2022 18:00"
+
+#: inc/patterns/general-list-events.php:37
+#: inc/patterns/general-list-events.php:85
+msgid "The Vintagé Theater<br>245 Arden Rd.<br>Gardenville, NH"
+msgstr "The Vintagé Theater<br>245 Arden Rd.<br>Gardenville, NH"
+
+#: inc/patterns/general-list-events.php:31
+msgid "Jesús Rodriguez"
+msgstr "Jesús Rodriguez"
+
+#: inc/patterns/general-list-events.php:25
+msgid "May 14th, 2022, 6 PM"
+msgstr "14 Mayıs 2022 18:00"
+
+#: inc/patterns/general-list-events.php:11
+msgid "Speaker Series"
+msgstr "Konuşmacı serisi"
+
+#: inc/patterns/general-list-events.php:6
+msgid "List of events"
+msgstr "Etkinlik listesi"
+
+#: inc/patterns/general-layered-images-with-duotone.php:10
+#: inc/patterns/page-sidebar-blog-posts-right.php:58
+msgid "Illustration of a flying bird."
+msgstr "Uçan bir kuş ilüstrasyonu."
+
+#: inc/patterns/general-layered-images-with-duotone.php:9
+#: inc/patterns/header-image-background-overlay.php:11
+msgid "Painting of ducks in the water."
+msgstr "Sudaki ördeklerin resmi."
+
+#: inc/patterns/general-layered-images-with-duotone.php:6
+msgid "Layered images with duotone"
+msgstr "Çift tonlu katmanlı görseller"
+
+#: inc/patterns/general-large-list-names.php:30
+msgid "Read more"
+msgstr "Devamını oku"
+
+#: inc/patterns/general-large-list-names.php:21
+msgid "Jesús Rodriguez, Doug Stilton, Emery Driscoll, Megan Perry, Rowan Price, Angelo Tso, Edward Stilton, Amy Jensen, Boston Bell, Shay Ford, Lee Cunningham, Evelynn Ray, Landen Reese, Ewan Hart, Jenna Chan, Phoenix Murray, Mel Saunders, Aldo Davidson, Zain Hall."
+msgstr "Jesús Rodriguez, Doug Stilton, Emery Driscoll, Megan Perry, Rowan Price, Angelo Tso, Edward Stilton, Amy Jensen, Boston Bell, Shay Ford, Lee Cunningham, Evelynn Ray, Landen Reese, Ewan Hart, Jenna Chan, Phoenix Murray, Mel Saunders, Aldo Davidson, Zain Hall."
+
+#: inc/patterns/general-large-list-names.php:11
+#: inc/patterns/page-sidebar-poster.php:32
+msgid "An icon representing binoculars."
+msgstr "Dürbünü temsil eden bir simge."
+
+#: inc/patterns/general-large-list-names.php:6
+msgid "Large list of names"
+msgstr "Büyük isim listesi"
+
+#: inc/patterns/general-image-with-caption.php:15
+msgid "A beautiful bird featuring a surprising set of color feathers."
+msgstr "Şaşırtıcı bir dizi renkli tüye sahip güzel bir kuş."
+
+#: inc/patterns/general-image-with-caption.php:11
+msgid "Hummingbird"
+msgstr "Sinek kuşu"
+
+#: inc/patterns/general-image-with-caption.php:10
+msgid "Hummingbird illustration"
+msgstr "Sinek kuşu ilüstrasyonu"
+
+#: inc/patterns/general-image-with-caption.php:6
+msgid "Image with caption"
+msgstr "Altyazılı görsel"
+
+#: inc/patterns/general-featured-posts.php:6
+msgid "Featured posts"
+msgstr "Öne çıkan yazılar"
+
+#: inc/patterns/general-divider-light.php:6
+msgid "Divider with image and color (light)"
+msgstr "Görsel ve renk (açık) ile ayırıcı"
+
+#: inc/patterns/general-divider-dark.php:6
+msgid "Divider with image and color (dark)"
+msgstr "Görsel ve renk (koyu) ile ayırıcı"
+
+#: inc/patterns/footer-title-tagline-social.php:6
+msgid "Footer with title, tagline, and social links on a dark background"
+msgstr "Başlık, slogan ve koyu arka plan üzerinde sosyal bağlantılar ile alt kısım"
+
+#: inc/patterns/footer-social-copyright.php:6
+msgid "Footer with social links and copyright"
+msgstr "Sosyal bağlantılar ve telif metni ile alt kısım"
+
+#: inc/patterns/footer-query-title-citation.php:6
+msgid "Footer with query, title, and citation"
+msgstr "Sorgu, başlık ve alıntı ile alt kısım"
+
+#: inc/patterns/footer-query-images-title-citation.php:6
+msgid "Footer with query, featured images, title, and citation"
+msgstr "Sorgu, öne çıkan görsel, başlık ve alıntı ile alt kısım"
+
+#: inc/patterns/footer-navigation.php:6
+msgid "Footer with navigation and citation"
+msgstr "Dolaşım ve alıntı ile alt kısım"
+
+#: inc/patterns/footer-navigation-copyright.php:20
+#: inc/patterns/footer-social-copyright.php:24
+msgid "© Site Title"
+msgstr "© Site başlığı"
+
+#: inc/patterns/footer-navigation-copyright.php:6
+msgid "Footer with navigation and copyright"
+msgstr "Dolaşım ve telif metni ile alt kısım"
+
+#: inc/patterns/footer-logo.php:6
+msgid "Footer with logo and citation"
+msgstr "Alıntı ve başlık ile alt kısım"
+
+#: inc/patterns/footer-default.php:6
+msgid "Default footer"
+msgstr "Varsayılan alt kısım"
+
+#: inc/patterns/footer-dark.php:6
+msgid "Dark footer with title and citation"
+msgstr "Alıntı ve başlık ile koyu alt kısım"
+
+#: inc/patterns/footer-blog.php:50 inc/patterns/footer-dark.php:18
+#: inc/patterns/footer-default.php:18 inc/patterns/footer-logo.php:18
+#: inc/patterns/footer-navigation.php:20
+#: inc/patterns/footer-query-images-title-citation.php:35
+#: inc/patterns/footer-query-title-citation.php:33
+msgid "https://wordpress.org"
+msgstr "https://wordpress.org"
+
+#. Translators: WordPress link.
+#: inc/patterns/footer-blog.php:49 inc/patterns/footer-dark.php:17
+#: inc/patterns/footer-default.php:17 inc/patterns/footer-logo.php:17
+#: inc/patterns/footer-navigation.php:19
+#: inc/patterns/footer-query-images-title-citation.php:34
+#: inc/patterns/footer-query-title-citation.php:32
+msgid "Proudly powered by %s"
+msgstr "%s gururla sunar"
+
+#: inc/patterns/footer-blog.php:31
+#: inc/patterns/page-sidebar-blog-posts-right.php:74
+msgid "Categories"
+msgstr "Kategoriler"
+
+#: inc/patterns/footer-blog.php:23 inc/patterns/general-featured-posts.php:10
+msgid "Latest posts"
+msgstr "Son yazılar"
+
+#: inc/patterns/footer-blog.php:6
+msgid "Blog footer"
+msgstr "Blog alt kısmı"
+
+#: inc/patterns/footer-about-title-logo.php:17 inc/patterns/footer-blog.php:17
+msgid "We are a rogue collective of bird watchers. We’ve been known to sneak through fences, climb perimeter walls, and generally trespass in order to observe the rarest of birds."
+msgstr "Biz kuş gözlemcilerinden oluşan haydut bir topluluğuz. En nadir kuşları gözlemlemek için çitlerden gizlice girdiğimiz, çevre duvarlarına tırmandığımız ve genellikle izinsiz girdiğimiz biliniyor."
+
+#: inc/patterns/footer-about-title-logo.php:13 inc/patterns/footer-blog.php:13
+msgid "About us"
+msgstr "Hakkımızda"
+
+#: inc/patterns/footer-about-title-logo.php:6
+msgid "Footer with text, title, and logo"
+msgstr "Metin, başlık ve logo ile alt kısım"
+
+#: inc/block-patterns.php:21
+msgid "Pages"
+msgstr "Sayfalar"
+
+#: inc/block-patterns.php:20
+msgid "Query"
+msgstr "Sorgu"
+
+#: inc/block-patterns.php:19
+msgid "Headers"
+msgstr "Üst kısımlar"
+
+#: inc/block-patterns.php:18
+msgid "Footers"
+msgstr "Alt kısımlar"
+
+#: inc/block-patterns.php:17
+msgid "Featured"
+msgstr "Öne çıkan"
+
+#. Theme URI of the theme
+#: style.css
+#, gp-priority: low
+msgid "https://wordpress.org/themes/twentytwentytwo/"
+msgstr "https://wordpress.org/themes/twentytwentytwo/"
+
+#. Author URI of the theme
+#: style.css
+#, gp-priority: low
+msgid "https://wordpress.org/"
+msgstr "https://wordpress.org/"
+
+#. Author of the theme
+#: style.css
+#, gp-priority: low
+msgid "the WordPress team"
+msgstr "WordPress ekibi"

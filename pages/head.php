@@ -4,8 +4,8 @@ session_start();
 date_default_timezone_set('Europe/Istanbul');
 
 // Veritabanı değişikliklerini uygulayan dosyayı çağırıyor.
-include ("./functions/db-update.php");
-include ("./functions/sefnum.php");
+include("./functions/db-update.php");
+include("./functions/sefnum.php");
 
 
 //Ayar tablosu sorgusu başta çekilerek siteye yayıldı
@@ -105,7 +105,7 @@ if ($optionfetch["option_maintenance"] == "yes") {
             <meta name="keywords" content="<?php echo $category_name; ?>">
             <meta name="robots" content="index, follow">
             <meta name="author" content="<?php echo $usernick; ?>">
-            <meta name="last-modified" content="<?php echo $postfetch["post_time"]; ?>">
+            <meta name="last-modified" content="<?php echo $postfetch["post_update_time"]; ?>">
 
             <!-- OG Metas -->
             <meta property="og:locale" content="tr_TR">
@@ -116,7 +116,7 @@ if ($optionfetch["option_maintenance"] == "yes") {
             <meta property="og:url" content="<?php echo $postfetch["post_link"]; ?>">
             <meta property="og:description" content="<?php echo $postfetch["post_description"]; ?>" />
             <meta property="article:published_time" content="<?php echo $postfetch["post_update_time"]; ?>" />
-            <meta property="article:modified_time" content="<?php echo $postfetch["post_time"]; ?>" />
+            <meta property="article:modified_time" content="<?php echo $postfetch["post_update_time"]; ?>" />
             <meta property="og:updated_time" content="<?php echo $postfetch["post_update_time"]; ?>" />
             <meta property="article:section" content="<?php echo $category_name; ?>" />
             <meta property="article:tag" content="<?php echo $category_name; ?>" />
@@ -138,7 +138,72 @@ if ($optionfetch["option_maintenance"] == "yes") {
             <meta name="twitter:image" content="<?php echo $image_link; ?>" />
 
         <?php }
-    } else { ?>
+    } elseif (@$_GET["manga_id"]) {
+        $manga_id = $_GET["manga_id"];
+        $mangaask = $db->prepare("SELECT * FROM mangas WHERE manga_id=:id");
+        $mangaask->execute(array('id' => $manga_id));
+        while ($mangafetch = $mangaask->fetch(PDO::FETCH_ASSOC)) {
+
+            //Kategori Adını Çekiyor
+            $manga_category_id = $mangafetch["manga_category_id"];
+            $categoryask = $db->prepare("SELECT * FROM categories WHERE category_id=:id");
+            $categoryask->execute(array('id' => $manga_category_id));
+            while ($categoryfetch = $categoryask->fetch(PDO::FETCH_ASSOC)) {
+                $category_name = $categoryfetch["category_title"];
+            }
+            //Resim Yolunu Çekiyor
+            $manga_image_id = $mangafetch["manga_image_id"];
+            $imageask = $db->prepare("SELECT * FROM images WHERE image_id=:id");
+            $imageask->execute(array('id' => $manga_image_id));
+            while ($imagefetch = $imageask->fetch(PDO::FETCH_ASSOC)) {
+                $image_title = $imagefetch["image_title"];
+                $image_link = $imagefetch["image_link"];
+                $image_height = $imagefetch["image_height"];
+                $image_width = $imagefetch["image_width"];
+                $image_title = $imagefetch["image_title"];
+                $image_type = $imagefetch["image_type"];
+            }
+
+        ?>
+
+
+            <!-- Post Metas -->
+            <title><?php echo $mangafetch["manga_name"]; ?></title>
+            <meta name="description" content="<?php echo $mangafetch["manga_description"]; ?>" />
+            <link rel="canonical" href="<?php echo $mangafetch["manga_link"]; ?>" type="text/html" />
+            <meta name="keywords" content="<?php echo $category_name; ?>">
+            <meta name="robots" content="index, follow">
+            <meta name="last-modified" content="<?php echo $mangafetch["manga_time"]; ?>">
+
+            <!-- OG Metas -->
+            <meta property="og:locale" content="tr_TR">
+            <meta property="og:site_name" content="<?php echo $optionfetch["option_name"]; ?>">
+            <meta property="og:title" content="<?php echo $mangafetch["manga_name"]; ?>" />
+
+            <meta property="og:type" content="article" />
+            <meta property="og:url" content="<?php echo $mangafetch["manga_link"]; ?>">
+            <meta property="og:description" content="<?php echo $mangafetch["manga_description"]; ?>" />
+            <meta property="article:published_time" content="<?php echo $mangafetch["manga_time"]; ?>" />
+            <meta property="article:modified_time" content="<?php echo $mangafetch["manga_time"]; ?>" />
+            <meta property="og:updated_time" content="<?php echo $mangafetch["manga_time"]; ?>" />
+            <meta property="article:section" content="<?php echo $category_name; ?>" />
+            <meta property="article:tag" content="<?php echo $category_name; ?>" />
+
+            <meta property="og:image:secure_url" content="<?php echo $image_link; ?>" />
+            <meta property="og:image" content="<?php echo $image_link; ?>" />
+            <meta property="og:image:alt" content="<?php echo $image_title; ?>" />
+            <meta property="og:image:width" content="<?php echo $image_width; ?>" />
+            <meta property="og:image:height" content="<?php echo $image_height; ?>" />
+            <meta property="og:image:type" content="<?php echo "image/" . $image_type; ?>" />
+
+            <!-- Twitter Metas -->
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:title" content="<?php echo $mangafetch["manga_name"]; ?>" />
+            <meta name="twitter:description" content="<?php echo $mangafetch["manga_description"]; ?>" />
+            <meta name="twitter:image" content="<?php echo $image_link; ?>" />
+
+        <?php }
+    } else{ ?>
 
         <!-- Page Metas -->
         <title><?php echo $optionfetch["option_name"] ?></title>
@@ -194,7 +259,7 @@ if ($optionfetch["option_maintenance"] == "yes") {
         echo $optionfetch["option_analitics"];
     }
 
-    
+
     // Adsense Kodları
     if (isset($optionfetch["option_adsense"])) {
         echo $optionfetch["option_adsense"];

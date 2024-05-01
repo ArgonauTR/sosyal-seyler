@@ -1,21 +1,19 @@
 <?php
-  function basamak($sayi) {
-    return number_format($sayi, 1, '.', '');
+
+include("config.php");
+
+$manga_id = 4;
+$chapterask = $db->prepare("SELECT * FROM chapters WHERE chapter_status='publish' && chapter_manga_id='$manga_id' ORDER BY chapter_num DESC LIMIT 4");
+$chapterask->execute(array());
+while ($chapterfetch = $chapterask->fetch(PDO::FETCH_ASSOC)) {
+ $chapters = $chapterfetch;
 }
 
-function sefnum($count)
-{
-  if (999999 < $count && $count < 100000000) {
-    return basamak($count/100000);
-  } elseif (999 < $count && $count < 1000000) {
-    return "binli";
-  } elseif (99 < $count && $count < 1000) {
-    return "yüzlü";
-  } else {
-    return "sayı";
-  }
-}
+echo "<pre>";
+print_r($chapters);
+echo "</pre>";
 
-echo "Sayı: " . sefnum(9998999);
+echo "<hr>";
+echo $chapters["chapter_id"]+1;
 
 ?>

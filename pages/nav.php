@@ -3,19 +3,21 @@
         --bs-offcanvas-width: 75%;
     }
 </style>
+<?php $sitename = $_SERVER['SERVER_NAME']; ?>
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="/">
             <img src="<?php echo $option_logo_image_link; ?>" alt="logo" style="max-width: 150px;">
         </a>
         <div class="d-flex justify-content-center">
-            <a class="btn btn-none d-lg-none text-muted" href="search">
+            <a class="btn btn-none d-lg-none text-muted" href="<?php echo "https://" . $sitename . "/search"; ?>">
                 <i class="bi bi-search"></i>
             </a>
             <?php
+            
             if (empty($_SESSION['user_id'])) {
             ?>
-                <a class="btn btn-none d-lg-none text-muted" href="user">
+                <a class="btn btn-none d-lg-none text-muted" href="<?php echo "https://" . $sitename . "/user"; ?>">
                     <i class="bi bi-person"></i>
                 </a>
             <?php
@@ -54,7 +56,7 @@
                     ?>
 
                     <li class="nav-item">
-                        <a class="btn btn-outline-light d-none d-lg-inline ms-3" type="button" href="search" title="Popular">
+                        <a class="btn btn-outline-light d-none d-lg-inline ms-3" type="button" href="<?php echo "https://" . $sitename . "/search"; ?>" title="Popular">
                             <i class="bi bi-search"></i>
                         </a>
                     </li>
@@ -111,7 +113,7 @@
                     ?>
 
                         <li class="nav-item">
-                            <a class="btn btn-outline-light d-none d-lg-inline ms-3" type="button" href="user">
+                            <a class="btn btn-outline-light d-none d-lg-inline ms-3" type="button" href="<?php echo "https://" . $sitename . "/user"; ?>">
                                 <i class="bi bi-person me-1"></i>
                             </a>
                         </li>

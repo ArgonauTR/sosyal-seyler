@@ -13,7 +13,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <input type="text" class="form-control bg-dark text-white" name="chapter_name" placeholder="Bölüm Adını Giriniz" required>
+                        <input type="text" class="form-control bg-dark text-white" name="chapter_name" placeholder="Bölüm Adını Giriniz">
                     </div>
 
                     <div class="mb-3">

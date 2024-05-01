@@ -72,7 +72,7 @@
                     ?>
 
                         <div class="col-12 col-lg-4 mt-3">
-                            <div class="card bg-dark border-info custom-card" style="max-height: 3000px;">
+                            <div class="card bg-dark border-white custom-card" style="max-height: 3000px;">
                                 <div class="card-header text-center">
                                     <b class="clamp-text">
                                         <a href="<?php echo $mangafetch["manga_link"] ?>" class="text-white" style="text-decoration: none;">
@@ -125,5 +125,5 @@
                     </nav>
                 </div>
             </div>
-            <?php include 'sidebar.php'; ?>
+            <?php include 'sidebar-mindex.php'; ?>
         </div>

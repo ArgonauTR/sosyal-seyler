@@ -72,3 +72,11 @@ $pop_up_time = $db->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE
 if ($pop_up_time->fetchColumn() == 0) {
     $db->exec("ALTER TABLE options ADD option_popup_time VARCHAR(50) DEFAULT NULL");
 }
+
+// ---------> 1.7 güncellemesinde ki veritabanı değişiklikleri.
+
+// Pop-Up Zamanını ayarlıyor
+$disquss_api = $db->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'options' AND COLUMN_NAME = 'option_disquss_api'");
+if ($disquss_api->fetchColumn() == 0) {
+    $db->exec("ALTER TABLE options ADD option_disquss_api VARCHAR(200) DEFAULT NULL");
+}

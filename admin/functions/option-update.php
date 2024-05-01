@@ -32,7 +32,8 @@ if (isset($_POST["option_update"])) {
         option_default_author =:option_default_author,
         option_default_category_id =:option_default_category_id,
         option_popup_status=:option_popup_status,
-        option_popup_time=:option_popup_time
+        option_popup_time=:option_popup_time,
+        option_disquss_api=:option_disquss_api
     
     WHERE option_id=$option_id");
 
@@ -61,7 +62,8 @@ if (isset($_POST["option_update"])) {
         'option_default_author'=> $_POST["option_default_author"],
         'option_default_category_id'=> $_POST["option_default_category_id"],
         'option_popup_status' =>$_POST["option_popup_status"],
-        'option_popup_time'=>$_POST["option_popup_time"]
+        'option_popup_time'=>$_POST["option_popup_time"],
+        'option_disquss_api'=>$_POST["option_disquss_api"]
     ));
 
     if ($update) {

@@ -340,6 +340,17 @@
                     </div>
                 </div>
 
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <input type="text" class="form-control bg-dark text-white" value="<?php echo $optionfetch["option_disquss_api"] ?>" name="option_disquss_api">
+                    </div>
+                    <div class="col-lg-9">
+                        <label class="col-form-label">
+                            Disquss Yorumarı Api'si.
+                        </label>
+                    </div>
+                </div>
+
                 <div class="mb-3 text-center">
                     <button type="submit" class="btn btn-primary" name="option_update">Kaydet & Güncelle</button>
                 </div>

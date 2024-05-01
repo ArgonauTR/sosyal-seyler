@@ -44,7 +44,7 @@ if (@$_GET["parca"] < 1) {
         ?>
             <url>
                 <loc><?php echo $postfetch["post_link"];  ?></loc>
-                <lastmod><?php echo parcala($postfetch["post_time"]); ?></lastmod>
+                <lastmod><?php echo parcala($postfetch["post_update_time"]); ?></lastmod>
             </url>
         <?php
         }

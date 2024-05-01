@@ -65,11 +65,37 @@ while ($mangafetch = $mangaask->fetch(PDO::FETCH_ASSOC)) {
     $manga_content = $mangafetch["manga_content"];
     $manga_year = $mangafetch["manga_year"];
     $manga_country = $mangafetch["manga_country"];
-    $manga_fansub = $mangafetch["manga_fansub"];
-    $manga_fansub_link = $mangafetch["manga_fansub_link"];
     $manga_publish_status = $mangafetch["manga_publish_status"];
     $manga_translate_status = $mangafetch["manga_translate_status"];
 }
+?>
+
+<?php
+// Sayfalama için
+// Sayfalama için sayfa durum denetimi
+if (empty($_GET["page"])) {
+    $page = 1;
+} else {
+    $page = $_GET["page"];
+}
+
+// Sayfalama Değerleri
+$limit = $optionfetch["option_posts_per_page"]; // Bir sayfada gösterilecek elemanı belirliyor.
+$start_limit = ($page * $limit) - $limit;
+
+// Post Sayısı bulucu.
+$count = 0;
+$read_count = 0;
+$manga_id = $_GET["manga_id"];
+$chapterask = $db->prepare("SELECT * FROM chapters WHERE chapter_status='publish' && chapter_manga_id='$manga_id' ");
+$chapterask->execute(array());
+while ($chapterfetch = $chapterask->fetch(PDO::FETCH_ASSOC)) {
+    $count++;
+    $read_count = $read_count + $chapterfetch["chapter_wiev"];
+}
+// Post sayısı kullanılarak sayfa sayısı bulundu
+$page_count = ceil($count / $limit);
+
 ?>
 
 <body class="bg-dark text-white">
@@ -120,7 +146,7 @@ while ($mangafetch = $mangaask->fetch(PDO::FETCH_ASSOC)) {
 
                         // Bu kısımda toplam manga görüntülenemsi yer alıyor.
                         $count_wiev = 1993;
-                        echo '<p><b>Toplam Görüntülenme: </b>' . $count_wiev . '</p>';
+                        echo '<p><b>Toplam Görüntülenme: </b>' . sefnum($read_count) . '</p>';
 
                         ?>
 
@@ -139,11 +165,7 @@ while ($mangafetch = $mangaask->fetch(PDO::FETCH_ASSOC)) {
 
                 <div class="row mt-2">
                     <div class="col-12 col-lg-3 p-2">
-                        <div class="card">
-                            <div class="card-body bg-dark border-primary">
-                                SOL SIDEBAR, REKLAM VE DUYURU ALANI.
-                            </div>
-                        </div>
+                        <?php include 'sidebar-left.php'; ?>
                     </div>
                     <div class="col-12 col-lg-6 p-2">
                         <?php
@@ -157,25 +179,38 @@ while ($mangafetch = $mangaask->fetch(PDO::FETCH_ASSOC)) {
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
                                         <span>
-                                            <a href="<?php echo $chapterfetch["chapter_link"] ?>" class="text-white" style="text-decoration: none;">
-                                                <?php echo "Bölüm-".$chapterfetch["chapter_num"]."-".$chapterfetch["chapter_name"] ?>
+                                            <a href="<?php echo $chapterfetch["chapter_link"] ?>" class="text-white clamp-text" style="text-decoration: none;">
+                                                <?php echo "Bölüm-" . $chapterfetch["chapter_num"] . " " . $chapterfetch["chapter_name"] ?>
                                             </a>
                                         </span>
                                         <span>
-                                            <i class="bi bi-eye-fill me-1"></i>12
-                                            <i class="bi bi-calendar-event me-1 ms-2"></i>12.03.2024
+                                            <i class="bi bi-eye-fill me-1"></i> <?php echo sefnum($chapterfetch["chapter_wiev"]); ?>
+                                            <i class="bi bi-calendar-event me-1 ms-2"></i> <?php echo parcala($chapterfetch["chapter_time"]); ?>
                                         </span>
                                     </div>
                                 </div>
                             </div>
                         <?php } ?>
+                    <nav class="d-flex justify-content-center mt-3 mb-3">
+                        <?php
+                        //Öncesi sayfası
+                        if ($page > 1) {
+                            $newpage = $page - 1;
+                            echo '<a href="?page=' . $newpage . '" class="btn btn-sm btn-outline-secondary text-white ms-1" style="text-decoration: none;"><i class="bi bi-arrow-bar-left me-2"></i>Öncesi</a>';
+                        }
+                        // Sayfa Gösterici
+                        echo '<a href="" class="btn btn-sm btn-outline-dark text-white disabled ms-1" style="text-decoration: none;">Sayfa ' . $page . '</a>';
+
+                        //Öncesi sayfası
+                        if ($page < $page_count) {
+                            $newpage = $page + 1;
+                            echo '<a href="?page=' . $newpage . '" class="btn btn-sm btn-outline-secondary text-white ms-1" style="text-decoration: none;"><i class="bi bi-arrow-bar-right me-2"></i>Sonrası</a>';
+                        }
+                        ?>
+                    </nav>
                     </div>
                     <div class="col-12 col-lg-3 p-2">
-                        <div class="card">
-                            <div class="card-body bg-dark border-primary">
-                                SOL SIDEBAR, REKLAM VE DUYURU ALANI.
-                            </div>
-                        </div>
+                        <?php include 'sidebar-right.php'; ?>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,7 @@
 <a href="./process.php?order=sidebar-add" class="btn btn-sm btn-primary text-white ms-2" style="text-decoration: none;"><i class="bi bi-plus-circle me-2"></i>Kenar Öğesi Ekle</a>
 <hr>
 <?php
-$order = $_GET["order"];
-$orderask = $db->prepare("SELECT * FROM orders WHERE order_status='$order'  ORDER BY order_row DESC");
+$orderask = $db->prepare("SELECT * FROM orders WHERE order_status='sidebar' || order_status='sidebar-mindex' || order_status='sidebar-left' || order_status='sidebar-right'  ORDER BY order_row DESC");
 $orderask->execute(array());
 while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
 ?>

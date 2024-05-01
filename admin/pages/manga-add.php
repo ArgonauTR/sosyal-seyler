@@ -29,14 +29,6 @@
                     </div>
 
                     <div class="mb-3">
-                        <input type="text" class="form-control bg-dark text-white" name="manga_fansub" placeholder="Fansub Giriniz">
-                    </div>
-
-                    <div class="mb-3">
-                        <input type="text" class="form-control bg-dark text-white" name="manga_fansub_link" placeholder="Fansub Linkini Giriniz">
-                    </div>
-
-                    <div class="mb-3">
                         <label class="form-label">Yayın Durumu</label>
                         <select class="form-select bg-dark text-white" name="manga_publish_status">
                             <option value="completed">Tamamlandı</option>

@@ -44,12 +44,12 @@ while ($postfetch = $postask->fetch(PDO::FETCH_ASSOC)) {
     }
 
     $post_id = $postfetch["post_id"];
-    $post_wievs = $postfetch["post_wievs"];
+    $post_wievs = sefnum($postfetch["post_wievs"]);
     $post_title = $postfetch["post_title"];
     $post_description = $postfetch["post_description"];
     $post_content = $postfetch["post_content"];
     $post_link = $postfetch["post_link"];
-    $post_time = parcala($postfetch["post_time"]);
+    $post_time = parcala($postfetch["post_update_time"]);
 }
 
 // Yazı Okunma Sayısını Güncelliyor.
@@ -75,7 +75,7 @@ $PostWiews->execute(array(":post_id" => $_GET["post_id"]));
                                     <i class="bi bi-folder"></i>
                                     <?php echo $category_name; ?>
                                     <i class="bi bi-eye ms-3 me-1"></i>
-                                    <?php echo sefnum($post_wievs); ?>
+                                    <?php echo $post_wievs; ?>
                                 </span>
                             </div>
                         </div>

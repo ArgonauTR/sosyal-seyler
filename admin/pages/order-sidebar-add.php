@@ -21,6 +21,15 @@
                     </div>
 
                     <div class="mb-3">
+                        <select class="form-select bg-dark text-white" name="order_status">
+                            <option value="sidebar">Haber Detay</option>
+                            <option value="sidebar-mindex">Manga Anasayfası</option>
+                            <option value="sidebar-left">Manga Sol</option>
+                            <option value="sidebar-right">Manga Sağ</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
                         <textarea class="form-control" rows="7" id="editor" name="order_content" placeholder="İçeriği"></textarea>
                     </div>
 

@@ -9,6 +9,7 @@
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
 
     #sitemap.xml rules
+    RewriteRule ^sitemap-manga.xml$ sitemap-manga.php [NC,L]
     RewriteRule ^sitemap.xml$ sitemap.php [NC,L]
     RewriteRule ^sitemap-([0-9]+)\.xml$ sitemap.php?parca=$1 [NC,L]
 
