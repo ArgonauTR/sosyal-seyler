@@ -63,6 +63,7 @@ if ($optionfetch["option_maintenance"] == "yes") {
     <!-- WebSite ID Metas -->
     <link rel="icon" href="<?php echo $option_favicon_image_link; ?>">
     <link rel="apple-touch-icon" href="<?php echo $option_favicon_image_link; ?>">
+    <link rel="link" href="https://sosyalseyler.com/">
 
     <?php
     if (@$_GET["post_id"]) {
