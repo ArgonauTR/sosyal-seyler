@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 01 May 2024, 11:37:54
+-- Üretim Zamanı: 09 May 2024, 17:00:00
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.0.30
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Veritabanı: `17guncel`
+-- Veritabanı: `asdfasdfa`
 --
 
 -- --------------------------------------------------------
@@ -181,6 +181,7 @@ CREATE TABLE `mangas` (
   `manga_country` varchar(50) DEFAULT NULL,
   `manga_upload_user_id` int(20) DEFAULT NULL,
   `manga_type` varchar(20) DEFAULT NULL,
+  `manga_status` varchar(50) DEFAULT NULL,
   `manga_fansub_link` varchar(250) DEFAULT NULL,
   `manga_publish_status` varchar(20) DEFAULT NULL,
   `manga_translate_status` varchar(20) DEFAULT NULL,
@@ -195,8 +196,8 @@ CREATE TABLE `mangas` (
 -- Tablo döküm verisi `mangas`
 --
 
-INSERT INTO `mangas` (`manga_id`, `manga_image_id`, `manga_name`, `manga_description`, `manga_other_name`, `manga_category_id`, `manga_author`, `manga_artist`, `manga_content`, `manga_year`, `manga_country`, `manga_upload_user_id`, `manga_type`, `manga_fansub_link`, `manga_publish_status`, `manga_translate_status`, `manga_upload_user_ip`, `manga_upload_user_agent`, `manga_adult_warning`, `manga_link`, `manga_time`) VALUES
-(4, 10, 'İşgalden Sonra', 'Uydurma Eserimiz', 'After the Occupation', 3, 'Sosyal', 'Uydurma', '<p><strong>Lorem Ipsum</strong>, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500\'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960\'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.</p>', '2024', 'Türkiye', 1, 'manga', '', 'draft', 'completed', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36', 'no', 'https://localhost/manga/4-isgalden-sonra', '2024-04-12 17:24:48');
+INSERT INTO `mangas` (`manga_id`, `manga_image_id`, `manga_name`, `manga_description`, `manga_other_name`, `manga_category_id`, `manga_author`, `manga_artist`, `manga_content`, `manga_year`, `manga_country`, `manga_upload_user_id`, `manga_type`, `manga_status`, `manga_fansub_link`, `manga_publish_status`, `manga_translate_status`, `manga_upload_user_ip`, `manga_upload_user_agent`, `manga_adult_warning`, `manga_link`, `manga_time`) VALUES
+(4, 10, 'İşgalden Sonra', 'Uydurma Eserimiz', 'After the Occupation', 3, 'Sosyal', 'Uydurma', '<p><strong>Lorem Ipsum</strong>, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500\'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960\'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.</p>', '2024', 'Türkiye', 1, 'manga', NULL, '', 'draft', 'completed', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36', 'no', 'https://localhost/manga/4-isgalden-sonra', '2024-04-12 17:24:48');
 
 -- --------------------------------------------------------
 
