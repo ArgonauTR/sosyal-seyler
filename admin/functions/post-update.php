@@ -96,9 +96,9 @@ if (isset($_POST['post_update'])) {
     } else { // Resim yüklenmemişse bu kısım çalışır.
 
         if (isset($_POST["image_id"])) {
-            $son_resim_id = NULL;
-        } else {
             $son_resim_id = $_POST["image_id"];
+        } else {
+            $son_resim_id = NULL;
         }
     }
     // İçerikeler VT'ye Kaydediliyor.
