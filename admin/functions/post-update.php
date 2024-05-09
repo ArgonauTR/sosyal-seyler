@@ -94,11 +94,16 @@ if (isset($_POST['post_update'])) {
         $son_resim_id = $db->lastInsertId(); // Son kaydedilen ID bir değişkene aktarıldı.
 
     } else { // Resim yüklenmemişse bu kısım çalışır.
-        $son_resim_id = $_POST["image_id"];
+
+        if (isset($_POST["image_id"])) {
+            $son_resim_id = NULL;
+        } else {
+            $son_resim_id = $_POST["image_id"];
+        }
     }
     // İçerikeler VT'ye Kaydediliyor.
     $host_adi = $_SERVER["HTTP_HOST"]; // Host adı buraya ekleniyor.
-    
+
     $post_title = substr(htmlspecialchars(strip_tags($_POST["post_title"])), 0, 100);
     $post_content = $_POST["post_content"];
     $post_category_id = htmlspecialchars(strip_tags($_POST["post_category_id"]));
@@ -138,11 +143,11 @@ if (isset($_POST['post_update'])) {
 
     if ($update) {
 
-        header("Location:../process.php?post=post-update&post_id=".$son_post_id."&status=ok");
+        header("Location:../process.php?post=post-update&post_id=" . $son_post_id . "&status=ok");
         exit;
     } else {
 
-        header("Location:../process.php?post=post-update&post_id=".$son_post_id."&status=no");
+        header("Location:../process.php?post=post-update&post_id=" . $son_post_id . "&status=no");
         exit;
     }
 }

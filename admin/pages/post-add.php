@@ -9,7 +9,7 @@
                 <form action="./functions/post-add.php" method="POST" enctype="multipart/form-data">
 
                 <div class="mb-3">
-                        <input class="form-control bg-dark text-white" type="file" name="resim" required>
+                        <input class="form-control bg-dark text-white" type="file" name="resim">
                     </div>
 
                     <div class="mb-3">

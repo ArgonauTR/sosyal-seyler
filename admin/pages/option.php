@@ -116,9 +116,15 @@
                             if ($optionfetch["option_index_page"] == "blog") {
                                 echo '<option value="blog" selected>Blog</option>';
                                 echo '<option value="manga">Manga</option>';
-                            } else {
+                                echo '<option value="summary">Özet</option>';
+                            } elseif ($optionfetch["option_index_page"] == "manga") {
                                 echo '<option value="blog">Blog</option>';
                                 echo '<option value="manga" selected>Manga</option>';
+                                echo '<option value="summary">Özet</option>';
+                            } elseif ($optionfetch["option_index_page"] == "summary") {
+                                echo '<option value="blog">Blog</option>';
+                                echo '<option value="manga">Manga</option>';
+                                echo '<option value="summary" selected>Özet</option>';
                             }
                             ?>
                         </select>
@@ -256,14 +262,14 @@
                             $userask = $db->prepare("SELECT * FROM users WHERE user_role = 'admin' || user_role='author' ORDER BY user_name ASC");
                             $userask->execute(array());
                             while ($userfetch = $userask->fetch(PDO::FETCH_ASSOC)) {
-                                if($optionfetch["option_default_author"] == $userfetch["user_id"]){
-                                    echo '<option value="'.$userfetch["user_id"].'" selected>'.$userfetch["user_name"].'</option>';
-                                }else{
-                                    echo '<option value="'.$userfetch["user_id"].'">'.$userfetch["user_name"].'</option>';
+                                if ($optionfetch["option_default_author"] == $userfetch["user_id"]) {
+                                    echo '<option value="' . $userfetch["user_id"] . '" selected>' . $userfetch["user_name"] . '</option>';
+                                } else {
+                                    echo '<option value="' . $userfetch["user_id"] . '">' . $userfetch["user_name"] . '</option>';
                                 }
                             }
                             ?>
-                                
+
                         </select>
                     </div>
                     <div class="col-lg-9">
@@ -280,14 +286,14 @@
                             $categoryask = $db->prepare("SELECT * FROM categories WHERE category_status='blog' ORDER BY category_title ASC ");
                             $categoryask->execute(array());
                             while ($categoryfetch = $categoryask->fetch(PDO::FETCH_ASSOC)) {
-                                if($optionfetch["option_default_category_id"] == $categoryfetch["category_id"]){
-                                    echo '<option value="'.$categoryfetch["category_id"].'" selected>'.$categoryfetch["category_title"].'</option>';
-                                }else{
-                                    echo '<option value="'.$categoryfetch["category_id"].'">'.$categoryfetch["category_title"].'</option>';
+                                if ($optionfetch["option_default_category_id"] == $categoryfetch["category_id"]) {
+                                    echo '<option value="' . $categoryfetch["category_id"] . '" selected>' . $categoryfetch["category_title"] . '</option>';
+                                } else {
+                                    echo '<option value="' . $categoryfetch["category_id"] . '">' . $categoryfetch["category_title"] . '</option>';
                                 }
                             }
                             ?>
-                                
+
                         </select>
                     </div>
                     <div class="col-lg-9">

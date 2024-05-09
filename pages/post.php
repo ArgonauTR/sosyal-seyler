@@ -63,7 +63,11 @@ $PostWiews->execute(array(":post_id" => $_GET["post_id"]));
         <div class="row align-items-start">
             <div class="col-md-8">
                 <div class="card border-one bg-dark" style="border: none;">
-                    <img class="card-img-top img-fluid border-two rounded-bottom-corners" src="<?php echo $image_link; ?>" alt="<?php echo $image_title; ?>">
+                    <?php
+                    if (!is_null($post_thumbnail_id)) {
+                    ?>
+                        <img class="card-img-top img-fluid border-two rounded-bottom-corners" src="<?php echo $image_link; ?>" alt="<?php echo $image_title; ?>">
+                    <?php } ?>
                     <div class="card-body">
                         <div class="list-item mb-3">
                             <div class="d-flex justify-content-between">

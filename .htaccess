@@ -28,6 +28,7 @@
     RewriteRule ^message$ message.php [NC,L]
     RewriteRule ^maintenance$ maintenance.php [NC,L]
     RewriteRule ^mindex$ mindex.php [NC,L]
+    RewriteRule ^summary$ summary.php [NC,L]
     RewriteRule ^manga$ manga.php [NC,L]
     RewriteRule ^chapter$ chapter.php [NC,L]
     

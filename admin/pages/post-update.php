@@ -43,9 +43,11 @@
                 ?>
                 <form action="./functions/post-update.php" method="POST" enctype="multipart/form-data">
 
+                    <?PHP if (!is_null($post_thumbnail_id)) { ?>
                     <div class="mb-3 d-flex justify-content-center">
                         <a href="<?php echo $image_link; ?>" target="_blank"><img style="height: 150px;" src="<?php echo $image_link; ?>" /></a>
                     </div>
+                    <?PHP } ?>
 
                     <div class="mb-3">
                         <input class="form-control bg-dark text-white" type="file" name="resim">

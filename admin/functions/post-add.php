@@ -94,7 +94,7 @@ if (isset($_POST['post_add'])) {
         $son_resim_id = $db->lastInsertId(); // Son kaydedilen ID bir değişkene aktarıldı.
 
     } else { // Resim yüklenmemişse bu kısım çalışır.
-        $son_resim_id = 0;
+        $son_resim_id = NULL;
     }
     // İçerikeler VT'ye Kaydediliyor.
 
@@ -150,6 +150,8 @@ if (isset($_POST['post_add'])) {
 
 
     //Bu kısımda da yüklenmiş yazıya link ayarlanıyor.
+
+    $host_adi = $_SERVER["HTTP_HOST"]; // Host adı buraya ekleniyor.
 
     $son_post_id = $db->lastInsertId(); // Son kaydedilen ID bir değişkene aktarıldı.
     $yeni_link = "https://" . $host_adi . "/" . $son_post_id . "-" . substr(permalink($_POST["post_title"]), 0, 80);
