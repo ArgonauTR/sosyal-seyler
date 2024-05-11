@@ -11,7 +11,7 @@ switch($index_page){
     case "blog":
         include("pages/archive.php");
         break;
-    case "mindex":
+    case "manga":
         include("pages/mindex.php");
         break;
     case "summary":
@@ -20,5 +20,4 @@ switch($index_page){
     default:
         include("pages/archive.php");
 }
-
 include("pages/footer.php");
