@@ -170,7 +170,7 @@ $page_count = ceil($count / $limit);
                     <div class="col-12 col-lg-6 p-2">
                         <?php
                         $manga_id = $_GET["manga_id"];
-                        $chapterask = $db->prepare("SELECT * FROM chapters WHERE chapter_status='publish' && chapter_manga_id='$manga_id' ORDER BY chapter_num DESC");
+                        $chapterask = $db->prepare("SELECT * FROM chapters WHERE chapter_status='publish' && chapter_manga_id='$manga_id' ORDER BY chapter_id DESC");
                         $chapterask->execute(array());
                         while ($chapterfetch = $chapterask->fetch(PDO::FETCH_ASSOC)) {
                         ?>

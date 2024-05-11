@@ -90,7 +90,7 @@
                                         <div class="col-6">
                                             <div class="d-grid gap-2">
                                                 <?php
-                                                $chapterask = $db->prepare("SELECT * FROM chapters WHERE chapter_status='publish' && chapter_manga_id='$manga_id' ORDER BY chapter_num DESC LIMIT 4");
+                                                $chapterask = $db->prepare("SELECT * FROM chapters WHERE chapter_status='publish' && chapter_manga_id='$manga_id' ORDER BY chapter_id DESC LIMIT 4");
                                                 $chapterask->execute(array());
                                                 while ($chapterfetch = $chapterask->fetch(PDO::FETCH_ASSOC)) {
                                                     echo '<a href="' . $chapterfetch["chapter_link"] . '" class="btn btn-sm btn-outline-sm text-white border-white custom-card" type="button">Bölüm-' . $chapterfetch["chapter_num"] . '</a>';
