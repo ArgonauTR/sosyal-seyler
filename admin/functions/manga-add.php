@@ -111,8 +111,6 @@ if (isset($_POST['manga_add'])) {
     $manga_type = $_POST["manga_type"];
     $manga_status = $_POST["manga_status"];
     $manga_country = $_POST["manga_country"];
-    $manga_fansub = $_POST["manga_fansub"];
-    $manga_fansub_link = $_POST["manga_fansub_link"];
     $manga_publish_status = "draft";
     $manga_translate_status = $_POST["manga_translate_status"];
     $manga_upload_user_ip = $_SERVER["REMOTE_ADDR"]; // IP server değişkeninden çekildi
@@ -135,8 +133,6 @@ if (isset($_POST['manga_add'])) {
     manga_type=:manga_type,
     manga_status=:manga_status,
     manga_country=:manga_country,
-    manga_fansub=:manga_fansub,
-    manga_fansub_link=:manga_fansub_link,
     manga_publish_status=:manga_publish_status,
     manga_translate_status=:manga_translate_status,
     manga_upload_user_ip=:manga_upload_user_ip,
@@ -160,8 +156,6 @@ if (isset($_POST['manga_add'])) {
         'manga_type' => $manga_type,
         'manga_status' => $manga_status,
         'manga_country' => $manga_country,
-        'manga_fansub' => $manga_fansub,
-        'manga_fansub_link' => $manga_fansub_link,
         'manga_publish_status' => $manga_publish_status,
         'manga_translate_status' => $manga_translate_status,
         'manga_upload_user_ip' => $manga_upload_user_ip,

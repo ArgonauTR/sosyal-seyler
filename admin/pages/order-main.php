@@ -13,6 +13,7 @@
     <li class="list-item"><a class="text-white" style="text-decoration: none;" target="_blank" href="/robots.txt"><b>Robots</b> (<?php echo $_SERVER['HTTP_HOST'] . "/robots.txt" ?>)</a></li>
     <li class="list-item"><a class="text-white" style="text-decoration: none;" target="_blank" href="../maintenance"><b>Bakım</b> (<?php echo $_SERVER['HTTP_HOST'] . "/maintenance" ?>)</a></li>
     <li class="list-item"><a class="text-white" style="text-decoration: none;" target="_blank" href="../mindex"><b>Manga</b> (<?php echo $_SERVER['HTTP_HOST'] . "/mindex" ?>)</a></li>
+    <li class="list-item"><a class="text-white" style="text-decoration: none;" target="_blank" href="../blog"><b>Blog</b> (<?php echo $_SERVER['HTTP_HOST'] . "/blog" ?>)</a></li>
 
 
 

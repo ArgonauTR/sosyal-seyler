@@ -111,8 +111,6 @@ if (isset($_POST['manga_update'])) {
     $manga_type = $_POST["manga_type"];
     $manga_status = $_POST["manga_status"];
     $manga_country = $_POST["manga_country"];
-    $manga_fansub = $_POST["manga_fansub"];
-    $manga_fansub_link = $_POST["manga_fansub_link"];
     $manga_publish_status = $_POST["manga_publish_status"];
     $manga_translate_status = $_POST["manga_translate_status"];
     $manga_adult_warning = $_POST["manga_adult_warning"];
@@ -136,8 +134,6 @@ if (isset($_POST['manga_update'])) {
     manga_type=:manga_type,
     manga_status=:manga_status,
     manga_country=:manga_country,
-    manga_fansub=:manga_fansub,
-    manga_fansub_link=:manga_fansub_link,
     manga_publish_status=:manga_publish_status,
     manga_translate_status=:manga_translate_status,
     manga_adult_warning=:manga_adult_warning
@@ -159,8 +155,6 @@ if (isset($_POST['manga_update'])) {
         'manga_type' => $manga_type,
         'manga_status' => $manga_status,
         'manga_country' => $manga_country,
-        'manga_fansub' => $manga_fansub,
-        'manga_fansub_link' => $manga_fansub_link,
         'manga_publish_status' => $manga_publish_status,
         'manga_translate_status' => $manga_translate_status,
         'manga_adult_warning' => $manga_adult_warning
