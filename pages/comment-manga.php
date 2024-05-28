@@ -1,3 +1,12 @@
+<?php
+// YORUM ÜSTÜ REKLAMINI GÖSTERİYOR
+$ads_where = "top-comments";
+$orderask = $db->prepare("SELECT * FROM orders WHERE order_status='ads' && order_ads='$ads_where'  ORDER BY order_row DESC");
+$orderask->execute(array());
+while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
+    echo '<div class="d-flex justify-content-center">' . $orderfetch["order_content"] . '</div>';
+}
+?>
 <div class="card bg-dark text-white text-center h2 mt-2 mb-2 border-white">
     <div class="card-body">
         <div id="disqus_thread"></div>

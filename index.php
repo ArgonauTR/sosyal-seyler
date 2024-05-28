@@ -20,4 +20,5 @@ switch($index_page){
     default:
         include("pages/archive.php");
 }
+
 include("pages/footer.php");

@@ -159,5 +159,5 @@ if (count($yuklenemeyenler) > 0) {
 
 // Yönlendirme sağlanıyor
 
-header("Location:../manga.php?status=ok");
+header("Location:../process.php?manga=manga-chapter-list&manga_id=".$chapter_manga_id."&status=".$chapter_status);
 exit;

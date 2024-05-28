@@ -18,6 +18,7 @@
 
     #page rules
     RewriteRule ^/$ index.php [NC,L]
+    RewriteRule ^blog$ blog.php [NC,L]
     RewriteRule ^category$ category.php [NC,L]
     RewriteRule ^post$ post.php [NC,L]
     RewriteRule ^image$ image.php [NC,L]

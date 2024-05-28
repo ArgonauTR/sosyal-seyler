@@ -4,7 +4,7 @@
         <?php
         if ($optionfetch["option_can_register"] == "yes") {
         ?>
-            <form action="./functions/user-registry.php" method="post">
+            <form action="./functions/user-registry.php" method="post" id="myForm">
                 <div class="mb-3 mt-4">
                     <label class="form-label">
                         <i class="bi bi-person-add me-2"></i>
@@ -30,7 +30,7 @@
                     <div class="form-text">6-12 karakter arasında olmalıdır.</div>
                 </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <input type="checkbox" class="form-check-input" id="myCheckbox">
                     <label class="form-check-label" for="exampleCheck1"><a href="<?php echo $optionfetch["option_terms"] ?>" style="text-decoration: none;">Şartları ve Koşulları Okudum ve Kabul Ediyorum.</a></label>
                 </div>
                 <div class="form-group mt-4 d-grid gap-2 col-6 mx-auto text-center">
@@ -55,3 +55,13 @@
         ?>
     </div>
 </div>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            const checkbox = document.getElementById("myCheckbox");
+            if (!checkbox.checked) {
+                event.preventDefault(); // Formu göndermeyi engelle
+                alert("Lütfen onay kutusunu işaretleyin!");
+            }
+        });
+    </script>
