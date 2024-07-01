@@ -84,58 +84,9 @@ while ($messagefetch = $messageask->fetch(PDO::FETCH_ASSOC)) {
     }
 }
 
-//JSON'dan sistem verileri alınıp karşılaştırılıyor.
-// Site Json Verileri
-$system_jason = file_get_contents("../system/info.json");
-$system_data = json_decode($system_jason, true);
-// Kaynak Json Verileri
-$source_jason = file_get_contents("https://sosyalseyler.com/system/info.json");
-$source_data = json_decode($source_jason, true);
-//Version bilgisi kıyaslanıyor
-$update = 0;
-if ($source_data["compilation"] > $system_data["compilation"]) {
-    $update = 1;
-}
 ?>
 
 <div class="col-lg-9">
-
-    <?php
-    if ($user_pending > 0 || $comment_draft > 0 || $post_draft > 0 || $message_wait > 0 || $update > 0) {
-        if ($user_pending > 0) {
-            echo '<div class="alert alert-warning mx-4 mt-4" role="alert">
-            <i class="bi bi-arrow-clockwise me-1"></i>' . $user_pending . '
-            Adet Bekleyen Kullanıcı Var.
-            </div>';
-        }
-        if ($comment_draft > 0) {
-            echo '<div class="alert alert-warning mx-4 mt-4" role="alert">
-            <i class="bi bi-arrow-clockwise me-1"></i>' . $comment_draft . '
-            Adet Bekleyen Yorum Var.
-            </div>';
-        }
-        if ($post_draft > 0) {
-            echo '<div class="alert alert-warning mx-4 mt-4" role="alert">
-            <i class="bi bi-arrow-clockwise me-1"></i>' . $post_draft . '
-            Adet Bekleyen İçerik Var.
-            </div>';
-        }
-        if ($message_wait > 0) {
-            echo '<div class="alert alert-warning mx-4 mt-4" role="alert">
-            <i class="bi bi-arrow-clockwise me-1"></i>' . $message_wait . '
-            Adet bekleyen mesaj var.
-            </div>';
-        }
-        if ($update > 0) {
-            echo '<div class="alert alert-danger mx-4 mt-4" role="alert">
-            <i class="bi bi-arrow-clockwise me-1"></i>
-            GÜNCELLEME VAR.
-            Şu anda ' . $source_data["compilation"] - $system_data["compilation"] . '
-            Versiyon Geridesiniz. Güncel Sürüm <a class="btn btn-sm btn-outline-primary ms-2" target="_blank" href="' . $source_data["update"] . '">' . $source_data["version"] . ' - ' . $source_data["title"] . '</a>  haberi için tıklayınız
-            </div>';
-        }
-    }
-    ?>
 
     <div class="row row-cols-1 row-cols-lg-3 g-2 text-white">
 
@@ -276,14 +227,19 @@ if ($source_data["compilation"] > $system_data["compilation"]) {
             </div>
             <div class="card-body">
                 <p>
-                    <b>Yazılım Adı: </b><?php echo $system_data["tag"]; ?>
+                    PHP PDO + MySQL ve Boostrap ile yazılmıştır.
                 </p>
+
                 <p>
-                    <b>Versiyon Yayın Tarihi: </b><?php echo $system_data["time"]; ?>
+                    Mercut Sürüm: 2.0
                 </p>
+
                 <p>
-                    <b>Versiyon Haberi: </b><a class="btn btn-sm btn-outline-info ms-2" target="_blank" href="<?php echo $system_data["update"]; ?>"><?php echo $system_data["version"] . " - " . $system_data["title"]; ?></a>
+                    Tamamen ücretsiz olarak indirip kullanabilirsiniz.
+                    <br>
+                    https://github.com/ArgonauTR/sosyal-seyler
                 </p>
+
             </div>
         </div>
 
@@ -295,7 +251,8 @@ if ($source_data["compilation"] > $system_data["compilation"]) {
             </div>
             <div class="card-body">
                 <p>
-                    Yazılımın gelişme sürecinde bazı hatalar ve eksiklikler ile karşılaşabilirsiniz. Bu süreçte anlayışlı olup hataları bize bildirirseniz memnun oluruz.
+                    <b>R10 Profili: </b>
+                    <a href="https://www.r10.net/profil/128431-argonaut.html">https://www.r10.net/profil/128431-argonaut.html</a>
                 </p>
             </div>
         </div>

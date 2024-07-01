@@ -352,7 +352,9 @@
                     </div>
                     <div class="col-lg-9">
                         <label class="col-form-label">
-                            Disquss Yorumarı Api'si.
+                            Disquss Api
+                            <br>
+                            <b> Örn: </b>https://siteadi.disquss.com/embed.js
                         </label>
                     </div>
                 </div>

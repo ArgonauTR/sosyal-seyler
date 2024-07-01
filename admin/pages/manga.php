@@ -30,13 +30,6 @@
             </div>
             <div class="card-body p-1">
 
-                <!-- Uyarı -->
-                <div class="alert alert-danger m-3" role="alert">
-                    Manga Bölümü <b>TEST</b> aşamasındadır. Ciddi projelerde <u>kullanmamanızı</u> tavsiye ederim.
-                </div>
-                <!-- Uyarı -->
-
-
                 <?php
                 // Listeleme için yazı yayın durumu denetimi.
                 if (empty($_GET["status"])) {
