@@ -10,6 +10,10 @@ Bir blog sitesinin sahip olması gereken her özelliğe sahiptir. Çizgi Roman s
 
 Herhangi bir PHP script ile aynı kuruluma sahiptir. Yine de anlatalım. Bir veritabanı oluşturun ve içine klasör içindeki veritabanını yükleyin. Dosyaları dizine atıp config.php içerisindeki bilgileri veritabanı bilgileriniz ile değiştirin.
 
+## Youtube Kurulum Videosu
+
+https://youtu.be/rLnywQhcGNY?si=143gVCKhH9RNKxyg
+
 # Admin Giriş ve Şifresi Nedir?
 Varsayılan Kullanıcı Bilgileri.
 
