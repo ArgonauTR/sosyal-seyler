@@ -13,10 +13,11 @@ Herhangi bir PHP script ile aynı kuruluma sahiptir. Yine de anlatalım. Bir ver
 # Admin Giriş ve Şifresi Nedir?
 Varsayılan Kullanıcı Bilgileri.
 
-Kullanıcı Adı: Admin
+- Kullanıcı Adı: Admin
+- Şifre: 12345
 
-Şifre: 12345
+Bu kullanıcı admin yetkisine sahiptir ve kullanıcı menüsünde admin paneline girip yetkisi tanımlanmıştır. 
 
-Bu kullanıcı admin yetkisine sahiptir ve kullanıcı menüsünde admin paneline girip yetkisi tanımlanmıştır. (NOT: Şifrenizi ve kullanıcı adınızı değiştirin)
+**NOT:** Kurulum yaptıktan sonra kullanıcı adı ve şifrenizi değiştirmenizi şiddetle tavsiye ederim.
 
-
+# Resimler 
