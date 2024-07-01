@@ -21,3 +21,9 @@ Bu kullanıcı admin yetkisine sahiptir ve kullanıcı menüsünde admin panelin
 **NOT:** Kurulum yaptıktan sonra kullanıcı adı ve şifrenizi değiştirmenizi şiddetle tavsiye ederim.
 
 # Resimler 
+
+![çizgi roman](https://github.com/ArgonauTR/sosyal-seyler/assets/108693719/c99bc699-1c15-4809-9620-c694e537821d)
+
+![admin paneli](https://github.com/ArgonauTR/sosyal-seyler/assets/108693719/bedf1235-37da-4192-b9c1-4df575220469)
+
+![blog](https://github.com/ArgonauTR/sosyal-seyler/assets/108693719/0d57947f-2769-4a40-8d6c-497160308d88)
