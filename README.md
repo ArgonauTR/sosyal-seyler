@@ -1,6 +1,8 @@
 # Sosyal Şeyler Scripti Nedir?
-https://github.com/ArgonauTR/sosyal-seyler/blob/main/README.md
 Boostrap, PHP, MySQL ve JS ile yazılmış forum, sözllük tarzı bir web scriptidir.
+
+# Demo Var mı?
+Web Sitemizden bakabilrisiniz. --> https://sosyalseyler.com/
 
 # Nasıl Kurulur?
 
