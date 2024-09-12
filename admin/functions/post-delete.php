@@ -1,25 +1,31 @@
 <?PHP
 
 // Ana fonskiyon dosyası ekleniyor.
-include("main-function.php");
+include("../../codex.php");
 
-if (isset($_GET["status"])) {
+// Post ID bir değişkene aktarlılıyor.
+$post_id = $_GET["post_id"];
 
-    $status = $_GET["status"];
-    $post_id = $_GET["post_id"];
+// Post VT den siliniyor.
+$posts = $db->prepare("DELETE from posts where post_id=:id");
+$delete = $posts->execute(array(
+    'id' => $post_id
+));
 
-    $posts = $db->prepare("DELETE from posts where post_id=:id");
-	$delete = $posts->execute(array(
-		'id' => $post_id
-	));
+// Postun Yorumları VT den silinoyr.
 
-    if ($delete) {
-        header("Location:../post.php?delete=delete-ok");
-        exit();
-    } else {
+$comments = $db->prepare("DELETE from comments where comment_post_id=:id");
+$delete = $comments->execute(array(
+    'id' => $post_id
+));
 
-        header("Location:../post.php?delete=delete-no");
-        exit();
-    }
 
+// Sonuca göre önlendirme yapılıyor.
+if ($delete) {
+    header("Location:../posts.php?delete=delete-ok");
+    exit();
+} else {
+
+    header("Location:../posts.php?delete=delete-no");
+    exit();
 }

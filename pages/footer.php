@@ -1,48 +1,42 @@
-<?php
-// FOOTER ÜSTÜ REKLAMINI GÖSTERİYOR
-$ads_where = "top-footer";
-$orderask = $db->prepare("SELECT * FROM orders WHERE order_status='ads' && order_ads='$ads_where'  ORDER BY order_row DESC");
-$orderask->execute(array());
-while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
-    echo '<div class="d-flex justify-content-center m-3">' . $orderfetch["order_content"] . '</div>';
-}
-?>
-
-<div class="border-bottom mt-2 position-relative"> </div>
-<footer class="text-center mt-4">
+<footer class="text-center">
+    <hr class="my-3">
     <ul class="list-inline">
         <?php
-        $orderask = $db->prepare("SELECT * FROM orders WHERE order_status='footer-menu' ORDER BY order_row Asc");
-        $orderask->execute(array());
-        while ($orderfetch = $orderask->fetch(PDO::FETCH_ASSOC)) {
-        ?>
-            <li class="list-inline-item">
-                <a class="nav-link active" href="<?php echo $orderfetch["order_link"] ?>">
-                    <?php
-                    echo '<i class="bi bi-' . $orderfetch["order_icon"] . ' me-1"></i>';
-                    echo $orderfetch["order_name"];
-                    ?>
-                </a>
-            </li>
-        <?php
+        $orders = orderinfo("SELECT * FROM orders ORDER BY order_num ASC");
+        foreach ($orders as $order) {
+            echo '<li class="list-inline-item">
+                        <a href="' . $order["order_value"] . '" class="text-decoration-none text-muted">
+                        <i class="bi bi-' . $order["order_icon"] . '"></i> ' . $order["order_name"] . '
+                        </a>
+                    </li>';
         }
-        ?>
 
+        ?>
     </ul>
-    <div class="text-center">
-        <?php echo $optionfetch["option_footer"] ?>
-    </div>
-    <div class="inline mt-2">
-        <?php
-        if ($optionfetch["option_respect"] == "yes") {
-            echo '<a class="text-muted" href="https://sosyalseyler.com/" style="text-decoration: none;"><i class="bi bi-heart-fill me-1"></i>Sosyal Şeyler</a>';
+
+    <p>
+        <?php echo optioninfo("option_footer_text"); ?>
+    </p>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Include the Quill library -->
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+    <script>
+        // Initialize Quill editor
+        const quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+
+        // Function to set the content of the hidden input field before form submission
+        function setContent() {
+            const editorContent = document.getElementById('editorContent');
+            editorContent.value = quill.root.innerHTML;
         }
-        ?>
-    </div>
-</footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        // Add an event listener to the form
+        document.getElementById('postForm').addEventListener('submit', function(event) {
+            setContent();
+        });
+    </script>
 
-</body>
-
-</html>
+    </html>

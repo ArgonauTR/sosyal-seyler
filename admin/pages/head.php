@@ -1,83 +1,35 @@
 <?php
-ob_start();
-session_start();
-date_default_timezone_set('Europe/Istanbul');
-
-//Ayar tablosu sorgusu başta çekilerek siteye yayıldı
-$optionask = $db->prepare("SELECT * FROM options WHERE option_id=:id");
-$optionask->execute(array(
-    'id' => 0
-));
-$optionfetch = $optionask->fetch(PDO::FETCH_ASSOC);
-
 // Giriş için yetki sınanıyor.
 if (empty($_SESSION['user_role']) || $_SESSION['user_role'] !== "admin") {
-    header("Location:/?status=access-denied");
-    exit();
-}
-
-//Logo Yolu Çekiyor
-$post_thumbnail_id = $optionfetch["option_logo_image"];
-$imageask = $db->prepare("SELECT * FROM images WHERE image_id=:id");
-$imageask->execute(array('id' => $post_thumbnail_id));
-while ($imagefetch = $imageask->fetch(PDO::FETCH_ASSOC)) {
-    $option_logo_image_id = $imagefetch["image_id"];
-    $option_logo_image_link = $imagefetch["image_link"];
-}
-//İcon Yolu Çekiyor
-$post_thumbnail_id = $optionfetch["option_favicon_image"];
-$imageask = $db->prepare("SELECT * FROM images WHERE image_id=:id");
-$imageask->execute(array('id' => $post_thumbnail_id));
-while ($imagefetch = $imageask->fetch(PDO::FETCH_ASSOC)) {
-    $option_favicon_image_id = $imagefetch["image_id"];
-    $option_favicon_image_link = $imagefetch["image_link"];
+  header("Location:/?alert=access-denied");
+  exit();
 }
 ?>
 <!doctype html>
-<html lang="TR">
+<html lang="tr" data-bs-theme="<?php echo currenttheme(); ?>">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo $optionfetch["option_name"]." - Admin Paneli"; ?></title>
 
-    <!-- WebSite ID Metas -->
-    <link rel="icon" href="<?php echo $option_favicon_image_link; ?>">
-    <link rel="apple-touch-icon" href="<?php echo $option_favicon_image_link; ?>">
-    <link rel="link" href="https://sosyalseyler.com/">
+  <!-- WebSite Standart Metas -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="content-language" content="tr-TR">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <style>
-        .btn-none {
-            border: none;
-            font-size: 24px;
-        }
+  <!-- WebSite ID Metas -->
+  <link rel="sitemap" type="application/xml" title="Site Haritası" href="<?php echo $site_name . "/sitemap.xml"; ?>">
+  <title><?php echo optioninfo("option_site_title") . " - ADMİN"; ?></title>
+  <link rel="icon" href="<?php echo optioninfo("option_favicon_link"); ?>">
+  <link rel="apple-touch-icon" href="<?php echo optioninfo("option_favicon_link"); ?>">
+  <link rel="link" href="https://sosyalseyler.com/">
 
-        #container {
-            width: 1000px;
-            margin: 20px auto;
-        }
+  <!--WebSite Source Metas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="<?php echo $site_name . "/style/style.css"; ?>" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
 
-        .ck-editor__editable[role="textbox"] {
-            /* editing area */
-            min-height: 200px;
-            color: black;
-        }
-
-        .ck-content .image {
-            /* block images */
-            max-width: 80%;
-            margin: 20px auto;
-        }
-    </style>
-        <style>
-        iframe {
-            width: 100%;
-            height: 400px;
-            border: 2px solid black;
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
 </head>

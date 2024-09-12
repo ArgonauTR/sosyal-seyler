@@ -1,25 +1,26 @@
 </div>
-</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
-
+   <!-- Include the Quill library -->
+   <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('#editor'), {
-            ckfinder: {
-                uploadUrl: './functions/image-upload.php'
-            }
-        })
-        .then(editor => {
-            console.log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+    // Initialize Quill editor
+    const quill = new Quill('#editor', {
+        theme: 'snow'
+    });
+
+    // Function to set the content of the hidden input field before form submission
+    function setContent() {
+        const editorContent = document.getElementById('editorContent');
+        editorContent.value = quill.root.innerHTML;
+    }
+
+    // Add an event listener to the form
+    document.getElementById('postForm').addEventListener('submit', function(event) {
+        setContent();
+    });
 </script>
-
-
 </body>
 
 </html>

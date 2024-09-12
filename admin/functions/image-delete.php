@@ -1,49 +1,29 @@
 <?PHP
 
 // Ana fonskiyon dosyası ekleniyor.
-include("main-function.php");
+include("../../codex.php");
 
-if (isset($_GET["status"])) {
-
-    function getImagePath($url) {
-
-        $urlParts = parse_url($url);
-    
-        // /images/ kısmının indexini bul
-        $startIndex = strpos($urlParts['path'], '/images/') + strlen('/images/');
-    
-        // URL'den istenen kısmı al ve geri döndür
-        return substr($urlParts['path'], $startIndex);
-    }
-
-    $way = getImagePath($_GET["image-url"]);
-    $image_way = '../../images/'.$way;
-    unlink($image_way); //resim siliniyor
-
-    $image_status =  $_GET["status"];
-    $image_id = $_GET["image_id"];
+ // Resim ID değişkene aktarılıyor.
+$image_id = $_GET["image_id"];
 
 
+// Resim sunucudan siliniyor.
+$image = imageinfo("SELECT * FROM images WHERE image_id=".$image_id);
+$path = "../../upload/images/";
+unlink($path.$image[0]["image_name"]);
 
-    $image = $db->prepare("DELETE FROM images where image_id=:id");
-    $delete = $image->execute(array(
-        'id' => $image_id
-    ));
 
-    if ($delete) {
-        header("Location:../image.php?delete=delete-ok");
-        exit();
-    } else {
+// Resim veritabanından siliniyor.
+$images = $db->prepare("DELETE from images where image_id=:id");
+$delete = $images->execute(array(
+    'id' => $image_id
+));
 
-        header("Location:../image.php?delete=delete-no");
-        exit();
-    }
+// İşlem sonucuna göre yönlendirme yapılıyor.
+if ($update) {
+    header("Location:" . $site_name . "/admin/images.php?status=image-delete-success");
+    exit();
+} else {
+    header("Location:" . $site_name . "/admin/images.php?status=image-delete-failed");
+    exit();
 }
-
-
-
-
-// Örnek kullanım
-$url = 'https://localhost/images/2024/02/1708366618-film-kategorisi.jpg';
-$imagePath = getImagePath($url);
-echo $imagePath; // 2024/02/1708366618-film-kategorisi.jpg

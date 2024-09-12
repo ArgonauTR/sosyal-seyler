@@ -1,24 +1,20 @@
 <?PHP
 
 // Ana fonskiyon dosyası ekleniyor.
-include("main-function.php");
+include("../../codex.php");
 
-if (isset($_GET["status"])) {
+$comment_id = $_GET["comment_id"];
 
-    $comment_status =  $_GET["status"];
-    $comment_id = $_GET["comment_id"];
+$comments = $db->prepare("DELETE from comments where comment_id=:id");
+$delete = $comments->execute(array(
+    'id' => $comment_id
+));
 
-    $comments = $db->prepare("DELETE FROM comments where comment_id=:id");
-    $delete = $comments->execute(array(
-        'id' => $comment_id
-    ));
+if ($delete) {
+    header("Location:../comments.php?status=draft");
+    exit();
+} else {
 
-    if ($delete) {
-        header("Location:../comment.php?delete=delete-ok");
-        exit();
-    } else {
-
-        header("Location:../comment.php?delete=delete-no");
-        exit();
-    }
+    header("Location:../comments.php?status=publish");
+    exit();
 }

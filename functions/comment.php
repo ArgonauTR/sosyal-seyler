@@ -1,118 +1,94 @@
 <?php
+
 // Ana fonskiyon dosyası ekleniyor.
-include("main-function.php");
+include("../codex.php");
 
-// Anonim Olarak Yapılan Yorumlar Burada Kayıt Edilir
-if (isset($_POST["anonymouscomment"])) {
+// Yorum ekleme işlemi yapılıyor
+if (isset($_POST['new_comment'])) {
 
-    // Cevap için parent id
-    if (isset($_POST["comment_parent_id"])) {
-        $comment_parent_id_post = $_POST["comment_parent_id"];
-    } else {
-        $comment_parent_id_post = NULL;
-    }
+    // Gelen yorumun ait olduğu konu linki.
+    $link = $_POST["post_link"];
 
-    $post_link = htmlspecialchars(strip_tags($_POST["post_link"]));
-
-    $comment_post_id = htmlspecialchars(strip_tags($_POST["post_id"]));
-    $comment_author_name = htmlspecialchars(strip_tags($_POST["comment_author_name"]));
-    $comment_author_ip = $_SERVER["REMOTE_ADDR"];
-    $comment_content = htmlspecialchars(strip_tags($_POST["comment_content"]));
-    $comment_author_agent = $_SERVER['HTTP_USER_AGENT'];
-    $comment_type = "comment";
-    $comment_parent_id = $comment_parent_id_post;
+    //Kayıt edilecek veriler işleniyor.
+    $comment_content = htmlspecialchars(strip_tags($_POST["post_comment"]));
     $comment_status = "draft";
+    $comment_author_id = $_SESSION["user_id"];
+    $comment_post_id = htmlspecialchars(strip_tags($_POST["post_id"]));
+    $comment_parent_id = null;
+    $comment_create_time = date('Y-m-d H:i:s');
+
 
     $comment = $db->prepare("INSERT into comments set
-    comment_post_id=:comment_post_id,
-    comment_author_name=:comment_author_name,
-    comment_author_ip=:comment_author_ip,
     comment_content=:comment_content,
-    comment_author_agent=:comment_author_agent,
-    comment_type=:comment_type,
+    comment_status=:comment_status,
+    comment_author_id=:comment_author_id,
+    comment_post_id=:comment_post_id,
     comment_parent_id=:comment_parent_id,
-    comment_status=:comment_status
+    comment_create_time=:comment_create_time
+
     ");
     $insert = $comment->execute(array(
-        'comment_post_id' => $comment_post_id,
-        'comment_author_name' => $comment_author_name,
-        'comment_author_ip' => $comment_author_ip,
-        'comment_content' => $comment_content,
-        'comment_author_agent' => $comment_author_agent,
-        'comment_type' => $comment_type,
-        'comment_parent_id' => $comment_parent_id,
-        'comment_status' => $comment_status
+    'comment_content' => $comment_content,
+    'comment_status' => $comment_status,
+    'comment_author_id' => $comment_author_id,
+    'comment_post_id' => $comment_post_id,
+    'comment_parent_id' => $comment_parent_id,
+    'comment_create_time' => $comment_create_time
+
     ));
 
     if ($insert) {
-        header('Location:' . $post_link . '?status=ok');
+        header("Location:".$link."?alert=comment-added");
         exit;
     } else {
-        header('Location:' . $post_link . '?status=no');
+        header("Location:".$link."?alert=comment-failed");
         exit;
     }
 }
 
-// Giriş Yapılmış Olarak Yapılan Yorumlar Burada Kayıt Edilir
-if (isset($_POST["usercomment"])) {
 
-    // Cevap için parent id
-    if (isset($_POST["comment_parent_id"])) {
-        $comment_parent_id_post = $_POST["comment_parent_id"];
-    } else {
-        $comment_parent_id_post = NULL;
-    }
 
-    //Yorum yetki denetimi burada yapılıyor.
-    if ($_SESSION['user_role'] == 'admin') {
-        $comment_status = "publish";
-    } else {
-        $comment_status = "draft";
-    }
 
-    $post_link = htmlspecialchars(strip_tags($_POST["post_link"]));
+// Cevap ekleme işlemi yapılıyor.
+if (isset($_POST['new_reply'])) {
 
-    $comment_post_id = htmlspecialchars(strip_tags($_POST["post_id"]));
+    // Gelen yorumun ait olduğu konu linki.
+    $link = $_POST["post_link"];
+    $comment_id = $_POST["comment_parent_id"];
+
+    //Kayıt edilecek veriler işleniyor.
+    $comment_content = htmlspecialchars(strip_tags($_POST["post_comment"]));
+    $comment_status = "draft";
     $comment_author_id = $_SESSION["user_id"];
-    $comment_author_ip = $_SERVER["REMOTE_ADDR"];
-    $comment_content = htmlspecialchars(strip_tags($_POST["comment_content"]));
-    $comment_author_agent = $_SERVER['HTTP_USER_AGENT'];
-    $comment_type = "comment";
-    $comment_parent_id = $comment_parent_id_post;
+    $comment_post_id = htmlspecialchars(strip_tags($_POST["post_id"]));
+    $comment_parent_id = $comment_id;
+    $comment_create_time = date('Y-m-d H:i:s');
+
 
     $comment = $db->prepare("INSERT into comments set
-    comment_post_id=:comment_post_id,
-    comment_author_id=:comment_author_id,
-    comment_author_ip=:comment_author_ip,
     comment_content=:comment_content,
-    comment_author_agent=:comment_author_agent,
-    comment_type=:comment_type,
+    comment_status=:comment_status,
+    comment_author_id=:comment_author_id,
+    comment_post_id=:comment_post_id,
     comment_parent_id=:comment_parent_id,
-    comment_status=:comment_status
+    comment_create_time=:comment_create_time
+
     ");
     $insert = $comment->execute(array(
-        'comment_post_id' => $comment_post_id,
-        'comment_author_id' => $comment_author_id,
-        'comment_author_ip' => $comment_author_ip,
-        'comment_content' => $comment_content,
-        'comment_author_agent' => $comment_author_agent,
-        'comment_type' => $comment_type,
-        'comment_parent_id' => $comment_parent_id,
-        'comment_status' => $comment_status
+    'comment_content' => $comment_content,
+    'comment_status' => $comment_status,
+    'comment_author_id' => $comment_author_id,
+    'comment_post_id' => $comment_post_id,
+    'comment_parent_id' => $comment_parent_id,
+    'comment_create_time' => $comment_create_time
+
     ));
 
     if ($insert) {
-        //admin yorum kısmının kapanması engelleniyor. 
-        //admin yorumu denetime tabi olmadığı için status=ok ile kapann yorum kısmının kapanmasına gerek yok
-        if ($_SESSION['user_role'] == 'admin') {
-            header('Location:' . $post_link);
-            exit;
-        } else {
-            header('Location:' . $post_link . '?status=ok');
-            exit;
-        }
+        header("Location:".$link."?alert=comment-added");
+        exit;
     } else {
-        header('Location:' . $post_link . '?status=no');
+        header("Location:".$link."?alert=comment-failed");
         exit;
     }
 }

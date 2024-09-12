@@ -1,7 +1,7 @@
 <?PHP
 
 // Ana fonskiyon dosyası ekleniyor.
-include("main-function.php");
+include("../../codex.php");
 
 if (isset($_GET["status"])) {
 
@@ -21,11 +21,11 @@ if (isset($_GET["status"])) {
         ));
 
         if ($update) {
-            header("Location:../post.php?status=draft");
+            header("Location:../posts.php?status=draft");
             exit();
         } else {
 
-            header("Location:../post.php?status=publish");
+            header("Location:../posts.php?status=publish");
             exit();
         }
     }
@@ -44,11 +44,11 @@ if (isset($_GET["status"])) {
         ));
 
         if ($update) {
-            header("Location:../post.php?status=publish");
+            header("Location:../posts.php?status=publish");
             exit();
         } else {
 
-            header("Location:../post.php?status=draft");
+            header("Location:../posts.php?status=draft");
             exit();
         }
     }

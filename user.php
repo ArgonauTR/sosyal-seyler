@@ -1,10 +1,13 @@
 <?php
-require_once("config.php");
+// Ana fonskiyon dosyası ekleniyor.
+include("codex.php");
 
-include ("pages/head.php");
-include ("pages/nav.php");
-include ("pages/user.php");
-include ("pages/footer.php");
-
+// Sayfa elemanları ekleniyor.
+include("pages/head.php");
+include("pages/nav.php");
+include("pages/sidebar-left.php");
+include("pages/user.php");
+include("pages/sidebar-right.php");
+include("pages/footer.php");
 
 ?>

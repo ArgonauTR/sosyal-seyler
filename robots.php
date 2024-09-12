@@ -6,7 +6,5 @@ echo "<br>";
 echo "Allow: /";
 echo "<br>";
 echo "https://".$site."/sitemap.xml";
-echo "<br>";
-echo "https://".$site."/sitemap-manga.xml";
 
 ?>

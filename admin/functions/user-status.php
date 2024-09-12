@@ -1,14 +1,14 @@
 <?PHP
 
 // Ana fonskiyon dosyası ekleniyor.
-include("main-function.php");
+include("../../codex.php");
 
 if (isset($_GET["status"])) {
 
     $status = $_GET["status"];
     $user_id = $_GET["user_id"];
 
-    //GET den değer DRAFT olarka gelmişse içeriğin TASLAK olarak güncellenmesi gerekir.
+    //GET den değer pending olarka gelmişse içeriğin TASLAK olarak güncellenmesi gerekir.
     // Aşağıda içerik TASLAK olarak güncelleniyor.
     if ($status == "pending") {
         
@@ -21,18 +21,18 @@ if (isset($_GET["status"])) {
         ));
 
         if ($update) {
-            header("Location:../user.php?status=pending");
+            header("Location:/admin/users.php?status=pending");
             exit();
         } else {
 
-            header("Location:../user.php?status=approved");
+            header("Location:/admin/users.php?status=approved");
             exit();
         }
     }
 
 
-    //GET den değer PUBLİSH olarka gelmişse içeriğin YAYIN olarak güncellenmesi gerekir.
-    // Aşağıda içerik YAYIN olarak güncelleniyor.
+    //GET den değer approved olarka gelmişse içeriğin YAYIN olarak güncellenmesi gerekir.
+    // Aşağıda içerik approved olarak güncelleniyor.
     if ($status == "approved") {
         
         $users = $db->prepare("UPDATE users SET
@@ -44,11 +44,11 @@ if (isset($_GET["status"])) {
         ));
 
         if ($update) {
-            header("Location:../user.php?status=approved");
+            header("Location:/admin/users.php?status=approved");
             exit();
         } else {
 
-            header("Location:../user.php?status=pending");
+            header("Location:/admin/users.php?status=pending");
             exit();
         }
     }

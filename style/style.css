@@ -1,0 +1,16 @@
+.clamp-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    box-orient: vertical;
+}
+
+.custom-card {
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.custom-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}

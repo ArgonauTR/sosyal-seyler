@@ -1,4 +1,5 @@
 <IfModule mod_rewrite.c>
+
     RewriteEngine On
 
     #error control
@@ -8,44 +9,37 @@
     RewriteCond %{HTTPS} !=on
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
 
+    #http to https
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
+
+    #page rules
+    RewriteRule ^login$ login.php [NC,L]
+    RewriteRule ^registry$ registry.php [NC,L]
+    RewriteRule ^write$ write.php [NC,L]
+
+    #categories rules
+    RewriteRule ^categories$ categories.php [NC,L]
+    RewriteRule ^categories/([a-zA-Z0-9-]+)$ categories.php?category_title=$1 [L,QSA]
+    
+    #post rules
+    RewriteRule ^([0-9]+)-([a-zA-Z0-9-]+)$ post.php?post_id=$1&sef=$2 [L,QSA]
+
+    #user rules
+    RewriteRule ^user-option$ user-option.php [NC,L]
+    RewriteRule ^user/([^/]+)$ user.php?user_nick=$1 [L,QSA]
+
+    #contact rules
+    RewriteRule ^contact$ contact.php [NC,L]
+
+    #search rules
+    RewriteRule ^search$ search.php [NC,L]
+
     #sitemap.xml rules
-    RewriteRule ^sitemap-manga.xml$ sitemap-manga.php [NC,L]
     RewriteRule ^sitemap.xml$ sitemap.php [NC,L]
     RewriteRule ^sitemap-([0-9]+)\.xml$ sitemap.php?parca=$1 [NC,L]
 
     #robots.txt rules
     RewriteRule ^robots.txt$ robots.php [NC,L]
-
-    #page rules
-    RewriteRule ^/$ index.php [NC,L]
-    RewriteRule ^blog$ blog.php [NC,L]
-    RewriteRule ^category$ category.php [NC,L]
-    RewriteRule ^post$ post.php [NC,L]
-    RewriteRule ^image$ image.php [NC,L]
-    RewriteRule ^user$ user.php [NC,L]
-    RewriteRule ^search$ search.php [NC,L]
-    RewriteRule ^random$ random.php [NC,L]
-    RewriteRule ^profile$ profile.php [NC,L]
-    RewriteRule ^message$ message.php [NC,L]
-    RewriteRule ^maintenance$ maintenance.php [NC,L]
-    RewriteRule ^mindex$ mindex.php [NC,L]
-    RewriteRule ^summary$ summary.php [NC,L]
-    RewriteRule ^manga$ manga.php [NC,L]
-    RewriteRule ^chapter$ chapter.php [NC,L]
-    
-    #post rules
-    RewriteRule ^([0-9]+)-([a-zA-Z0-9-]+)$ post.php?post_id=$1&sef=$2 [L,QSA]
-
-    #user repass
-    RewriteRule ^user-repass/([0-9]+)-([a-zA-Z0-9_-]+)$ user-repass.php?user_id=$1&user_pass_reset=$2 [L,QSA]
-
-    #manga rules
-    RewriteRule ^manga/([0-9]+)-([a-zA-Z0-9-]+)$ manga.php?manga_id=$1&sef=$2 [L,QSA]
-    
-    #chapter rules
-    RewriteRule ^manga/([0-9]+)-([a-zA-Z0-9-]+)/chapter-([0-9]+)$ chapter.php?manga_id=$1&chapter_id=$3&sef=$2 [L,QSA]
-
-    #category rules
-    RewriteRule ^category/([0-9]+)-([a-zA-Z0-9-]+)$ category.php?category_id=$1&sef=$2 [L,QSA]
 
 </IfModule>

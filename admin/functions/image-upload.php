@@ -1,9 +1,7 @@
-<?php
-// Ana fonskiyon dosyası ekleniyor.
-include("main-function.php");
+<?PHP
 
-// Veritabanına ve Klasöre Resim Ekleniyor.
-klasoryap(); // Resmin yüklenmesi için bir arşiv yolu oluşturur.
+// Ana fonskiyon dosyası ekleniyor.
+include("../../codex.php");
 
 $hata = $_FILES['upload']['error']; // Hata kodu bir değişkenine aktarıldı.
 if ($hata != 0) {
@@ -24,71 +22,51 @@ if ($resimBoyutu > (1024 * 1024 * 2)) {
 }
 
 $tip = $_FILES['upload']['type']; // Resim tipi yanı uzantısı bir değişkene aktarıldı.
-if ($tip != 'image/jpeg' && $tip != 'image/png') {
-    echo "Sadece JPEG ve PNG dosya türleri destekleniyor.";
+if ($tip != 'image/jpeg' && $tip != 'image/png' && $tip != 'image/gif' && $tip != 'image/jpg') {
+    echo "Sadece JPEG, PNG, GIF ve JPG dosya türleri destekleniyor.";
     exit();
 }
 
-$host_adi=$_SERVER["HTTP_HOST"];
+list($width, $height, $type) = getimagesize($_FILES['upload']['tmp_name']);
 
-$resimAdi = $_FILES['upload']['name']; // Resim adını bir değişkene aktardık.
-$uzantisi = explode('.', $resimAdi); // Resmin uzantısını almak için patalttık.
-$uzantisi = $uzantisi[count($uzantisi) - 1]; // Resmin uzantısını bir değişkene aktardık.
-$parcalama = pathinfo($resimAdi, PATHINFO_EXTENSION); // Resmin adını bir değişkene aktardık.
-$SadeceResimAdi = substr(str_replace("." . $parcalama, "", $resimAdi), 0, 50); // Resim adını almak için patlattık.
-$ResimSef = permalink($SadeceResimAdi); // Resmin adını aldık.
-$yuklame_klasoru = "../../images/"; // Resimlerin yükleneceği dizini bir değişkene aktardık.
-$yukleme_yolu = date("Y") . "/" . date("m") . "/"; // Resmin Yükleneceği arşiv yolunu bir değişkene aktardık. (Arşiv klasoryap ile oluşturulmuştu.)
-$klasor = $yuklame_klasoru . $yukleme_yolu; // Resmin tam yükleneceği adresi bir değişkene aktardık.
-$yeni_adi = $klasor . time() . "-" . $ResimSef . "." . $uzantisi; // HTML etiketi için bir bölüm ayarladık.
-$vt_yolu = "https://".$host_adi . "/images/" . $yukleme_yolu . time() . "-" . $ResimSef . "." . $uzantisi; //Yükleme yolunu bir klasöre atatık.
-$vt_adi = time() . "-" . $ResimSef . "." . $uzantisi; //Veritabanı için benzersiz bir isim oluşturduk.
+$image_type =  pathinfo($_FILES['upload']['name'], PATHINFO_EXTENSION); // Resim uzantısı aktarıldı.
+$image_title =  substr(str_replace("." . $image_type, "", $_FILES['upload']['name']), 0, 50); // SEO için sadece adını (50 Karakter) aldık.
+$image_name = permalink($image_title) . "-" . time() . "." . $image_type; // Rastgele bir sayı ile benzersiz bir isim oluşturduk
+$image_width = $width; // Genişliğini aldık.
+$image_height = $height; // Yüksekliğini aldık.
+$image_link = newlink("", $image_name, "image"); // Resim linkini oluşturduk.
+$image_create_time = date('Y-m-d H:i:s'); // Yükleme tarihini aldık.
 
+$path = "../../upload/images/" . $image_name; // Dosya yükleme yolunu aldık.
 
-
-$uploaded_image = $_FILES['upload']['tmp_name']; // Resim adı bir değişkene aktarılıyor
-list($width, $height) = getimagesize($uploaded_image); // Resmin en ve boyu öğreniliyor
-$image_user_ip = $_SERVER["REMOTE_ADDR"]; // Üye ip adresi
-$image_user_agent = $_SERVER['HTTP_USER_AGENT']; // Üye tarayıcı bilgisi
-
-
-move_uploaded_file($_FILES["upload"]["tmp_name"], $yeni_adi); // İlgili adrese taşındı.
-
+move_uploaded_file($_FILES["upload"]["tmp_name"], $path); // İlgili adrese taşındı.
 
 $images = $db->prepare("INSERT into images set
-image_name=:image_name,
 image_title=:image_title,
+image_name=:image_name,
 image_link=:image_link,
 image_width=:image_width,
 image_height=:image_height,
-image_description=:image_description,
 image_type=:image_type,
-image_user_agent=:image_user_agent,
-image_user_ip=:image_user_ip
+image_create_time=:image_create_time
 ");
 
 
 
 $insert = $images->execute(array(
-    'image_name' => $vt_adi,
-    'image_title' => $SadeceResimAdi,
-    'image_link'=>$vt_yolu,
-    'image_width' => $width,
-    'image_height' => $height,
-    'image_description' => $SadeceResimAdi,
-    'image_type' => $uzantisi,
-    'image_user_agent' => $image_user_agent,
-    'image_user_ip'=> $image_user_ip
+    'image_title' => $image_title,
+    'image_name' => $image_name,
+    'image_link' => $image_link,
+    'image_width' => $image_width,
+    'image_height' => $image_height,
+    'image_type' => $image_type,
+    'image_create_time' => $image_create_time
 ));
 
 if ($insert) {
-    $data['file'] =$vt_adi;
-    $data['url'] =$vt_yolu;
-    $data['uploaded'] = 1;
-}else{
-    $data['uploaded']= 0;
-    $data['error'] ['message'] = 'Hata! Yüklenemedi';
+    header("Location:" . $site_name . "/admin/images.php?alert=image-add-success");
+    exit;
+} else {
+    header("Location:" . $site_name . "/admin/images.php?alert=image-add-failed");
+    exit;
 }
-
-echo json_encode($data);
-?>
