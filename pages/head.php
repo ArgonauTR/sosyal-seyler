@@ -2,7 +2,6 @@
 <html lang="tr" data-bs-theme="<?php echo currenttheme(); ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
-    <!-- Site Metaları -->
     <?php include("subpages/metas.php"); ?>
 
     <!-- Google Analitics Kodu -->

@@ -56,10 +56,10 @@
                             $theme = optioninfo("option_default_theme");
                             if ($theme == "dark") {
                                 echo '<option value="dark" selected>Karanlık Tema</option>';
-                                echo '<option value="light">Aydnlık Tema</option>';
+                                echo '<option value="light">Aydınlık Tema</option>';
                             } else {
                                 echo '<option value="dark">Karanlık Tema</option>';
-                                echo '<option value="light" selected>Aydnlık Tema</option>';
+                                echo '<option value="light" selected>Aydınlık Tema</option>';
                             }
                             ?>
                         </select>

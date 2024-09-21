@@ -20,7 +20,7 @@ $delete = $images->execute(array(
 ));
 
 // İşlem sonucuna göre yönlendirme yapılıyor.
-if ($update) {
+if ($delete) {
     header("Location:" . $site_name . "/admin/images.php?status=image-delete-success");
     exit();
 } else {

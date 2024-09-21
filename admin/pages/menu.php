@@ -36,13 +36,13 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?php echo $site_name."/admin/posts.php"; ?>">
+        <a class="nav-link" href="<?php echo $site_name."/admin/posts.php?select=draft"; ?>">
             <i class="bi bi-pencil-square me-1"></i>
             Konular
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?php echo $site_name."/admin/comments.php"; ?>">
+        <a class="nav-link" href="<?php echo $site_name."/admin/comments.php?select=draft"; ?>">
             <i class="bi bi-chat-left-dots me-1"></i>
             Yorumlar
         </a>
@@ -60,13 +60,13 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?php echo $site_name."/admin/users.php"; ?>">
+        <a class="nav-link" href="<?php echo $site_name."/admin/users.php?select=pending"; ?>">
             <i class="bi bi-person me-1"></i>
             Üyeler
         </a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="<?php echo $site_name."/admin/contacts.php"; ?>">
+    <a class="nav-link" href="<?php echo $site_name."/admin/contacts.php?select=draft"; ?>">
             <i class="bi bi-envelope me-1"></i>
             Mesajlar
         </a>

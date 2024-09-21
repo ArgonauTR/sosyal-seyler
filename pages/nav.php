@@ -37,7 +37,7 @@
                     </button>
                     <ul class="dropdown-menu">
                         <?php if ($_SESSION["user_role"] == "admin") { ?><li><a class="dropdown-item" title="Profil" href="<?php echo $site_name . "/admin"; ?>"><i class="bi bi-shield"></i> Admin</a></li><?php } ?>
-                        <li><a class="dropdown-item" title="Profil" href="<?php echo $_SESSION['user_url']; ?>"><i class="bi bi-person"></i> Proil</a></li>
+                        <li><a class="dropdown-item" title="Profil" href="<?php echo $_SESSION['user_url']; ?>"><i class="bi bi-person"></i> Profil</a></li>
                         <li><a class="dropdown-item" title="Yeni Konu" href="<?php echo $site_name . "/write"; ?>"><i class="bi bi-plus-circle"></i> Yeni Konu</a></li>
                         <?php
                         if ($_SESSION["user_theme"] == "dark") {
