@@ -5,15 +5,15 @@
                 <?php
                 if (isset($_SESSION["user_theme"])) {
                     if ($_SESSION['user_theme'] == "dark") {
-                        echo '<a href="/" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_dark_logo_link") . '"></a>';
+                        echo '<a href="'.$site_name.'" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_dark_logo_link") . '"></a>';
                     } else {
-                        echo '<a href="/" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_light_logo_link") . '"></a>';
+                        echo '<a href="'.$site_name.'" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_light_logo_link") . '"></a>';
                     }
                 } else {
                     if (optioninfo("option_default_theme") == "dark") {
-                        echo '<a href="/" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_dark_logo_link") . '"></a>';
+                        echo '<a href="'.$site_name.'" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_dark_logo_link") . '"></a>';
                     } else {
-                        echo '<a href="/" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_light_logo_link") . '"></a>';
+                        echo '<a href="'.$site_name.'" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_light_logo_link") . '"></a>';
                     }
                 }
                 ?>

@@ -32,3 +32,6 @@ include("core/fetch-info.php");
 
 // Karanlık/Aydınlık Mod ayarlaması yapıyor
 include("core/dark-mode.php");
+
+// Admin kullanıcısı yoksa admin kullanıcısını oluşturur.
+include("core/admin-maker.php");

@@ -11,7 +11,11 @@ if (isset($_POST['new_comment'])) {
 
     //Kayıt edilecek veriler işleniyor.
     $comment_content = htmlspecialchars(strip_tags($_POST["post_comment"]));
-    $comment_status = "draft";
+    if ($_SESSION['user_role'] == "admin") {
+        $comment_status = "publish";
+    } else {
+        $comment_status = "draft";
+    }
     $comment_author_id = $_SESSION["user_id"];
     $comment_post_id = htmlspecialchars(strip_tags($_POST["post_id"]));
     $comment_parent_id = null;
@@ -58,7 +62,12 @@ if (isset($_POST['new_reply'])) {
 
     //Kayıt edilecek veriler işleniyor.
     $comment_content = htmlspecialchars(strip_tags($_POST["post_comment"]));
-    $comment_status = "draft";
+    
+    if ($_SESSION['user_role'] == "admin") {
+        $comment_status = "publish";
+    } else {
+        $comment_status = "draft";
+    }
     $comment_author_id = $_SESSION["user_id"];
     $comment_post_id = htmlspecialchars(strip_tags($_POST["post_id"]));
     $comment_parent_id = $comment_id;

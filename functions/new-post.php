@@ -11,7 +11,11 @@ if (isset($_POST['new_post'])) {
     $post_content = $_POST["post_content"];
     $post_category_id = htmlspecialchars(strip_tags($_POST["post_category_id"]));
     $post_author_id = $_SESSION["user_id"];
-    $post_status = "draft";
+    if ($_SESSION["user_role"] == "admin") {
+        $post_status = "publish";
+    } else {
+        $post_status = "draft";
+    }
     $post_wievs = rand(1, 10);
     $post_comment_status = "open";
     $post_create_time = date('Y-m-d H:i:s');
@@ -30,7 +34,7 @@ if (isset($_POST['new_post'])) {
 
 
     $insert = $posts->execute(array(
-        'post_title' => substr($post_title,0,100), // Başlık en fazla 100 karakterden oluşabilir.
+        'post_title' => substr($post_title, 0, 100), // Başlık en fazla 100 karakterden oluşabilir.
         'post_content' => $post_content,
         'post_category_id' => $post_category_id,
         'post_author_id' => $post_author_id,
@@ -60,10 +64,10 @@ if ($insert) {
     ));
 
     if ($update) {
-        header("Location:".$new_link."?alert=post-added");
+        header("Location:" . $new_link . "?alert=post-added");
         exit;
     }
-}else{
-    header("Location:".$new_link."?alert=post-failed");
+} else {
+    header("Location:" . $new_link . "?alert=post-failed");
     exit;
 }

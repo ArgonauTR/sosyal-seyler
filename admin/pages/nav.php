@@ -9,9 +9,9 @@
   <div class="container">
     <?php
     if ($_SESSION['user_theme'] == "dark") {
-      echo '<a href="/admin" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_dark_logo_link") . '"></a>';
+      echo '<a href="'.$site_name.'/admin" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_dark_logo_link") . '"></a>';
     } else {
-      echo '<a href="/admin" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_light_logo_link") . '"></a>';
+      echo '<a href="'.$site_name.'/admin" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_light_logo_link") . '"></a>';
     }
     ?>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
