@@ -46,7 +46,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="/admin/functions/category-delete.php?category_id=<?php echo $category["category_id"]; ?>"><i class="bi bi-trash me-1"></i>Sil</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $site_name; ?>/admin/functions/category-delete.php?category_id=<?php echo $category["category_id"]; ?>"><i class="bi bi-trash me-1"></i>Sil</a></li>
                         </ul>
                     </div>
                 </div>

@@ -29,7 +29,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="/admin/functions/order-delete.php?order_id=<?php echo $order["order_id"]; ?>"><i class="bi bi-trash me-1"></i>Sil</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $site_name;?>/admin/functions/order-delete.php?order_id=<?php echo $order["order_id"]; ?>"><i class="bi bi-trash me-1"></i>Sil</a></li>
                         </ul>
                     </div>
                 </div>

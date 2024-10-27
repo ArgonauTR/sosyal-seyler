@@ -62,15 +62,15 @@
                             <li><a class="dropdown-item" href="<?php echo $site_name . "/admin/process.php?type=post_update&id=" . $post["post_id"]; ?>"><i class="bi bi-pen me-1"></i>Düzenle</a></li>
                             <?php
                             if ($post["post_status"] == "publish") {
-                                echo '<li><a class="dropdown-item" href="/admin/functions/post-status.php?status=draft&post_id=' . $post["post_id"] . '"><i class="bi bi-x-square me-1"></i>Askıya Al</a></li>';
+                                echo '<li><a class="dropdown-item" href="./functions/post-status.php?status=draft&post_id=' . $post["post_id"] . '"><i class="bi bi-x-square me-1"></i>Askıya Al</a></li>';
                             } else {
-                                echo '<li><a class="dropdown-item" href="/admin/functions/post-status.php?status=publish&post_id=' . $post["post_id"] . '"><i class="bi bi-x-square me-1"></i>Onayla</a></li>';
+                                echo '<li><a class="dropdown-item" href="./functions/post-status.php?status=publish&post_id=' . $post["post_id"] . '"><i class="bi bi-x-square me-1"></i>Onayla</a></li>';
                             }
                             ?>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="/admin/functions/post-delete.php?post_id=<?php echo $post["post_id"]; ?>"><i class="bi bi-trash me-1"></i>Sil</a></li>
+                            <li><a class="dropdown-item" href="./functions/post-delete.php?post_id=<?php echo $post["post_id"]; ?>"><i class="bi bi-trash me-1"></i>Sil</a></li>
                         </ul>
                     </div>
                 </div>

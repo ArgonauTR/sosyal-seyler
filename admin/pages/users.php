@@ -58,18 +58,18 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="<?php echo $user["user_url"] ?>" target="_blank"><i class="bi bi-eye me-1"></i>Görüntüle</a></li>
-                            <li><a class="dropdown-item" href="/admin/process.php?type=user_update&user_id=<?php echo $user["user_id"] ?>"><i class="bi bi-pen me-1"></i>Düzenle</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $site_name; ?>/admin/process.php?type=user_update&user_id=<?php echo $user["user_id"] ?>"><i class="bi bi-pen me-1"></i>Düzenle</a></li>
                             <?php
                             if ($user["user_status"] == "approved") {
-                                echo '<li><a class="dropdown-item" href="/admin/functions/user-status.php?user_id=' . $user["user_id"] . '&status=pending"><i class="bi bi-x-square me-1"></i>Askıya Al</a></li>';
+                                echo '<li><a class="dropdown-item" href="'.$site_name.'/admin/functions/user-status.php?user_id=' . $user["user_id"] . '&status=pending"><i class="bi bi-x-square me-1"></i>Askıya Al</a></li>';
                             } else {
-                                echo '<li><a class="dropdown-item" href="/admin/functions/user-status.php?user_id=' . $user["user_id"] . '&status=approved"><i class="bi bi-check2-square me-1"></i>Onayla</a></li>';
+                                echo '<li><a class="dropdown-item" href="'.$site_name.'/admin/functions/user-status.php?user_id=' . $user["user_id"] . '&status=approved"><i class="bi bi-check2-square me-1"></i>Onayla</a></li>';
                             }
                             ?>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="./functions/user-delete.php?user_id=<?php echo $user["user_id"]; ?>"><i class="bi bi-trash me-1"></i>Sil</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $site_name; ?>/admin/functions/user-delete.php?user_id=<?php echo $user["user_id"]; ?>"><i class="bi bi-trash me-1"></i>Sil</a></li>
                         </ul>
                     </div>
                 </div>

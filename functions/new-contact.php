@@ -3,6 +3,10 @@
 // Ana fonskiyon dosyası ekleniyor.
 include("../codex.php");
 
+if(isset($_SESSION["contact"]) OR $_SESSION["contact"]=="OK"){
+    header("Location:" . $site_name . "/contact?alert=permission-exist");
+}
+
 // Konu ekleme işlemi yapılıyor
 if (isset($_POST['new_contact'])) {
 
@@ -42,10 +46,10 @@ if (isset($_POST['new_contact'])) {
 
     // Yönlendirme ve Mesaj veriliyor.
     if ($insert) {
-        header("Location:" . $new_link . "/contact?alert=contact-success");
+        header("Location:" . $site_name . "/contact?alert=contact-success");
         exit;
     } else {
-        header("Location:" . $new_link . "/contact?alert=/contact-failed");
+        header("Location:" . $site_name . "/contact?alert=/contact-failed");
         exit;
     }
 }

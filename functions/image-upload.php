@@ -1,18 +1,21 @@
 <?PHP
+header('Content-Type: application/json');
+
 // Ana fonskiyon dosyası ekleniyor.
 include("../codex.php");
 
 $hata = $_FILES['upload']['error']; // Hata kodu bir değişkenine aktarıldı.
 if ($hata != 0) {
-    echo "Resim gödnerilirken bir hata oluştu.";
+    echo json_encode(['error' => 'Resim gödnerilirken bir hata oluştu.']);
     echo "<br>";
     echo $hata;
     exit();
 }
 
+
 $resimBoyutu = $_FILES['upload']['size']; // Resmin boyutu bir değişkene aktarıldı.
 if ($resimBoyutu > (1024 * 1024 * 2)) {
-    echo "Resim boyutu 2 MB den büyük olamaz.";
+    echo json_encode(['error' => 'Resim boyutu 2 MB den büyük olamaz.']);
     exit();
     /*
 		Yukarıda ki işlem byte, kilobayt ve megabayt ın çarpımıdır.
@@ -22,7 +25,7 @@ if ($resimBoyutu > (1024 * 1024 * 2)) {
 
 $tip = $_FILES['upload']['type']; // Resim tipi yanı uzantısı bir değişkene aktarıldı.
 if ($tip != 'image/jpeg' && $tip != 'image/png' && $tip != 'image/gif' && $tip != 'image/jpg') {
-    echo "Sadece JPEG, PNG, GIF ve JPG dosya türleri destekleniyor.";
+    echo json_encode(['error' => 'Sadece JPEG, PNG, GIF ve JPG dosya türleri destekleniyor.']);
     exit();
 }
 
@@ -63,23 +66,13 @@ $insert = $images->execute(array(
 ));
 
 
-// Bu kısımda kullanıcı profili güncelleniyor.
-
-$user_id = $_SESSION["user_id"];
-
-$users = $db->prepare("UPDATE users SET
-user_image_url=:user_image_url
-WHERE user_id=$user_id");
-
-$update = $users->execute(array(
-'user_image_url' => $image_link
-));
-
-
-if ($update) {
-    header("Location:" . $site_name . "/user-option?alert=image-add-success&option=image");
-    exit;
-} else {
-    header("Location:" . $site_name . "/user-option?alert=image-add-failed&option=image");
-    exit;
+if ($insert) {
+    $data['file'] =$image_title;
+    $data['url'] =$image_link;
+    $data['uploaded'] = 1;
+}else{
+    $data['uploaded']= 0;
+    $data['error'] ['message'] = 'Hata! Yüklenemedi';
 }
+
+echo json_encode($data);

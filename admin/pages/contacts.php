@@ -62,15 +62,15 @@
                            <li><a class="dropdown-item" href="mailto:<?php echo $contact["contact_mail"]; ?>"><i class="bi bi-envelope-at"></i> Cevapla</a></li>
                            <?php
                             if ($contact["contact_status"] == "publish") {
-                                echo '<li><a class="dropdown-item" href="/admin/functions/contact-status.php?status=draft&contact_id='.$contact["contact_id"].'"><i class="bi bi-clock-history me-1"></i>Bekliyor Yap</a></li>';
+                                echo '<li><a class="dropdown-item" href="'.$site_name.'/admin/functions/contact-status.php?status=draft&contact_id='.$contact["contact_id"].'"><i class="bi bi-clock-history me-1"></i>Bekliyor Yap</a></li>';
                             } else {
-                                echo '<li><a class="dropdown-item" href="/admin/functions/contact-status.php?status=publish&contact_id='.$contact["contact_id"].'"><i class="bi bi-clock-history me-1"></i>Okunmuş Yap</a></li>';
+                                echo '<li><a class="dropdown-item" href="'.$site_name.'/admin/functions/contact-status.php?status=publish&contact_id='.$contact["contact_id"].'"><i class="bi bi-clock-history me-1"></i>Okunmuş Yap</a></li>';
                             }
                             ?>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="/admin/functions/contact-delete.php?contact_id=<?php echo $contact["contact_id"]; ?>"><i class="bi bi-trash me-1"></i>Sil</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $site_name; ?>/admin/functions/contact-delete.php?contact_id=<?php echo $contact["contact_id"]; ?>"><i class="bi bi-trash me-1"></i>Sil</a></li>
                         </ul>
                     </div>
                 </div>

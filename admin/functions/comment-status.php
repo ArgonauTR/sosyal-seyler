@@ -21,11 +21,11 @@ if (isset($_GET["status"])) {
         ));
 
         if ($update) {
-            header("Location:/admin/comments.php?status=draft");
+            header("Location:$site_name/admin/comments.php?status=draft");
             exit();
         } else {
 
-            header("Location:/admin/comments.php?status=publish");
+            header("Location:$site_name/admin/comments.php?status=publish");
             exit();
         }
     }
@@ -44,11 +44,11 @@ if (isset($_GET["status"])) {
         ));
 
         if ($update) {
-            header("Location:/admin/comments.php?status=publish");
+            header("Location:$site_name/admin/comments.php?status=publish");
             exit();
         } else {
 
-            header("Location:/admin/commentts.php?status=draft");
+            header("Location:$site_name/admin/commentts.php?status=draft");
             exit();
         }
     }

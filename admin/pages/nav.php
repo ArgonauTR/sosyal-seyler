@@ -9,9 +9,9 @@
   <div class="container">
     <?php
     if ($_SESSION['user_theme'] == "dark") {
-      echo '<a href="'.$site_name.'/admin" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_dark_logo_link") . '"></a>';
+      echo '<a href="' . $site_name . '/admin" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_dark_logo_link") . '"></a>';
     } else {
-      echo '<a href="'.$site_name.'/admin" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_light_logo_link") . '"></a>';
+      echo '<a href="' . $site_name . '/admin" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_light_logo_link") . '"></a>';
     }
     ?>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -19,7 +19,13 @@
     </button>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MenuLogo</h5>
+        <?php
+        if ($_SESSION['user_theme'] == "dark") {
+          echo '<a href="' . $site_name . '/admin" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_dark_logo_link") . '"></a>';
+        } else {
+          echo '<a href="' . $site_name . '/admin" title="Site Logosu"><img class="img-fluid" src="' . optioninfo("option_light_logo_link") . '"></a>';
+        }
+        ?>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">

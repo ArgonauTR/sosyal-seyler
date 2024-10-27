@@ -14,3 +14,17 @@
 .custom-card:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
+
+figure.image {
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+
+figure.image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: 10px;
+}

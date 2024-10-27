@@ -59,12 +59,12 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="<?php echo $posts[0]["post_link"]; ?>" target="_blank"><i class="bi bi-eye me-1"></i>Görüntüle</a></li>
-                            <li><a class="dropdown-item" href="/admin/process.php?type=comment_update&id=<?php echo $comment["comment_id"] ?>"><i class="bi bi-pen me-1"></i>Düzenle</a></li>
+                            <li><a class="dropdown-item" href="./process.php?type=comment_update&id=<?php echo $comment["comment_id"] ?>"><i class="bi bi-pen me-1"></i>Düzenle</a></li>
                             <?php
                             if ($comment["comment_status"] == "publish") {
-                                echo '<li><a class="dropdown-item" href="/admin/functions/comment-status.php?comment_id=' . $comment["comment_id"] . '&status=draft"><i class="bi bi-x-square me-1"></i>Askıya Al</a></li>';
+                                echo '<li><a class="dropdown-item" href="./functions/comment-status.php?comment_id=' . $comment["comment_id"] . '&status=draft"><i class="bi bi-x-square me-1"></i>Askıya Al</a></li>';
                             } else {
-                                echo '<li><a class="dropdown-item" href="/admin/functions/comment-status.php?comment_id=' . $comment["comment_id"] . '&status=publish"><i class="bi bi-check2-square me-1"></i>Onayla</a></li>';
+                                echo '<li><a class="dropdown-item" href="./functions/comment-status.php?comment_id=' . $comment["comment_id"] . '&status=publish"><i class="bi bi-check2-square me-1"></i>Onayla</a></li>';
                             }
                             ?>
                             <li>

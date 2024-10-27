@@ -44,7 +44,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="/admin/functions/image-delete.php?image_id=<?php echo $image["image_id"]; ?>"><i class="bi bi-trash me-1"></i>Sil</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $site_name; ?>/admin/functions/image-delete.php?image_id=<?php echo $image["image_id"]; ?>"><i class="bi bi-trash me-1"></i>Sil</a></li>
                         </ul>
                     </div>
                 </div>
