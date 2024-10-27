@@ -1,4 +1,3 @@
-@ -1,27 +1,29 @@
 # Sosyal Şeyler Scripti Nedir?
 Boostrap, PHP, MySQL ve JS ile yazılmış forum, sözllük tarzı bir web scriptidir.
 
