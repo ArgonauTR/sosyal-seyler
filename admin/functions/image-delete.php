@@ -3,6 +3,12 @@
 // Ana fonskiyon dosyası ekleniyor.
 include("../../codex.php");
 
+// Güvenlik kontrolü yapılıyor.
+if (!isset($_SESSION["user_role"]) and $_SESSION["user_role"] != "admin") {
+    header("Location:" . $site_name . "/?status=permission-exist");
+    exit();
+}
+
  // Resim ID değişkene aktarılıyor.
 $image_id = $_GET["image_id"];
 

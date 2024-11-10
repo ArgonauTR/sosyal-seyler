@@ -3,6 +3,12 @@ n<?php
 // Ana fonskiyon dosyası ekleniyor.
 include("../../codex.php");
 
+// Güvenlik kontrolü yapılıyor.
+if (!isset($_SESSION["user_role"]) and $_SESSION["user_role"] != "admin") {
+    header("Location:" . $site_name . "/?status=permission-exist");
+    exit();
+}
+
 // Konu ekleme işlemi yapılıyor
 if (isset($_POST['new_category'])) {
 

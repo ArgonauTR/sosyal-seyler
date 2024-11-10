@@ -2,6 +2,12 @@
 // Ana fonskiyon dosyası ekleniyor.
 include("../../codex.php");
 
+// Güvenlik kontrolü yapılıyor.
+if (!isset($_SESSION["user_role"]) and $_SESSION["user_role"] != "admin") {
+    header("Location:" . $site_name . "/?status=permission-exist");
+    exit();
+}
+
 $hata = $_FILES['upload']['error']; // Hata kodu bir değişkenine aktarıldı.
 if ($hata != 0) {
     echo "Resim gödnerilirken bir hata oluştu.";

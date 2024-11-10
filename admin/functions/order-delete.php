@@ -2,6 +2,12 @@
 // Ana fonskiyon dosyası ekleniyor.
 include("../../codex.php");
 
+// Güvenlik kontrolü yapılıyor.
+if (!isset($_SESSION["user_role"]) and $_SESSION["user_role"] != "admin") {
+    header("Location:" . $site_name . "/?status=permission-exist");
+    exit();
+}
+
 $order_id = $_GET["order_id"];
 
 $orders = $db->prepare("DELETE from orders where order_id=:id");

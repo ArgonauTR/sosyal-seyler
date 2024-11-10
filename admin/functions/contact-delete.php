@@ -3,6 +3,12 @@
 // Ana fonskiyon dosyası ekleniyor.
 include("../../codex.php");
 
+// Güvenlik kontrolü yapılıyor.
+if (!isset($_SESSION["user_role"]) and $_SESSION["user_role"] != "admin") {
+    header("Location:" . $site_name . "/?status=permission-exist");
+    exit();
+}
+
 $contact_id = $_GET["contact_id"];
 
 $contacts = $db->prepare("DELETE from contacts where contact_id=:id");

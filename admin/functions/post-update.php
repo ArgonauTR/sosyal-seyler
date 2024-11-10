@@ -3,6 +3,12 @@
 // Ana fonskiyon dosyası ekleniyor.
 include("../../codex.php");
 
+// Güvenlik kontrolü yapılıyor.
+if (!isset($_SESSION["user_role"]) and $_SESSION["user_role"] != "admin") {
+    header("Location:" . $site_name . "/?status=permission-exist");
+    exit();
+}
+
 if (isset($_POST["post_update"])) {
     $post_id = $_POST["post_id"];
     $post_title = $_POST["post_title"];

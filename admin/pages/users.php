@@ -6,6 +6,10 @@
         </div>
         <div class="card-body">
             <?php
+            // Güvenlik Kimliği
+            $nonce = md5(time());
+
+
             // Taslak/yayın arasındaki geçişi hafızada tutar.
             if (empty($_SESSION["select"])) {
                 $_SESSION["select"] = "pending";
