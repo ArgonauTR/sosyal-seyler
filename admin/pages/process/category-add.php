@@ -6,14 +6,14 @@
         <div class="card-body">
             <form method="POST" action="<?php echo $site_name . "/admin/functions/category-add.php"; ?>">
                 <div class="mb-3">
-                    <input type="text" class="form-control" name="category_title" placeholder="Kategori Adı">
+                    <input type="text" class="form-control" name="category_title" placeholder="Örn: Genel">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" name="category_icon" placeholder="İkon Kodu">
-                    <div class="form-text "><a class="text-decoration-none text-muted" href="https://icons.getbootstrap.com/"><i class="bi bi-link-45deg"></i> İkon Listesi</a></div>
+                    <input type="text" class="form-control" name="category_icon" placeholder="Örn: eye">
+                    <div class="form-text "><a class="text-decoration-none text-muted" target="_blank" href="https://icons.getbootstrap.com/"><i class="bi bi-link-45deg"></i> İkon Listesi</a></div>
                 </div>
                 <div class="mb-3">
-                    <textarea class="form-control" rows="3" name="category_description" placeholder="Kategori Açıklamasını Girin"></textarea>
+                    <textarea class="form-control" rows="3" name="category_description" placeholder="Örn: Belirli bir kategorisi bulunmayan..."></textarea>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="category_fav">

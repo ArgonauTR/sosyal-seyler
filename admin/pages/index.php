@@ -67,7 +67,8 @@ if ($source_data["compilation"] > $system_data["compilation"]) {
 <div class="col-12 col-lg-9">
     <div class="row">
         <div class="col-6 col-md-4 col-lg-3 mb-4">
-            <div class="card text-center">
+            <div class="card text-center custom-card">
+                <a href="<?php echo $site_name."/admin/posts.php?select=draft"; ?>" class="stretched-link"></a>
                 <?php echo $posts_draft_ready; ?>
                 <div class="card-body">
                     <h1 class="card-title"><?php echo count($posts_all); ?></h1>
@@ -76,7 +77,8 @@ if ($source_data["compilation"] > $system_data["compilation"]) {
             </div>
         </div>
         <div class="col-6  col-md-4 col-lg-3 mb-4">
-            <div class="card text-center">
+            <div class="card text-center custom-card">
+            <a href="<?php echo $site_name."/admin/comments.php?select=draft"; ?>" class="stretched-link"></a>
                 <?php echo $comments_draft_ready; ?>
                 <div class="card-body">
                     <h1 class="card-title"><?php echo count($comments_all); ?></h1>
@@ -85,7 +87,8 @@ if ($source_data["compilation"] > $system_data["compilation"]) {
             </div>
         </div>
         <div class="col-6 col-md-4 col-lg-3 mb-4">
-            <div class="card text-center">
+            <div class="card text-center custom-card">
+            <a href="<?php echo $site_name."/admin/categories.php"; ?>" class="stretched-link"></a>
                 <div class="card-body">
                     <h1 class="card-title"><?php echo count($categories_all); ?></h1>
                     <p class="card-text">Kategoriler</p>
@@ -93,7 +96,8 @@ if ($source_data["compilation"] > $system_data["compilation"]) {
             </div>
         </div>
         <div class="col-6 col-md-4 col-lg-3 mb-4">
-            <div class="card text-center">
+            <div class="card text-center custom-card">
+            <a href="<?php echo $site_name."/admin/images.php"; ?>" class="stretched-link"></a>
                 <div class="card-body">
                     <h1 class="card-title"><?php echo count($images_all); ?></h1>
                     <p class="card-text">Resimler</p>
@@ -101,7 +105,8 @@ if ($source_data["compilation"] > $system_data["compilation"]) {
             </div>
         </div>
         <div class="col-6 col-md-4 col-lg-3 mb-4">
-            <div class="card text-center">
+            <div class="card text-center custom-card">
+            <a href="<?php echo $site_name."/admin/users.php?select=pending"; ?>" class="stretched-link"></a>
                 <?php echo $users_pending_ready; ?>
                 <div class="card-body">
                     <h1 class="card-title"><?php echo count($users_all); ?></h1>
@@ -110,7 +115,8 @@ if ($source_data["compilation"] > $system_data["compilation"]) {
             </div>
         </div>
         <div class="col-6 col-md-4 col-lg-3 mb-4">
-            <div class="card text-center">
+            <div class="card text-center custom-card">
+            <a href="<?php echo $site_name."/admin/contacts.php?select=draft"; ?>" class="stretched-link"></a>
                 <?php echo $contacts_draft_ready; ?>
                 <div class="card-body">
                     <h1 class="card-title"><?php echo count($contact_all); ?></h1>

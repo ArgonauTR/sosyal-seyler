@@ -9,28 +9,28 @@ $url = $_SERVER['REQUEST_URI'];
 $path = parse_url($url, PHP_URL_PATH);
 ?>
 
-    <!-- WebSite Standart Metas -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="content-language" content="tr-TR">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta name="google" content="notranslate" />
+<!-- WebSite Standart Metas -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="content-language" content="tr-TR">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="google" content="notranslate" />
 
-    <!-- WebSite ID Metas -->
-    <link rel="sitemap" type="application/xml" title="Site Haritası" href="<?php echo $site_name . "/sitemap.xml"; ?>">
-    <link rel="icon" href="<?php echo optioninfo("option_favicon_link"); ?>">
-    <link rel="apple-touch-icon" href="<?php echo optioninfo("option_favicon_link"); ?>">
-    <link rel="link" href="https://sosyalseyler.com/">
+<!-- WebSite ID Metas -->
+<link rel="sitemap" type="application/xml" title="Site Haritası" href="<?php echo $site_name . "/sitemap.xml"; ?>">
+<link rel="icon" href="<?php echo optioninfo("option_favicon_link"); ?>">
+<link rel="apple-touch-icon" href="<?php echo optioninfo("option_favicon_link"); ?>">
+<link rel="link" href="https://sosyalseyler.com/">
 
-    <!--WebSite Source Metas -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo $site_name . "/admin/style/style.css" ?>">
+<!--WebSite Source Metas -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="<?php echo $site_name . "/admin/style/style.css" ?>">
 
-    <!-- Rich Editor Metas -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
+<!-- Rich Editor Metas -->
+<script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
 
 <?php
 if (isset($_GET["post_id"])) { // ---> POST METALARI
@@ -112,25 +112,6 @@ if (isset($_GET["post_id"])) { // ---> POST METALARI
     <meta name="twitter:title" content="<?php echo $user[0]["user_nick"];  ?>">
     <meta name="twitter:url" content="<?php echo $user[0]["user_url"]; ?>">
     <meta name="twitter:description" content="<?php echo $user[0]["user_bio"]; ?>">
-<?php
-} elseif ($path == "/") { // -- ANASAYFA METALARI
-?>
-    <!-- İndex Metas -->
-    <title><?php echo optioninfo("option_site_title") . " - " . optioninfo("option_site_description");  ?></title>
-    <meta name="description" content="<?php echo optioninfo("option_site_description"); ?>" />
-    <link rel="canonical" href="<?php echo $site_name; ?>" type="text/html" />
-    <meta property="og:site_name" content="<?php echo optioninfo("option_site_title"); ?>">
-
-    <!-- OG Metas -->
-    <meta property="og:title" content="<?php echo optioninfo("option_site_title"); ?>">
-    <meta property="og:description" content="<?php echo optioninfo("option_site_description"); ?>">
-    <meta property="og:url" content="<?php echo $site_name; ?>">
-    <meta property="og:locale" content="tr_TR">
-
-    <!-- Twitter Metas -->
-    <meta name="twitter:title" content="<?php echo optioninfo("option_site_title"); ?>">
-    <meta name="twitter:url" content="<?php echo $site_name; ?>">
-    <meta name="twitter:description" content="<?php echo optioninfo("option_site_description"); ?>">
 <?php
 } elseif ($path == "/categories") {  // ---> KATEGORİLER GENEL METALARI
 ?>
@@ -265,6 +246,25 @@ if (isset($_GET["post_id"])) { // ---> POST METALARI
     <meta name="twitter:title" content="<?php echo "Arama Sayfası - " . optioninfo("option_site_title");  ?>">
     <meta name="twitter:url" content="<?php echo $site_name . "/search"; ?>">
     <meta name="twitter:description" content="<?php echo optioninfo("option_site_title") . " Arama Sayfası Sayfası"; ?>">
+<?php
+} else {
+?>
+    <!-- İndex Metas -->
+    <title><?php echo optioninfo("option_site_title") . " - " . optioninfo("option_site_description");  ?></title>
+    <meta name="description" content="<?php echo optioninfo("option_site_description"); ?>" />
+    <link rel="canonical" href="<?php echo $site_name; ?>" type="text/html" />
+    <meta property="og:site_name" content="<?php echo optioninfo("option_site_title"); ?>">
+
+    <!-- OG Metas -->
+    <meta property="og:title" content="<?php echo optioninfo("option_site_title"); ?>">
+    <meta property="og:description" content="<?php echo optioninfo("option_site_description"); ?>">
+    <meta property="og:url" content="<?php echo $site_name; ?>">
+    <meta property="og:locale" content="tr_TR">
+
+    <!-- Twitter Metas -->
+    <meta name="twitter:title" content="<?php echo optioninfo("option_site_title"); ?>">
+    <meta name="twitter:url" content="<?php echo $site_name; ?>">
+    <meta name="twitter:description" content="<?php echo optioninfo("option_site_description"); ?>">
 <?php
 }
 ?>

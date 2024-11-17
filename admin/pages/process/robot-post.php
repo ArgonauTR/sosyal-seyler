@@ -1,8 +1,5 @@
 <?php
-// İşlem yapılacak id değişkene aktalrılıyor.
-$id = $_GET["id"];
-
-$posts = postinfo("SELECT * FROM posts WHERE post_id=" . $id);
+$user = userinfo("SELECT * FROM users WHERE user_role='robot' ORDER BY RAND() LIMIT 1");
 ?>
 
 <style>
@@ -107,40 +104,36 @@ $posts = postinfo("SELECT * FROM posts WHERE post_id=" . $id);
 <div class="col-12 col-lg-9">
     <div class="card">
         <div class="card-header">
-            <i class="bi bi-pen"></i>
-            <?php echo $posts[0]["post_title"]; ?>
+            <i class="bi bi-clipboard-plus"></i> Robot Post
         </div>
         <div class="card-body">
-            <form method="POST" action="<?php echo $site_name . "/admin/functions/post-update.php"; ?>" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <input type="text" class="form-control" name="post_id" value="<?php echo $posts[0]["post_id"] ?>" hidden>
+            <form method="POST" action="<?php echo $site_name . "/admin/functions/robot-post.php"; ?>" ; ? id="postForm">
+                <div class="mb-3 mt-4">
+                    <input type="text" class="form-control" name="user_id" value="<?php echo $user[0]["user_id"] ?>" hidden>
                 </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control" name="post_title" value="<?php echo $posts[0]["post_title"] ?>" required>
+                <div class="mb-3 mt-4">
+                    <input type="text" class="form-control" name="post_title" placeholder="Başlık Giriniz" required>
                 </div>
                 <div class="mb-3">
                     <select class="form-select" name="post_category_id">
                         <?php
-                        $categories = categoryinfo("SELECT * FROM categories ORDER BY category_title ASC");
-                        foreach ($categories as $category) {
-                            if ($posts[0]["post_category_id"] === $category["category_id"]) {
-                                echo '<option selected value="' . $category["category_id"] . '">' . $category["category_title"] . '</option>';
-                            } else {
-                                echo '<option value="' . $category["category_id"] . '">' . $category["category_title"] . '</option>';
-                            }
+
+                        $categoryask = $db->prepare("SELECT * FROM categories ORDER BY category_title  ASC");
+                        $categoryask->execute(array());
+                        while ($categoryfetch = $categoryask->fetch(PDO::FETCH_ASSOC)) {
+                        ?>
+                            <option value="<?php echo $categoryfetch["category_id"]; ?>"><?php echo $categoryfetch["category_title"]; ?></option>
+                        <?php
                         }
                         ?>
                     </select>
                 </div>
-            
-
                 <div class="mb-3 text-dark">
-            <textarea class="form-control" id="editor" name="post_content"><?php echo $posts[0]["post_content"] ?></textarea>
-        </div>
-
+                    <textarea class="form-control" id="editor" name="post_content" placeholder="<?php echo $user[0]["user_nick"].' yazıyor..'; ?>"></textarea>
+                </div>
                 <div class="form-group mt-4 d-grid gap-2 col-6 mx-auto text-center">
-                    <button type="submit" class="btn btn-outline-secondary" name="post_update">
-                        <i class="bi bi-pen"></i> Güncelle
+                    <button type="submit" class="btn btn-outline-secondary" name="new_post">
+                        <i class="bi bi-send"></i> Gönder
                     </button>
                 </div>
             </form>
