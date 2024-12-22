@@ -3,53 +3,59 @@
 // Ana fonskiyon dosyası ekleniyor.
 include("../codex.php");
 
-if(isset($_SESSION["contact"]) OR $_SESSION["contact"]=="OK"){
-    header("Location:" . $site_name . "/contact?alert=permission-exist");
-}
+// Cookie kontrol edilerek güvenlik sağlanıyor.
+if ($_GET["code"] == $_COOKIE["code"]) {
 
-// Konu ekleme işlemi yapılıyor
-if (isset($_POST['new_contact'])) {
+    // İşlem başarılı olduğuna göre çerez siliniyor.
+    setcookie("code", "", time() - 3600, "/"); // Çerez süresini geçmiş bir tarihe ayarla
 
-    // Veriler hazırlanıyor
-    $contact_name = htmlspecialchars(strip_tags($_POST["contact_name"]));
-    $contact_mail = htmlspecialchars(strip_tags($_POST["contact_mail"]));
-    $contact_title = htmlspecialchars(strip_tags($_POST["contact_title"]));
-    $contact_content = htmlspecialchars(strip_tags($_POST["contact_content"]));
-    $contact_status = "draft";
-    $contact_type = "contact";
-    $contact_create_time = date('Y-m-d H:i:s');
+    // Konu ekleme işlemi yapılıyor
+    if (isset($_POST['new_contact'])) {
 
-    // Sorgu hazırlanıyor
-    $contacts = $db->prepare("INSERT into contacts set
-    contact_name=:contact_name,
-    contact_mail=:contact_mail,
-    contact_title=:contact_title,
-    contact_content=:contact_content,
-    contact_status=:contact_status,
-    contact_type=:contact_type,
-    contact_create_time=:contact_create_time
-    ");
+        // Veriler hazırlanıyor
+        $contact_name = htmlspecialchars(strip_tags($_POST["contact_name"]));
+        $contact_mail = htmlspecialchars(strip_tags($_POST["contact_mail"]));
+        $contact_title = htmlspecialchars(strip_tags($_POST["contact_title"]));
+        $contact_content = htmlspecialchars(strip_tags($_POST["contact_content"]));
+        $contact_status = "draft";
+        $contact_type = "contact";
+        $contact_create_time = date('Y-m-d H:i:s');
 
-
-    // Veriler ekleniyor
-    $insert = $contacts->execute(array(
-        'contact_name' => $contact_name,
-        'contact_mail' => $contact_mail,
-        'contact_title' => $contact_title,
-        'contact_content' => $contact_content,
-        'contact_status' => $contact_status,
-        'contact_type' => $contact_type,
-        'contact_create_time' => $contact_create_time
-
-    ));
+        // Sorgu hazırlanıyor
+        $contacts = $db->prepare("INSERT into contacts set
+        contact_name=:contact_name,
+        contact_mail=:contact_mail,
+        contact_title=:contact_title,
+        contact_content=:contact_content,
+        contact_status=:contact_status,
+        contact_type=:contact_type,
+        contact_create_time=:contact_create_time
+        ");
 
 
-    // Yönlendirme ve Mesaj veriliyor.
-    if ($insert) {
-        header("Location:" . $site_name . "/contact?alert=contact-success");
-        exit;
-    } else {
-        header("Location:" . $site_name . "/contact?alert=/contact-failed");
-        exit;
+        // Veriler ekleniyor
+        $insert = $contacts->execute(array(
+            'contact_name' => $contact_name,
+            'contact_mail' => $contact_mail,
+            'contact_title' => $contact_title,
+            'contact_content' => $contact_content,
+            'contact_status' => $contact_status,
+            'contact_type' => $contact_type,
+            'contact_create_time' => $contact_create_time
+
+        ));
+
+
+        // Yönlendirme ve Mesaj veriliyor.
+        if ($insert) {
+            header("Location:" . $site_name . "/contact?alert=contact-success");
+            exit;
+        } else {
+            header("Location:" . $site_name . "/contact?alert=contact-failed");
+            exit;
+        }
     }
+} else {
+    header("Location:" . $site_name . "/contact?alert=contact-bot-failed");
+    exit;
 }

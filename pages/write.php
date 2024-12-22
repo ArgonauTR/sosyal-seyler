@@ -108,7 +108,7 @@ if (empty($_SESSION['user_nick'])) {
 
 <div class="mt-4 mb-4">
     <h2 class="text-center"><i class="bi bi-plus"></i> Yeni Konu</h2>
-    <form method="POST" action="<?php echo $site_name . "/functions/new-post.php"; ?>" enctype="multipart/form-data">
+    <form method="POST" action="<?php echo $site_name . "/functions/new-post.php"; ?>" enctype="multipart/form-data" onsubmit="return validateForm()">
 
         <div class="mb-3 mt-4">
             <input type="text" class="form-control" name="post_title" placeholder="Başlık Giriniz" required>
@@ -165,4 +165,22 @@ if (empty($_SESSION['user_nick'])) {
         .catch(error => {
             console.error(error);
         });
+
+        function validateForm() {
+        var textareaValue = document.getElementById("editor").value.trim();
+        
+        // Eğer textarea boşsa
+        if (textareaValue === "") {
+            alert("Lütfen birşeyler yazın.");
+            return false;
+        }
+        
+        // Eğer textarea değeri 20 karakterden azsa
+        if (textareaValue.length < 20) {
+            alert("Lütfen en az 20 karakter girin.");
+            return false; // Formun gönderilmesini engeller
+        }
+
+        return true; // Form gönderilebilir
+    }
 </script>

@@ -16,6 +16,7 @@
     #page rules
     RewriteRule ^login$ login.php [NC,L]
     RewriteRule ^registry$ registry.php [NC,L]
+    RewriteRule ^reset$ reset-password.php [NC,L]
     RewriteRule ^write$ write.php [NC,L]
 
     #categories rules

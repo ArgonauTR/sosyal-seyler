@@ -69,6 +69,36 @@ if (isset($_GET["post_id"])) { // ---> POST METALARI
     <meta name="twitter:site" content="<?php echo $site_name; ?>" />
     <meta name="twitter:creator" content="<?php echo $user[0]["user_nick"]; ?>" />
     <meta name="twitter:url" content="<?php echo $post[0]["post_link"]; ?>">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "<?php echo addslashes($post[0]['post_link'] ?? ''); ?>"
+            },
+            "headline": "<?php echo addslashes($post[0]['post_title'] ?? ''); ?>",
+            "description": "<?php echo addslashes(strip_tags(substr($post[0]['post_content'] ?? '', 0, 250))); ?>",
+            "author": {
+                "@type": "Person",
+                "name": "<?php echo addslashes($user[0]['user_nick'] ?? ''); ?>",
+                "url": "<?php echo addslashes($user[0]['user_url'] ?? ''); ?>"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "<?php echo addslashes(optioninfo('option_site_title') ?? ''); ?>",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "<?php echo addslashes(optioninfo('option_favicon_link') ?? ''); ?>"
+                }
+            },
+            "datePublished": "<?php echo $post[0]['post_create_time'] ?? ''; ?>",
+            "articleBody": "<?php echo addslashes(strip_tags($post[0]['post_content'] ?? '')); ?>"
+        }
+    </script>
+
+
 <?php
 } elseif (isset($_GET["category_title"])) { // ---> KATEGORİ METALARI
     $category_title_sef = htmlspecialchars(strip_tags($_GET["category_title"]));
@@ -91,6 +121,16 @@ if (isset($_GET["post_id"])) { // ---> POST METALARI
     <meta name="twitter:url" content="<?php echo $category[0]["category_link"]; ?>">
     <meta name="twitter:description" content="<?php echo $category[0]["category_description"]; ?>">
 
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "<?php echo addslashes($category[0]['category_title'] ?? ''); ?>",
+            "description": "<?php echo addslashes($category[0]['category_description'] ?? ''); ?>",
+            "url": "<?php echo addslashes($category[0]['category_link'] ?? ''); ?>"
+        }
+    </script>
+
 <?php
 } elseif (isset($_GET["user_nick"])) { // ---> ÜYE METALARI
     $nick = htmlspecialchars(strip_tags($_GET["user_nick"]));
@@ -112,6 +152,18 @@ if (isset($_GET["post_id"])) { // ---> POST METALARI
     <meta name="twitter:title" content="<?php echo $user[0]["user_nick"];  ?>">
     <meta name="twitter:url" content="<?php echo $user[0]["user_url"]; ?>">
     <meta name="twitter:description" content="<?php echo $user[0]["user_bio"]; ?>">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "<?php echo addslashes($user[0]['user_nick'] ?? ''); ?>",
+            "description": "<?php echo addslashes($user[0]['user_bio'] ?? ''); ?>",
+            "url": "<?php echo addslashes($user[0]['user_url'] ?? ''); ?>",
+            "image": "<?php echo addslashes($user[0]['user_image_url'] ?? ''); ?>"
+        }
+    </script>
+
 <?php
 } elseif ($path == "/categories") {  // ---> KATEGORİLER GENEL METALARI
 ?>
@@ -265,6 +317,27 @@ if (isset($_GET["post_id"])) { // ---> POST METALARI
     <meta name="twitter:title" content="<?php echo optioninfo("option_site_title"); ?>">
     <meta name="twitter:url" content="<?php echo $site_name; ?>">
     <meta name="twitter:description" content="<?php echo optioninfo("option_site_description"); ?>">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "url": "<?php echo addslashes($site_name); ?>",
+            "name": "<?php echo addslashes(optioninfo('option_site_title')); ?>",
+            "description": "<?php echo addslashes(optioninfo('option_site_description')); ?>",
+            "publisher": {
+                "@type": "Organization",
+                "name": "<?php echo addslashes(optioninfo('option_site_title')); ?>",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "<?php echo addslashes(optioninfo('option_favicon_link')); ?>"
+                }
+            }
+        }
+    </script>
+
+
+
 <?php
 }
 ?>

@@ -10,7 +10,7 @@ if (isset($_POST['new_comment'])) {
     $link = $_POST["post_link"];
 
     //Kayıt edilecek veriler işleniyor.
-    $comment_content = htmlspecialchars(strip_tags($_POST["post_comment"]));
+    $comment_content = $_POST["post_comment"];
     if ($_SESSION['user_role'] == "admin") {
         $comment_status = "publish";
     } else {

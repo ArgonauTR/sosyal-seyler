@@ -13,6 +13,11 @@
                 </label>
                 <input type="password" class="form-control" name="user_password" required>
             </div>
+            <div class="mb-3 text-end">
+                <label class="form-label">
+                    <a href="./reset" class="text-decoration-none text-muted"><i class="bi bi-arrow-repeat"></i> Şifremi Unuttum</a>
+                </label>
+            </div>
             <div class="form-group mt-4 d-grid gap-2 col-6 mx-auto text-center">
                 <button type="submit" class="btn btn-outline-secondary" name="user_login">
                     <i class="bi bi-box-arrow-in-left me-1"></i>

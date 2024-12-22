@@ -50,7 +50,7 @@
                             <?php echo $comment["comment_id"] ?>
                         </b>
                         <a href="#" class="text-decoration-none text-muted">
-                            <?php echo $comment["comment_content"] ?>
+                            <?php echo htmlspecialchars(strip_tags($comment["comment_content"])) ?>
                         </a>
                     </div>
                     <div class="">

@@ -86,3 +86,4 @@ foreach ($comments as $comment) {
         include("subpages/reply.php");
     }
 }
+?>
