@@ -11,7 +11,7 @@ user_bio=:user_bio
 WHERE user_id=$user_id");
 
 $update = $users->execute(array(
-    'user_bio' => $_POST["user_bio"]
+    'user_bio' => htmlspecialchars(strip_tags($_POST["user_bio"]))
 ));
 
 

@@ -80,7 +80,7 @@ if ($_SESSION["select"] == "posts") {
             echo '
         <div class="clamp-text custom-card mt-2 p-1">
             <b class="text-decoration-none text-muted me-2"><i class="bi bi-eye me-1"></i>' . $post["post_wievs"] . '</b>
-            <a href="' . $post["post_link"] . '" class="text-decoration-none text-muted">' . $post["post_title"] . '</a>
+            <a href="' . $post["post_link"] . '" class="text-decoration-none text-muted">' . htmlspecialchars(strip_tags($post["post_title"])) . '</a>
         </div>
             ';
         }
@@ -91,7 +91,7 @@ if ($_SESSION["select"] == "posts") {
             echo '
         <div class="clamp-text custom-card mt-2 p-1">
             <i class="bi bi-chat-left-dots me-1"></i>
-            <a href="' . $comment_post_link[0]["post_link"] . '" class="text-decoration-none text-muted">' . $comment["comment_content"] . '</a>
+            <a href="' . $comment_post_link[0]["post_link"] . '" class="text-decoration-none text-muted">' . htmlspecialchars(strip_tags($comment["comment_content"])) . '</a>
         </div>
             ';
         }
