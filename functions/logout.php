@@ -25,3 +25,4 @@ setcookie("user_role", $vt_role, $cookie_time, "/");
 // Anasayfaya gidilior.
 header('Location:/?alert=logout');
 exit();
+?>

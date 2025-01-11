@@ -38,7 +38,8 @@ foreach ($posts as $post) {
         </div>
         <div class="col">
             <div class="h3 clamp-text">
-                <a href="<?php echo $post['post_link'] ?>" class="text-decoration-none text-muted"><?php echo $post['post_title'] ?></a> </div>
+                <a href="<?php echo $post['post_link'] ?>" class="text-decoration-none text-muted"><?php echo $post['post_title'] ?></a>
+            </div>
             <div class="clamp-text">
                 <?php echo '<a href="' . $user[0]["user_url"] . '" class="text-decoration-none text-muted"><i class="bi bi-person ms-1 me-1"></i>' . $user[0]["user_nick"] . '</a>'; ?>
                 <?php echo '<a href="' . $category[0]["category_link"] . '" class="text-decoration-none text-muted"><i class="bi bi-tag ms-1 me-1"></i>' . $category[0]["category_title"] . '</a>'; ?>

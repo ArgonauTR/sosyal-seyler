@@ -4,10 +4,7 @@
 include("../codex.php");
 
 // Cookie kontrol edilerek güvenlik sağlanıyor.
-if ($_GET["code"] == $_COOKIE["code"]) {
-
-    // İşlem başarılı olduğuna göre çerez siliniyor.
-    setcookie("code", "", time() - 3600, "/"); // Çerez süresini geçmiş bir tarihe ayarla
+if ($_SESSION["value_1"] + $_SESSION["value_2"] == $_POST["contact_value"]) {
 
     // Konu ekleme işlemi yapılıyor
     if (isset($_POST['new_contact'])) {

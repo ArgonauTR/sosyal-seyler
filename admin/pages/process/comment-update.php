@@ -112,7 +112,7 @@ $categoriyes = categoryinfo("SELECT * FROM categories WHERE category_id=" . $pos
             <b>Konu Başlığı: </b><?php echo $posts[0]["post_title"]; ?>
         </div>
         <div class="card-body">
-            <form method="POST" action="<?php echo $site_name . "/admin/functions/comment-update.php"; ?>"  onsubmit="return validateForm()">
+            <form method="POST" action="<?php echo $site_name . "/admin/functions/comment-update.php"; ?>">
                 <div class="mb-3">
                     <input type="text" class="form-control" name="comment_id" value="<?php echo $comments[0]["comment_id"] ?>" hidden>
                 </div>
@@ -160,18 +160,5 @@ $categoriyes = categoryinfo("SELECT * FROM categories WHERE category_id=" . $pos
         function validateForm() {
         var textareaValue = document.getElementById("editor").value.trim();
         
-        // Eğer textarea boşsa
-        if (textareaValue === "") {
-            alert("Lütfen birşeyler yazın.");
-            return false;
-        }
-        
-        // Eğer textarea değeri 10 karakterden azsa
-        if (textareaValue.length < 10) {
-            alert("Lütfen en az 10 karakter girin.");
-            return false; // Formun gönderilmesini engeller
-        }
-
-        return true; // Form gönderilebilir
     }
 </script>

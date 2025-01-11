@@ -98,7 +98,7 @@
 </style>
 
 <div class="mb-3">
-    <form method="POST" action="<?php echo $site_name . "/functions/comment.php"; ?>" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <form method="POST" action="<?php echo $site_name . "/functions/comment.php"; ?>" enctype="multipart/form-data" id="myForm">
         <div class="mb-3">
             <input type="text" class="form-control" name="post_link" value="<?php echo $post['post_link'] ?>" hidden>
         </div>
@@ -107,6 +107,7 @@
         </div>
         <div class="mb-3 text-dark">
             <textarea class="form-control" id="editor" name="post_comment" placeholder="<?php echo $_SESSION["user_nick"] . " olarak yorum yap."; ?>" rows="3"></textarea>
+            <span class="text-danger" id="error"></span>
         </div>
         <div class="form-group mt-4 d-grid gap-2 col-6 mx-auto text-center">
             <button type="submit" class="btn btn-outline-secondary" name="new_comment">
@@ -140,21 +141,18 @@
             console.error(error);
         });
 
-        function validateForm() {
+    function validateForm() {
         var textareaValue = document.getElementById("editor").value.trim();
-        
-        // Eğer textarea boşsa
-        if (textareaValue === "") {
-            alert("Lütfen birşeyler yazın.");
-            return false;
-        }
-        
-        // Eğer textarea değeri 10 karakterden azsa
-        if (textareaValue.length < 10) {
-            alert("Lütfen en az 10 karakter girin.");
-            return false; // Formun gönderilmesini engeller
-        }
-
-        return true; // Form gönderilebilir
     }
+
+    const form = document.getElementById('myForm');
+    const name = document.getElementById('editor');
+    const error = document.getElementById('error');
+
+    form.addEventListener('submit', (e) => {
+        if (name.value.trim() === "") {
+            e.preventDefault();
+            error.textContent = "Bu alan boş bırakılamaz.";
+        }
+    });
 </script>

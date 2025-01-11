@@ -73,7 +73,13 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="<?php echo $site_name; ?>/admin/functions/user-delete.php?user_id=<?php echo $user["user_id"]; ?>"><i class="bi bi-trash me-1"></i>Sil</a></li>
+                            <?php
+                            if($user["user_role"] == "admin"){
+                                echo'<li><a class="dropdown-item" href="#"><i class="bi bi-trash me-1"></i>Silinemez</a></li>';
+                            }else{
+                                echo'<li><a class="dropdown-item" href="'.$site_name.'/admin/functions/user-delete.php?user_id='.$user["user_id"].'"><i class="bi bi-trash me-1"></i>Sil</a></li>';
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>

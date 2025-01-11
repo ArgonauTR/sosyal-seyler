@@ -108,7 +108,7 @@ if (empty($_SESSION['user_nick'])) {
 
 <div class="mt-4 mb-4">
     <h2 class="text-center"><i class="bi bi-plus"></i> Yeni Konu</h2>
-    <form method="POST" action="<?php echo $site_name . "/functions/new-post.php"; ?>" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <form method="POST" action="<?php echo $site_name . "/functions/new-post.php"; ?>" enctype="multipart/form-data" id="myForm">
 
         <div class="mb-3 mt-4">
             <input type="text" class="form-control" name="post_title" placeholder="Başlık Giriniz" required>
@@ -130,7 +130,8 @@ if (empty($_SESSION['user_nick'])) {
         </div>
 
         <div class="mb-3 text-dark">
-            <textarea class="form-control" id="editor" name="post_content"></textarea>
+            <textarea class="form-control" id="editor" name="post_content" pattern="[A-Za-z]{3,}" title="En az 3 harf girin"></textarea>
+            <span class="text-danger" id="error"></span>
         </div>
 
         <div class="form-group mt-4 d-grid gap-2 col-6 mx-auto text-center">
@@ -166,21 +167,18 @@ if (empty($_SESSION['user_nick'])) {
             console.error(error);
         });
 
-        function validateForm() {
+    function validateForm() {
         var textareaValue = document.getElementById("editor").value.trim();
-        
-        // Eğer textarea boşsa
-        if (textareaValue === "") {
-            alert("Lütfen birşeyler yazın.");
-            return false;
-        }
-        
-        // Eğer textarea değeri 20 karakterden azsa
-        if (textareaValue.length < 20) {
-            alert("Lütfen en az 20 karakter girin.");
-            return false; // Formun gönderilmesini engeller
-        }
-
-        return true; // Form gönderilebilir
     }
+
+    const form = document.getElementById('myForm');
+    const name = document.getElementById('editor');
+    const error = document.getElementById('error');
+
+    form.addEventListener('submit', (e) => {
+        if (name.value.trim() === "") {
+            e.preventDefault();
+            error.textContent = "Bu alan boş bırakılamaz.";
+        }
+    });
 </script>
