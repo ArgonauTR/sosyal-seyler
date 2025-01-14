@@ -1,5 +1,4 @@
 <?PHP
-
 // Ana fonskiyon dosyası ekleniyor.
 include("../codex.php");
 
