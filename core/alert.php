@@ -78,7 +78,7 @@ function alert($alert_name)
             $color = 'warning';
             alertcore($message, $color);
             break;
-            
+
         case "nick-exist": // İsim alınmış
             $message = 'Bu nick daha önce alınmış.';
             $color = 'warning';
@@ -138,7 +138,7 @@ function alert($alert_name)
             $color = 'warning';
             alertcore($message, $color);
             break;
-            
+
         case "mail-send": // E-Posta Gönderildi.
             $message = 'E-Postanızı Kontrol Ediniz';
             $color = 'success';
@@ -160,6 +160,16 @@ function alert($alert_name)
         case "contact-bot-failed": // Mesaj botu algılama
             $message = 'Robot olduğunu düşünüyoruz.';
             $color = 'danger';
+            alertcore($message, $color);
+            break;
+        case "user_update_success": // Kullanıcı başarı ile güncellendi
+            $message = 'Kullanıcı başarı ile güncellendi.';
+            $color = 'success';
+            alertcore($message, $color);
+            break;
+        case "user_update_failed": // Kullanıcı güncellenemedi.
+            $message = 'Hata aldık. Kullanıcı güncellenemedi.';
+            $color = 'warning';
             alertcore($message, $color);
             break;
 

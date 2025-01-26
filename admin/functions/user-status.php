@@ -27,11 +27,11 @@ if (isset($_GET["status"])) {
         ));
 
         if ($update) {
-            header("Location:/admin/users.php?status=pending");
+            header("Location:../users.php?status=pending");
             exit();
         } else {
 
-            header("Location:/admin/users.php?status=approved");
+            header("Location:../users.php?status=approved");
             exit();
         }
     }
@@ -50,11 +50,11 @@ if (isset($_GET["status"])) {
         ));
 
         if ($update) {
-            header("Location:/admin/users.php?status=approved");
+            header("Location:../users.php?status=approved");
             exit();
         } else {
 
-            header("Location:/admin/users.php?status=pending");
+            header("Location:../users.php?status=pending");
             exit();
         }
     }

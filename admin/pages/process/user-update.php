@@ -7,64 +7,97 @@ $user = userinfo("SELECT * FROM users WHERE user_id='$user_id'");
 
     <div class="card">
         <div class="card-header">
-            <i class="bi bi-file-earmark-person"></i> Resim Güncelle
+            <i class="bi bi-file-earmark-person"></i> Profil Güncelle
         </div>
         <div class="card-body">
-            <div class="row mt-4">
-                <div class="col-4 text-center">
-                    <img src="<?php echo $user[0]["user_image_url"]; ?>" class="rounded-circle" alt="User Avatar" width="100" height="100">
-                </div>
-                <div class="col-8 text-center">
-                    <form method="POST" action="<?php echo $site_name . "/admin/functions/option-pp-update.php"; ?>" enctype="multipart/form-data">
-                        <input class="form-control" type="text" name="user_id" value="<?php  echo $user[0]["user_id"] ?>" hidden>
-                        <label class="form-label">Yeni Resim Seçin</label>
-                        <input class="form-control" type="file" name="upload" required>
-                        <button type="submit" class="btn btn-outline-secondary mt-3" name="pp_update">Güncelle</button>
-                    </form>
-                </div>
-                <div class="text-mute text-center">
-                    <p><b>Kare bir görsel kullanmanızı şiddetle öneriyoruz</b></p>
-                </div>
-            </div>
-        </div>
-    </div>
+            <form method="POST" action="<?php echo $site_name . "/admin/functions/user-update.php"; ?>">
 
-    <div class="card mt-3">
-        <div class="card-header">
-            <i class="bi bi-file-earmark-person"></i> Mesaj Güncelle
-        </div>
-        <div class="card-body">
-            <div class="text-center mt-4">
-                <form method="POST" action="<?php echo $site_name . "/admin/functions/option-bio-update.php"; ?>">
-                <input class="form-control" type="text" name="user_id" value="<?php  echo $user[0]["user_id"] ?>" hidden>
-                    <div class="mb-3">
-                        <label class="form-label">Yeni Mesaj Yazın</label>
-                        <textarea class="form-control" name="user_bio" required><?php echo $user[0]["user_bio"]; ?></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-outline-secondary" name="bio_update">Güncelle</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+                <div class="mb-3 text-center">
+                    <img src="<?php echo $user[0]["user_image_url"]; ?>" class="rounded-circle" alt="User Avatar" width="150" height="150">
+                </div>
 
-    <div class="card mt-3">
-        <div class="card-header">
-            <i class="bi bi-file-earmark-person"></i> Şifre Güncelle
-        </div>
-        <div class="card-body">
-            <div class="text-center mt-4">
-                <form method="POST" action="<?php echo $site_name . "/admin/functions/option-pass-update.php"; ?>">
-                <input class="form-control" type="text" name="user_id" value="<?php  echo $user[0]["user_id"] ?>" hidden>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" name="pass_1" placeholder="Yeni Şifre" required>
+                <div class="mb-3">
+                    <input type="text" name="user_id" value="<?php echo $user[0]["user_id"]; ?>" class="form-control" hidden>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Profil Resim Linki</label>
+                    <input type="text" name="user_image_url" value="<?php echo $user[0]["user_image_url"]; ?>" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Kullanıcı Adı</label>
+                    <input type="text" value="<?php echo $user[0]["user_nick"]; ?>" class="form-control" disabled>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Mail Adresi</label>
+                    <input type="text" name="user_mail" value="<?php echo $user[0]["user_mail"]; ?>" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Şifre</label>
+                    <div class="input-group">
+                        <div class="input-group-text">
+                            <input class="form-check-input mt-0" type="checkbox" name="user_password_permision">
+                        </div>
+                        <input type="text" name="user_password" class="form-control">
                     </div>
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-outline-secondary" name="pass_update">Güncelle</button>
-                    </div>
-                </form>
-            </div>
+                    <div class="form-text">Şifreyi Değiştirmek için kutucuğu işaretleyin.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Profil Linki</label>
+                    <input type="text" value="<?php echo $user[0]["user_url"]; ?>" class="form-control" disabled>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Yetkisi</label>
+                    <select class="form-select" name="user_role">
+                        <?php
+                        if ($user[0]["user_role"] == "admin") {
+                            echo '<option value="admin" selected>Yönetici</option>';
+                            echo '<option value="user">Üye</option>';
+                        } else {
+                            echo '<option value="admin">Yönetici</option>';
+                            echo '<option value="user" selected>Üye</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Durumu</label>
+                    <select class="form-select" name="user_status">
+                        <?php
+                        if ($user[0]["user_status"] == "approved") {
+                            echo '<option value="approved" selected>Onaylı</option>';
+                            echo '<option value="pending">Bekliyor</option>';
+                        } else {
+                            echo '<option value="approved">Onaylı</option>';
+                            echo '<option value="pending" selected>Bekliyor</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Biografisi</label>
+                    <textarea class="form-control" name="user_bio" rows="3"><?php echo $user[0]["user_bio"]; ?></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Üyelik Zamanı</label>
+                    <input type="text" name="user_create_time" value="<?php echo $user[0]["user_create_time"] . " yani " . datetime($user[0]["user_create_time"]); ?>" class="form-control" disabled>
+                </div>
+
+                <div class="mb-3 text-center">
+                    <button type="submit" class="btn btn-outline-secondary">
+                        <i class="bi bi-floppy"></i> Kaydet
+                    </button>
+                </div>
+
+            </form>
         </div>
     </div>
 
