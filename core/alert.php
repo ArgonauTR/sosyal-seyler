@@ -2,10 +2,27 @@
 function alertcore($message, $color)
 {
 ?>
-    <div class="alert <?php echo "alert-" . $color; ?> alert-dismissible fade show" role="alert">
-        <?php echo $message; ?>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div class="toast align-items-center text-white bg-<?php echo $color; ?> border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <?php echo $message; ?>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // Toast'ı etkinleştirmek için JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            var toastEl = document.querySelector('.toast');
+            var toast = new bootstrap.Toast(toastEl);
+            toast.show();
+        });
+    </script>
+
 <?php
 }
 

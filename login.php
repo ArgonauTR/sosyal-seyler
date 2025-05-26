@@ -2,12 +2,17 @@
 // Ana fonskiyon dosyası ekleniyor.
 include("codex.php");
 
-// Sayfa elemanları ekleniyor.
-include("pages/head.php");
-include("pages/nav.php");
-include("pages/sidebar-left.php");
-include("pages/login.php");
-include("pages/sidebar-right.php");
-include("pages/footer.php");
+// Header Tema Dosyasından Ekleniyor.
+include("./theme/head.php");
+// Navbar Tema Dosyasından Ekleniyor.
+include("./theme/nav.php");
+// Sol Sidebar Tema Dosyasından Ekleniyor.
+include("./theme/sidebar-left.php");
+// Login Tema Dosyasından Ekleniyor.
+include("./theme/login.php");
+// Sağ Sidebar Tema Dosyasından Ekleniyor.
+include("./theme/sidebar-right.php");
+// Footer Tema Dosyasından Ekleniyor.
+include("./theme/footer.php");
 
 ?>

@@ -3,6 +3,8 @@ $site = $_SERVER['HTTP_HOST']; // Site adını alıyoruz.
 
 echo "User-Agent: *";
 echo "<br>";
+echo "Disallow: /*?";
+echo "<br>";
 echo "Allow: /";
 echo "<br>";
 echo "https://".$site."/sitemap.xml";

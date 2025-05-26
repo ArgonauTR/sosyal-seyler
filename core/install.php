@@ -19,6 +19,7 @@ if (file_exists($file)) {
 $dosya_adi = '../config.php';
 $icerik = '
             <?php
+            // Sosyal Şeyler - Açık Kaynaklı Ücretsiz Bir Yazılımdır.
             $db_name = "' . $db_name . '";
             $db_user = "' . $db_user . '";
             $db_password = "' . $db_pass . '";
@@ -299,7 +300,7 @@ $options = $db->prepare("INSERT into options set option_name=:option_name,option
 $options = $db->prepare("INSERT into options set option_name=:option_name,option_value=:option_value")->execute(['option_name' => "option_favicon_link", 'option_value' => "https://sosyalseyler.com/upload/images/site-icon-1725704396.png"]);
 $options = $db->prepare("INSERT into options set option_name=:option_name,option_value=:option_value")->execute(['option_name' => "option_light_logo_link", 'option_value' => "https://sosyalseyler.com/upload/images/light-logo-1725709327.png"]);
 $options = $db->prepare("INSERT into options set option_name=:option_name,option_value=:option_value")->execute(['option_name' => "option_dark_logo_link", 'option_value' => "https://sosyalseyler.com/upload/images/dark-logo-1725709322.png"]);
-$options = $db->prepare("INSERT into options set option_name=:option_name,option_value=:option_value")->execute(['option_name' => "option_footer_text", 'option_value' => "Tüm Hakları Saklıdır || Copyright 2024 || www.sosyalseyler.com"]);
+$options = $db->prepare("INSERT into options set option_name=:option_name,option_value=:option_value")->execute(['option_name' => "option_footer_text", 'option_value' => 'Tüm Hakları Saklıdır || Copyright 2024 || <a href="https://sosyalseyler.com/" class="text-decoration-none text-muted">www.sosyalseyler.com</a>']);
 $options = $db->prepare("INSERT into options set option_name=:option_name,option_value=:option_value")->execute(['option_name' => "option_default_theme", 'option_value' => ""]);
 $options = $db->prepare("INSERT into options set option_name=:option_name,option_value=:option_value")->execute(['option_name' => "option_analitics_code", 'option_value' => ""]);
 $options = $db->prepare("INSERT into options set option_name=:option_name,option_value=:option_value")->execute(['option_name' => "option_search_console_theme", 'option_value' => ""]);

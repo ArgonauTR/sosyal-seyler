@@ -1,0 +1,28 @@
+Script Kurulum Talimatları
+
+1. Zip Dosyasını Yükleme
+   - Zip dosyasını `public_html` klasörüne veya bir alt domaine (subdomain) yükleyin.
+
+2. Zip Dosyasını Çıkarma
+   - Yüklenen zip dosyasını sunucuda çıkarın.
+
+3. Veritabanı Oluşturma ve SQL Aktarımı
+   - Bir veritabanı oluşturun.  
+   - `veritabani` klasöründe bulunan SQL dosyasını, oluşturduğunuz veritabanına aktarın.
+
+4. Veritabanı Bağlantı Ayarları
+   - `config.php` dosyasını açın.  
+   - Veritabanı bağlantı ayarlarını (kullanıcı adı, şifre, veritabanı adı vb.) doğru şekilde yapılandırın ve dosyayı kaydedin.
+
+5. Kurulum Tamamlandı  
+   - Yukarıdaki adımları tamamladıktan sonra kurulum işlemi bitmiş olacaktır.
+
+Varsayılan Giriş Bilgileri
+- Kullanıcı Adı: admin
+- Şifre: admin
+
+Giriş Sayfası
+- Kurulum yaptığınız dizinin `index.php` dosyası, giriş sayfanızdır. Tarayıcıdan bu sayfaya erişebilirsiniz.
+
+Not  
+- Bu yazılım açık kaynak bir yazılımdır. Gerekli düzenlemeleri yaparak kullanabilirsiniz.

@@ -1,0 +1,44 @@
+.clamp-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Kaç satır olacağını buradan ayarlayın */
+    -webkit-line-clamp: 2; /* Örneğin 2 satır */
+}
+.clamp-text.h3, .clamp-text.h5 {
+    -webkit-line-clamp: 1; /* Başlıklar için tek satır */
+}
+
+.custom-card {
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.custom-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+figure.image {
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+
+figure.image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.liefect .nav-item a {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.liefect .nav-item a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.02); /* İsteğe bağlı arkaplan efekti */
+}
