@@ -49,20 +49,6 @@ if (count($users_pending) != 0) {
     $users_pending_ready = null;
 }
 
-//JSON'dan sistem verileri alınıp karşılaştırılıyor.
-// Site Json Verileri
-$system_jason = file_get_contents("system/info.json");
-$system_data = json_decode($system_jason, true);
-// Kaynak Json Verileri
-$source_jason = file_get_contents("https://sosyalseyler.com/admin/system/info.json");
-$source_data = json_decode($source_jason, true);
-//Version bilgisi kıyaslanıyor
-$update = 0;
-if ($source_data["compilation"] > $system_data["compilation"]) {
-    $update_pending_ready = '<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">' . $source_data["version"] . '</span>';
-} else {
-    $update_pending_ready = null;
-}
 ?>
 <div class="col-12 col-lg-9">
     <div class="row">
@@ -127,9 +113,8 @@ if ($source_data["compilation"] > $system_data["compilation"]) {
         <hr>
         <div class="col-6 col-md-4 col-lg-3 mb-4">
             <div class="card text-center">
-            <?php echo $update_pending_ready; ?>
                 <div class="card-body">
-                    <h1 class="card-title"><?php echo $system_data["version"]; ?></h1>
+                    <h1 class="card-title">1.9.1</h1>
                     <p class="card-text">Versiyon</p>
                 </div>
             </div>
@@ -158,7 +143,10 @@ if ($source_data["compilation"] > $system_data["compilation"]) {
                 </div>
             </div>
         </div>
-
+        <hr>
+        <p>
+            Sosyal Şeyler,  PHP ile geliştirilmiş açık kaynalklı, özgür ve ücretesiz bir yazılımdır. Github'dan edinmek ve kullanmak mümkündür. Belirli bir sınırlama ya da ücretlendirmeye tabi değildir.
+        </p>
 
     </div>
 </div>
