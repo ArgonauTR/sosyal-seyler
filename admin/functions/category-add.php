@@ -1,4 +1,4 @@
-n<?php
+<?php
 
 // Ana fonskiyon dosyası ekleniyor.
 include("../../codex.php");
